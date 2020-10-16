@@ -7,7 +7,7 @@
           
         </form>
         <ul class="navbar-nav navbar-right">
-          <a href="#" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Login</a>
-          <a href="#" class="btn btn-icon icon-left btn-primary mr-3"><i class="far fa-edit"></i> Daftar</a>
+          <a href="{{ route('login') }}" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Login</a>
+          <a href="{{ route('daftar') }}" class="btn btn-icon icon-left btn-primary mr-3"><i class="far fa-edit"></i> Daftar</a>
         </ul>
       </nav>
