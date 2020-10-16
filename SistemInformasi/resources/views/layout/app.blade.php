@@ -11,20 +11,18 @@
     <title>@yield('title')</title>
 
     <link rel="stylesheet" href="{{ URL::asset('css/layout.css') }}">
-    @yield('css')
+    @section('css')
   </head>
 
   <body>
   @include('layout.nav')
 
-  <div class="container-fluid">
-    <div class="row">
+  <div class="container-fluid container-utama">
+      <!-- sidebar -->
       @include('layout.sidebar')
-
+      <!-- konten -->
       @yield('isi')
-
-    </div>
-</div>
+  </div>
 
  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
  <script src="{{asset('jquery-3.5.1.slim.min.js')}}" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

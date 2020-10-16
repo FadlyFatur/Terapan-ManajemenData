@@ -1,14 +1,15 @@
 {
-    "name": "laravel/laravel",
+    "name": "Terapan-ManajemenData/SistemInformasi",
     "type": "project",
     "description": "The Laravel Framework.",
     "keywords": [
         "framework",
-        "laravel"
+        "laravel",
+        "Sistem Informasi"
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.2.5",
+        "php": "^7.0",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
