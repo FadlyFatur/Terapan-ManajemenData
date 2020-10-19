@@ -5,22 +5,20 @@
           </div>
 
           <ul class="sidebar-menu">
-              <li class="active"><a class="nav-link" href="{{ route('beranda') }}"><i class="fas fa-fire"></i> <span>Beranda</span></a></li>  
+              <li class="active"><a class="nav-link" href="{{ route('beranda') }}"><i class="fas fa-home"></i> <span>Beranda</span></a></li>  
               <hr>
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Pencarian Data</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="{{ route('cariWarga') }}">Data Warga</a></li>
-                  <li><a class="nav-link" href="{{ route('cariKK') }}">Data Kartu Keluarga</a></li>
                 </ul>
               </li>
               <hr>
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Manajemen Data</span></a>
                 <ul class="dropdown-menu">
-                <li><a class="nav-link" href="{{ route('tambah') }}">Tambah Data KTP / KK</a></li>
-                  <li><a class="nav-link" href="{{ route('crudKTP') }}">Edit Data Warga</a></li>
-                  <li><a class="nav-link" href="{{ route('crudKK') }}">Edit Kartu Keluarga</a></li>
+                <li><a class="nav-link" href="{{ route('crudWarga') }}">Tambah/Edit Data Warga</a></li>
+                  <li><a class="nav-link" href="{{ route('staff') }}">Data Staff</a></li>
                 </ul>
               </li>
               <hr>
@@ -28,7 +26,7 @@
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Manajemen Web</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="{{ route('editBeranda') }}">Data Beranda</a></li>
-                  <li><a class="nav-link" href="{{ route('staff') }}">Data Staff</a></li>
+                  <li><a class="nav-link" href="{{ route('editAcara') }}">Data Acara/Kegiatan</a></li>
                 </ul>
               </li>
               <hr>

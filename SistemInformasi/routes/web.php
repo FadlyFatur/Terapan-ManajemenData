@@ -22,29 +22,21 @@ Route::get('pencarian/warga', function (){
    return view('pencarian/cariWarga'); 
 })->name('cariWarga');
 
-Route::get('pencarian/kartu-keluarga', function (){
-    return view('pencarian/cariKK'); 
-})->name('cariKK');
-
- Route::get('manajemen/Kartu-Keluarga', function () {
-    return view('manajemen/crudKK');
-})->name('crudKK');
-
 Route::get('manajemen/data-warga', function (){
-   return view('manajemen/crudKTP'); 
-})->name('crudKTP');
+   return view('manajemen/crudWarga'); 
+})->name('crudWarga');
 
 Route::get('manajemen/beranda', function (){
     return view('manajemen/editBeranda'); 
 })->name('editBeranda');
 
+Route::get('manajemen/kegiatan', function (){
+    return view('manajemen/editAcara'); 
+})->name('editAcara');
+
 Route::get('manajemen/staff', function (){
     return view('manajemen/editStaff'); 
 })->name('staff');
- 
-Route::get('manajemen/tambah-data', function (){
-    return view('manajemen/tambahData'); 
-})->name('tambah');
 
 Route::get('profil/edit', function (){
     return view('profil/editProfil'); 

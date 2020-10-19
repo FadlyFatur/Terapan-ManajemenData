@@ -14,17 +14,16 @@ Rencana Modul Kerja :
 1. Database
 
 2. Frontend (tampilan/desain) - yang dipelajari(laravel:routing, bootstrap)
-- Login & register
-- Layout utama (sidebar & menu)
-- Halaman beranda / landing page
-- Halaman Pencarian (Read) Data KTP
-- Halaman Pencarian (Read) Data KK
-- Halaman Edit data (CRUD) KTP
-- Halaman Edit data (CRUD) KK
-- Halaman Edit data (CRUD) Staff
-- Halaman Edit data (CRUD) Beranda
+- Login & register x
+- Layout utama (sidebar & menu) x
+- Halaman beranda / landing page (FDLY)  
+- Halaman Pencarian Data warga (FEBI)
+- Halaman Tambah - Edit data warga (CINDY)
+- Halaman Tambah - Edit data Staff (NIKO)
+- Halaman Edit data Beranda (FDLY)
+- Halaman Profil [username, email, nomer telepon]
 
-3. Backend (Fungsi) - yang dipelajari(laravel:MVC, PHP pada Laravel)
+3. Backend (Fungsi) - yang dipelajari(laravel: MVC, PHP pada Laravel)
 - Login, register, authentikasi
 - menu, login, logout, register
 - pencarian data dan tampilkan data (tabel) KTP
