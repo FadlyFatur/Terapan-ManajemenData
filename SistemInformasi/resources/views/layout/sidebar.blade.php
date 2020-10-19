@@ -8,7 +8,7 @@
               <li class="active"><a class="nav-link" href="{{ route('beranda') }}"><i class="fas fa-home"></i> <span>Beranda</span></a></li>  
               <hr>
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Pencarian Data</span></a>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-search"></i> <span>Pencarian Data</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="{{ route('cariWarga') }}">Data Warga</a></li>
                 </ul>
