@@ -11,6 +11,8 @@
 
   <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
   <link href="{{asset('fontawesome-free-5.15.1-web\css\all.css')}}" rel="stylesheet">
+  <link href="{{asset('css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet">
+  
   
 
   <!-- CSS Libraries -->
@@ -18,6 +20,7 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/components.css">
+  @yield('css')
 </head>
 
 <body>
@@ -56,9 +59,9 @@
   <script src="{{asset('jquery-3.3.1.min.js')}}"></script>
   <script src="{{asset('popper.min.js')}}"></script>
   <script src="{{asset('js/bootstrap.min.js')}}"></script>
-  
   <script src="{{asset('jquery.nicescroll.min.js')}}"></script>
   <script src="{{asset('moment.min.js')}}"></script>
+  <script src="{{asset('bootstrap-datetimepicker.min.js')}}"></script>
 
   <!-- General JS Scripts -->
   <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
@@ -76,5 +79,6 @@
   <script src="../assets/js/custom.js"></script>
 
   <!-- Page Specific JS File -->
+  @yield('js')
 </body>
 </html>
