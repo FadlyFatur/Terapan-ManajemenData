@@ -22,6 +22,7 @@ Rencana Modul Kerja :
 - Halaman Tambah - Edit data Staff (NIKO)
 - Halaman Edit data Beranda (FDLY)
 - Halaman Profil [username, email, nomer telepon]
+- Halaman Data Acara/kegiatan
 
 3. Backend (Fungsi) - yang dipelajari(laravel: MVC, PHP pada Laravel)
 - Login, register, authentikasi
