@@ -49,63 +49,66 @@
                   <a href="#" class="btn btn-sm btn-outline-danger fa fa-trash">
                 </td>
               </tr>
-              <div class="modal fade" id="modal1" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);">
-                <div class="modal-dialog modal-dialog-centered modal-bottom-right modal-notify modal-info" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="modal1Label" style="color:black;">Edit Staff</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="exampleFormControlInput2">Nama</label>
-                      <input type="name" class="form-control" id="exampleFormControlInput2" placeholder="nama">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">Email</label>
-                      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleFormControlInput3">No HP (Format:xxxxxxxxxxx)</label> 
-                      <input type="tel" class="form-control" id="exampleFormControlInput3" pattern="^\d{10}$" required placeholder="08138239822">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleFormControlSelect1">Status</label>
-                      <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Active</option>
-                        <option>Tidak Active</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleFormControlInput4">Username</label> 
-                      <input type="username" class="form-control" id="exampleFormControlInput4" placeholder="username">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleFormControlInput5">Username</label> 
-                      <input type="password" class="form-control" id="exampleFormControlInput5" placeholder="password">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect2">Jabatan</label>
-                        <select class="form-control" id="exampleFormControlSelect2">
-                          <option>Ketua RW</option>
-                          <option>Ketua RT</option> 
-                          <option>Staff</option>
-                        </select>
-                    </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">Simpan</button>
-                  </div>
-                </div>
-                </div>
-            </div>
             </tbody>
           </table>
+@endsection
 
-          <div class="modal fade" id="modal2" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);">
+@section('modal')
+<div class="modal fade" id="modal1" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);">
+    <div class="modal-dialog modal-dialog-centered modal-bottom-right modal-notify modal-info" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal1Label" style="color:black;">Edit Staff</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="exampleFormControlInput2">Nama</label>
+          <input type="name" class="form-control" id="exampleFormControlInput2" placeholder="nama">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Email</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput3">No HP (Format:xxxxxxxxxxx)</label> 
+          <input type="tel" class="form-control" id="exampleFormControlInput3" pattern="^\d{10}$" required placeholder="08138239822">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Status</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>Active</option>
+            <option>Tidak Active</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput4">Username</label> 
+          <input type="username" class="form-control" id="exampleFormControlInput4" placeholder="username">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput5">Username</label> 
+          <input type="password" class="form-control" id="exampleFormControlInput5" placeholder="password">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">Jabatan</label>
+            <select class="form-control" id="exampleFormControlSelect2">
+              <option>Ketua RW</option>
+              <option>Ketua RT</option> 
+              <option>Staff</option>
+            </select>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">Simpan</button>
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal2" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);">
             <div class="modal-dialog modal-dialog-centered modal-bottom-right modal-notify modal-info" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -162,6 +165,4 @@
     </div>
   </div>
 </div>
-
-
 @endsection
