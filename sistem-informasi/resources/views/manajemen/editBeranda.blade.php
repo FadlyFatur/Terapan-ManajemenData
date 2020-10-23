@@ -86,7 +86,10 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+      <div class="form-group">
+        <label>Unggah File</label>
+        <input type="file" class="form-control">
+      </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

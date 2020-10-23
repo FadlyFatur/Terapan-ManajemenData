@@ -18,26 +18,32 @@
   <div class="carousel-inner">
     <div class="carousel-item active" data-interval="10000">
       <img class="d-block w-100" src="https://images.pexels.com/photos/1379655/pexels-photo-1379655.jpeg?cs=srgb&dl=pexels-jonas-von-werne-1379655.jpg&fm=jpg" alt="First slide">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Sistem Manajemen Data Warga - RW 02 </h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.</p>
+      <div class="container-fluid caption-bar">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Sistem Manajemen Data Warga - RW 02 </h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
       </div>
     </div>
     <div class="carousel-item">
       <img class="d-block w-100" src="https://images.pexels.com/photos/2342406/pexels-photo-2342406.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Second slide">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Heading</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.</p>
+      <div class="container-fluid caption-bar">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Sistem Manajemen Data Warga - RW 02 </h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
       </div>
     </div>
     <div class="carousel-item">
       <img class="d-block w-100" src="https://images.pexels.com/photos/2802809/pexels-photo-2802809.jpeg?cs=srgb&dl=pexels-keegan-checks-2802809.jpg&fm=jpg" alt="Third slide">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Heading</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.</p>
+      <div class="container-fluid caption-bar">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Sistem Manajemen Data Warga - RW 02 </h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
       </div>
     </div>
   </div>
