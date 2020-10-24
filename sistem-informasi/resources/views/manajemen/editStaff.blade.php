@@ -143,7 +143,7 @@
                     <input type="username" class="form-control" id="Input4" placeholder="username">
                   </div>
                   <div class="form-group">
-                    <label for="Input5">Username</label> 
+                    <label for="Input5">Password</label> 
                     <input type="password" class="form-control" id="Input5" placeholder="password">
                   </div>
                   <div class="form-group">
