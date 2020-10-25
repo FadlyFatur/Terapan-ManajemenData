@@ -11,6 +11,7 @@
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-search"></i> <span>Pencarian Data</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="{{ route('cariWarga') }}">Data Warga</a></li>
+                  <li><a class="nav-link" href="{{ route('Acara') }}">Acara/Kegiatan</a></li>
                 </ul>
               </li>
               <hr>
@@ -18,7 +19,7 @@
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Manajemen Data</span></a>
                 <ul class="dropdown-menu">
                 <li><a class="nav-link" href="{{ route('crudWarga') }}">Tambah/Edit Data Warga</a></li>
-                  <li><a class="nav-link" href="{{ route('staff') }}">Data Staff</a></li>
+                  <li><a class="nav-link" href="{{ route('staff') }}">Tambah/Edit Data Staff</a></li>
                 </ul>
               </li>
               <hr>

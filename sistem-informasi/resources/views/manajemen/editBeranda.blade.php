@@ -47,30 +47,33 @@
   <!-- edit kontak -->
   <h2 class="section-title">Edit Informasi Kontak</h2>
   <div class="card">
+    <form action="{{ route('updateBeranda') }}" method="POST">
+    @csrf
+
     <div class="card-body">
       <div class="form-group row">
         <label for="inputEmail3" class="col-sm-3 col-form-label">Kontak</label>
         <div class="col-sm-9">
-          <input type="Text" class="form-control" id="inputEmail3" placeholder="Kontak">
+          <input type="Text" class="form-control" name="kontak" placeholder="Kontak" value="{{$data['kontak']}}">
         </div>
       </div>
       <div class="form-group row">
         <label for="inputPassword3" class="col-sm-3 col-form-label">Email</label>
         <div class="col-sm-9">
-          <input type="Email" class="form-control" id="inputPassword3" placeholder="Email">
+          <input type="Email" class="form-control" name="email"  placeholder="Email" value="{{$data['email']}}">
         </div>
       </div>
       <div class="form-group row">
         <label for="inputPassword3" class="col-sm-3 col-form-label">Alamat</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="inputPassword3" placeholder="Alamat Lengkap">
+          <input type="text" class="form-control" name="alamat" placeholder="Alamat Lengkap" value="{{$data['alamat']}}">
         </div>
       </div>
     </div>
     <div class="card-footer d-flex justify-content-center">       
       <button type="submit" class="btn btn-primary mr-1">Submit</button>
-      <button type="submit" class="btn btn-info  ml-1">Clear</button>
     </div>
+    </form>
   </div>
   
 @endsection
@@ -85,16 +88,19 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-      <div class="form-group">
-        <label>Unggah File</label>
-        <input type="file" class="form-control">
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
-      </div>
+      <form class="m-2" method="post" action="/file-upload" enctype="multipart/form-data">
+      @csrf
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Unggah File</label>
+            <input type="file" class="form-control">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

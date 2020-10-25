@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\kegiatan;
+use App\beranda;
 
 class HomeController extends Controller
 {
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('guest');
     }
 
     /**
@@ -23,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = kegiatan::all()->sortByDesc('created_at')->take(3);
+        $beranda = beranda::all()->first();
+        
+        return view('welcome',compact('data', 'beranda'));
     }
+
 }

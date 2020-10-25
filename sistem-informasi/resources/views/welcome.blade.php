@@ -6,6 +6,20 @@
 @endsection
 
 @section('content')
+
+@if (session('status'))
+<div class="card">
+    <div class="card-header">{{ __('Dashboard') }}</div>
+    <div class="card-body">
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+
+        {{ __('Selamat Datang!') }}
+    </div>
+</div>
+@endif
+
 <!-- image slider -->
 <div class="container-fluid">
 
@@ -60,61 +74,33 @@
 </div>
 
 <!-- news section -->
-<h2 class="section-title">Acara/Kegiatan Masyarakat</h2>
+<div class="d-flex justify-content-between">
+      <h2 class="section-title">Acara/Kegiatan Masyarakat</h2>
+      <a href="{{ route('Acara') }}" class="btn btn-icon icon-left btn-primary lihat-lengkap"><p>Lihat Acara</p></a>
+      <!-- <a href="#" class="ml-auto btn btn-primary text-center">Lihat Selengkapnya</a> -->
+</div>
 <div class="row">
-          <div class="col-12 col-md-4 col-lg-4">
-            <article class="article article-style-c">
-              <div class="article-header">
-                <div class="article-image" data-background="assets/img/news/img13.jpg" style="background-image: url(&quot;assets/img/news/img13.jpg&quot;);">
-                </div>
-              </div>
-              <div class="article-details">
-                <div class="article-category"><a href="#">News</a> <div class="bullet"></div> <a href="#">5 Days</a></div>
-                <div class="article-title">
-                  <h2><a href="#">Excepteur sint occaecat cupidatat non proident</a></h2>
-                </div>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. </p>
-              </div>
-            </article>
+  @foreach($data as $r)
+    <div class="col-12 col-md-4 col-lg-4">
+      <article class="article article-style-c">
+        <div class="article-header">
+          <div class="article-image" data-background="assets/img/news/img13.jpg" style="background-image: url(&quot;assets/img/news/img13.jpg&quot;);">
           </div>
-
-          <div class="col-12 col-md-4 col-lg-4">
-            <article class="article article-style-c">
-              <div class="article-header">
-                <div class="article-image" data-background="assets/img/news/img13.jpg" style="background-image: url(&quot;assets/img/news/img13.jpg&quot;);">
-                </div>
-              </div>
-              <div class="article-details">
-                <div class="article-category"><a href="#">News</a> <div class="bullet"></div> <a href="#">5 Days</a></div>
-                <div class="article-title">
-                  <h2><a href="#">Excepteur sint occaecat cupidatat non proident</a></h2>
-                </div>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. </p>
-              </div>
-            </article>
+        </div>
+        <div class="article-details">
+          <div class="article-category"><a href="#">Acara/Kegiatan</a> <div class="bullet"></div> <a href="#">{{$r['created_at']}}</a></div>
+          <div class="article-title">
+            <h5 class="mb-4">{{$r['judul']}}</h5>
           </div>
-
-          <div class="col-12 col-md-4 col-lg-4">
-            <article class="article article-style-c">
-              <div class="article-header">
-                <div class="article-image" data-background="assets/img/news/img13.jpg" style="background-image: url(&quot;assets/img/news/img13.jpg&quot;);">
-                </div>
-              </div>
-              <div class="article-details">
-                <div class="article-category"><a href="#">News</a> <div class="bullet"></div> <a href="#">5 Days</a></div>
-                <div class="article-title">
-                  <h2><a href="#">Excepteur sint occaecat cupidatat non proident</a></h2>
-                </div>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. </p>
-              </div>
-            </article>
+          <div class="article-cta">
+            <a href="{{route('showAcara',['slug' => $r->slug])}}">Baca Selengkapnya <i class="fas fa-chevron-right"></i></a>
           </div>
-          
-        </div>  
-        <hr>
+        </div>
+      </article>
+    </div>
+  @endforeach
+  </div>  
+  <hr>
 
 <!-- staff -->  
 <div class="container-fluid">
@@ -173,7 +159,7 @@
         </div>
         <div class="footer-box">
           <h5>Kontak</h5>
-          <p>08773168092</p>
+          <p>{{$beranda->kontak}}</p>
         </div>
       </div>   
     </div>
@@ -185,7 +171,7 @@
         </div>
         <div class="footer-box">
           <h5>Email</h5>
-          <p>test@gmail.com</p>
+          <p>{{$beranda->email}}</p>
         </div>
       </div>   
     </div>
@@ -197,7 +183,7 @@
           </div>
           <div class="footer-box">
             <h5>Alamat</h5>
-            <p>Kec. Cibeunying Kidul, Kota. Bandung, Jawab Barat</p>
+            <p class="m-2">{{$beranda->alamat}}</p>
           </div>
         </div>   
     </div>

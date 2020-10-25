@@ -15,11 +15,13 @@ class CreateKegiatansTable extends Migration
     {
         Schema::create('kegiatans', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kegiatan');
-            $table->string('tgl_kegiatan');
-            $table->string('deskripsi_kegiatan');
+            $table->string('slug');
+            $table->string('judul');
+            $table->string('tgl');
+            $table->string('deskripsi', 5000);
             $table->string('foto_kegiatan');
-
+            $table->string('status', 1);
+            $table->timestamps();
         });
     }
 

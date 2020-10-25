@@ -12,29 +12,34 @@
   </div>
   <div class="card-body">
   <form>
+    <!-- <div class="form-group row mb-4">
+      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Slug</label>
+      <div class="col-sm-12 col-md-7">
+        <input type="text" name="slug" id="slug" class="form-control" placeholder="Masukan Judul Acara/Kegiatan" required>
+      </div>
+    </div> -->
+
     <div class="form-group row mb-4">
       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Judul Kegiatan</label>
       <div class="col-sm-12 col-md-7">
-        <input type="text" class="form-control" placeholder="Masukan Judul Acara/Kegiatan" required>
+        <input type="text" name="judul" id="judul" class="form-control" placeholder="Masukan Judul Acara/Kegiatan" required>
+        <p></p>
       </div>
     </div>
 
     <div class="form-group row mb-4">
       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Deskripsi/Berita</label>
       <div class="col-sm-12 col-md-7">
-      <textarea class="form-control" id="deskripsi form" rows="3" placeholder="Masukan Deskripsi kegiatan atau acara" rows="10" cols="200" style="height: 300px;" required></textarea>
+      <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3" placeholder="Masukan Deskripsi kegiatan atau acara" rows="10" cols="200" style="height: 300px;" required></textarea>
       </div>
     </div>
 
-    
      <div class="form-group row">
       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" for="exampleFormControlFile1">File input</label>
       <div class="col-sm-12 col-md-7">
         <input type="file" class="form-control">
       </div>
     </div>
-  
-    
 
     <div class="form-group row mb-4">
       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
@@ -48,46 +53,37 @@
 
 <div class="card acara-size">
   <div class="card-header">
-    <h4>Data Berita</h4>
+    <h4>Data Acara/Kegiatan</h4>
   </div>
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-bordered table-md">
         <tbody><tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Created At</th>
-          <th>Status</th>
-          <th>Action</th>
+          <th>No</th>
+          <th>Judul</th>
+          <th>Tanggal</th>
+          <th>status</th>
+          <th>Aksi</th>
         </tr>
+      @foreach($data as $a)
         <tr>
-          <td>1</td>
-          <td>Irwansyah Saputra</td>
-          <td>2017-01-09</td>
-          <td><div class="badge badge-success">Active</div></td>
-          <td><a href="#" class="btn btn-secondary">Detail</a></td>
+          <td>{{$no++}}</td>
+          <td>{{ $a['judul'] }}</td>
+          <td>{{ $a['tgl'] }}</td>
+          @if ($a['status'] != 0)
+          <td><div class="badge badge-success">Aktif</div></td>
+          @else
+          <td><div class="badge badge-success">Non Aktif</div></td>
+          @endif
+          <!-- <td></td> -->
+          <td>
+              <a href="{{route('showAcara',['slug' => $a->slug])}}" class="btn btn-sm btn-outline-danger fas fa-eye">
+              <a href="#" class="btn btn-sm btn-outline-danger fa fa-edit">
+              <a href="#" class="btn btn-sm btn-outline-danger fa fa-trash">
+          </td>
         </tr>
-        <tr>
-          <td>2</td>
-          <td>Hasan Basri</td>
-          <td>2017-01-09</td>
-          <td><div class="badge badge-success">Active</div></td>
-          <td><a href="#" class="btn btn-secondary">Detail</a></td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Kusnadi</td>
-          <td>2017-01-11</td>
-          <td><div class="badge badge-danger">Not Active</div></td>
-          <td><a href="#" class="btn btn-secondary">Detail</a></td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>Rizal Fakhri</td>
-          <td>2017-01-11</td>
-          <td><div class="badge badge-success">Active</div></td>
-          <td><a href="#" class="btn btn-secondary">Detail</a></td>
-        </tr>
+      @endforeach
+        
       </tbody></table>
     </div>
   </div>

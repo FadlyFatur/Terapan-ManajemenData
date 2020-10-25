@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('beranda');
-
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('beranda');
+Route::get('/', 'HomeController@Index')->name('beranda');
 
 Route::get('pencarian/warga', function (){
    return view('pencarian/cariWarga'); 
@@ -26,13 +26,17 @@ Route::get('manajemen/data-warga', function (){
    return view('manajemen/crudWarga'); 
 })->name('crudWarga');
 
-Route::get('manajemen/beranda', function (){
-    return view('manajemen/editBeranda'); 
-})->name('editBeranda');
+// route beranda
+Route::get('manajemen/Edit-beranda', 'berandaController@Index')->name('editBeranda');
+Route::post('manajemen/Edit-beranda/Post', 'berandaController@update')->name('updateBeranda');
+Route::post('manajemen/Edit-beranda/PostGambar', 'berandaController@updateGambar')->name('updateBeranda');
 
-Route::get('manajemen/kegiatan', function (){
-    return view('manajemen/editAcara'); 
-})->name('editAcara');
+//route acara/kegiatan
+Route::get('manajemen/kegiatan', 'beritaController@adminIndex')->name('editAcara');
+Route::get('Berita-acara', 'beritaController@Index')->name('Acara');
+Route::get('manajemen/kegiatan/post', 'beritaController@post')->name('postAcara');
+Route::get('berita/{slug}', 'beritaController@show')->name('showAcara');
+
 
 Route::get('manajemen/staff', function (){
     return view('manajemen/editStaff'); 

@@ -15,7 +15,13 @@ class CreateBerandasTable extends Migration
     {
         Schema::create('berandas', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('kontak');
+            $table->string('email');
+            $table->string('alamat');
+            $table->boolean('status');
+            $table->string('gambar1');
+            $table->string('gambar2');
+            $table->string('gambar3');
         });
     }
 
