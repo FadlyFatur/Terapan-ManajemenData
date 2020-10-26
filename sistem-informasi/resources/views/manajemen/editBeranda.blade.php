@@ -7,7 +7,7 @@
 
 @section('content')
 
-
+  @
   <!-- edit carousel -->
   <h2 class="section-title">Edit Foto Header/Beranda</h2>
   <div class="container d-flex justify-content-center">
@@ -50,6 +50,33 @@
     <form action="{{ route('updateBeranda') }}" method="POST">
     @csrf
 
+    @if ($data->count() == 0)
+    <div class="alert alert-danger">Data kosong/tidak ada.</div>
+    <div class="card-body">
+      <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-3 col-form-label">Kontak</label>
+        <div class="col-sm-9">
+          <input type="Text" class="form-control" name="kontak" placeholder="Kontak" value="">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-9">
+          <input type="Email" class="form-control" name="email"  placeholder="Email" value="">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-3 col-form-label">Alamat</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" name="alamat" placeholder="Alamat Lengkap" value="">
+        </div>
+      </div>
+    </div>
+    <div class="card-footer d-flex justify-content-center">       
+      <button type="submit" class="btn btn-primary mr-1">Submit</button>
+    </div>
+    </form>
+    @else 
     <div class="card-body">
       <div class="form-group row">
         <label for="inputEmail3" class="col-sm-3 col-form-label">Kontak</label>
@@ -74,6 +101,7 @@
       <button type="submit" class="btn btn-primary mr-1">Submit</button>
     </div>
     </form>
+    @endif
   </div>
   
 @endsection

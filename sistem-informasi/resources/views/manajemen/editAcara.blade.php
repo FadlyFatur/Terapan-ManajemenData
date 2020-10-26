@@ -6,49 +6,64 @@
 @endsection
 
 @section('content')
+@if ($errors->any())
+  <div class="alert alert-danger">
+     <ul>
+        @foreach ($errors->all() as $error)
+           <li>{{ $error }}</li>
+        @endforeach
+     </ul>
+  </div>
+@endif
+
 <div class="card acara-size">
   <div class="card-header">
-    <h4>Tambah Acara/Kegiatan</h4>
-  </div>
-  <div class="card-body">
-  <form>
-    <!-- <div class="form-group row mb-4">
-      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Slug</label>
-      <div class="col-sm-12 col-md-7">
-        <input type="text" name="slug" id="slug" class="form-control" placeholder="Masukan Judul Acara/Kegiatan" required>
-      </div>
-    </div> -->
-
-    <div class="form-group row mb-4">
-      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Judul Kegiatan</label>
-      <div class="col-sm-12 col-md-7">
-        <input type="text" name="judul" id="judul" class="form-control" placeholder="Masukan Judul Acara/Kegiatan" required>
-        <p></p>
-      </div>
+    <h4>Manajemen Acara/Kegiatan</h4>
     </div>
 
-    <div class="form-group row mb-4">
-      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Deskripsi/Berita</label>
-      <div class="col-sm-12 col-md-7">
-      <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3" placeholder="Masukan Deskripsi kegiatan atau acara" rows="10" cols="200" style="height: 300px;" required></textarea>
-      </div>
-    </div>
+    <div class="container">
+    <a class="btn btn-primary m-3 " data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <i class="fas fa-plus"></i> Tambah Acara/Kegiatan
+    </a>
+    
+      <div class="collapse p-3" id="collapseExample">
+        <form class="m-2" method="post" action="{{route('postAcara')}}" enctype="multipart/form-data">
+          @csrf
+          <div class="card-body">
+            <div class="form-group row mb-4">
+              <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Judul Kegiatan</label>
+              <div class="col-sm-12 col-md-7">
+                <input type="text" name="judul" id="judul" class="form-control" placeholder="Masukan Judul Acara/Kegiatan" required>
+                <p></p>
+              </div>
+            </div>
 
-     <div class="form-group row">
-      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" for="exampleFormControlFile1">File input</label>
-      <div class="col-sm-12 col-md-7">
-        <input type="file" class="form-control">
-      </div>
-    </div>
+            <div class="form-group row mb-4">
+              <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Deskripsi/Berita</label>
+              <div class="col-sm-12 col-md-7">
+              <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3" placeholder="Masukan Deskripsi kegiatan atau acara" rows="10" cols="200" style="height: 300px;" required></textarea>
+              </div>
+            </div>
 
-    <div class="form-group row mb-4">
-      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
-      <div class="col-sm-12 col-md-7">
-        <button class="btn btn-primary">Publish</button>
+            <div class="form-group row">
+              <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" for="image">Pilih Image</label>
+              <div class="col-sm-12 col-md-7">
+                <input type="file" class="form-control" name="image">
+              </div>
+              <h6 class="p-2 mx-auto">*Max ukuran image/foto : 2MB</h6>
+            </div>
+            
+            
+            <div class="form-group row mb-4">
+              <div class="mx-auto button-submit">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form> 
+
       </div>
     </div>
-    </form> 
-  </div>
 </div>
 
 <div class="card acara-size">
@@ -69,7 +84,7 @@
         <tr>
           <td>{{$no++}}</td>
           <td>{{ $a['judul'] }}</td>
-          <td>{{ $a['tgl'] }}</td>
+          <td>{{ $a['created_at'] }}</td>
           @if ($a['status'] != 0)
           <td><div class="badge badge-success">Aktif</div></td>
           @else

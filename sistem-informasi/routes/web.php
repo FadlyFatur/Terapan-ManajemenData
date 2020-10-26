@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// })->name('beranda');
 Route::get('/', 'HomeController@Index')->name('beranda');
 
 Route::get('pencarian/warga', function (){
@@ -29,13 +26,13 @@ Route::get('manajemen/data-warga', function (){
 // route beranda
 Route::get('manajemen/Edit-beranda', 'berandaController@Index')->name('editBeranda');
 Route::post('manajemen/Edit-beranda/Post', 'berandaController@update')->name('updateBeranda');
-Route::post('manajemen/Edit-beranda/PostGambar', 'berandaController@updateGambar')->name('updateBeranda');
+Route::post('manajemen/Edit-beranda/UploadGambar', 'berandaController@storeGambar')->name('uploadGambar');
 
 //route acara/kegiatan
 Route::get('manajemen/kegiatan', 'beritaController@adminIndex')->name('editAcara');
 Route::get('Berita-acara', 'beritaController@Index')->name('Acara');
-Route::get('manajemen/kegiatan/post', 'beritaController@post')->name('postAcara');
 Route::get('berita/{slug}', 'beritaController@show')->name('showAcara');
+Route::post('manajemen/kegiatan/submit-kegiatan', 'beritaController@post')->name('postAcara');
 
 
 Route::get('manajemen/staff', function (){

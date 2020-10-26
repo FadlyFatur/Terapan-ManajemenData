@@ -8,7 +8,7 @@
   <div class="col-12 col-md-4 col-lg-4">
     <article class="article article-style-c">
       <div class="article-header">
-        <div class="article-image" data-background="assets/img/news/img13.jpg" style="background-image: url(&quot;assets/img/news/img13.jpg&quot;);">
+        <div class="article-image" data-background="{{$d['foto_kegiatan']}}" style="background-image: url(&quot;assets/img/news/img13.jpg&quot;);">
         </div>
       </div>
       <div class="article-details">

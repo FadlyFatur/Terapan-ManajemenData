@@ -16,11 +16,10 @@ class CreateKegiatansTable extends Migration
         Schema::create('kegiatans', function (Blueprint $table) {
             $table->id();
             $table->string('slug');
-            $table->string('judul');
-            $table->string('tgl');
-            $table->string('deskripsi', 5000);
+            $table->string('judul',200);
+            $table->string('deskripsi',2000);
             $table->string('foto_kegiatan');
-            $table->string('status', 1);
+            $table->boolean('status');
             $table->timestamps();
         });
     }

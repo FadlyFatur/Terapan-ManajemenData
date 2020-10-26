@@ -74,17 +74,27 @@
 </div>
 
 <!-- news section -->
-<div class="d-flex justify-content-between">
-      <h2 class="section-title">Acara/Kegiatan Masyarakat</h2>
-      <a href="{{ route('Acara') }}" class="btn btn-icon icon-left btn-primary lihat-lengkap"><p>Lihat Acara</p></a>
-      <!-- <a href="#" class="ml-auto btn btn-primary text-center">Lihat Selengkapnya</a> -->
-</div>
-<div class="row">
+<div class="container-fluid">
+  <div class="d-flex justify-content-between">
+      <a href="{{ route('Acara') }}"><h2 class="section-title">Acara/Kegiatan Masyarakat <i class="fas fa-chevron-right"></i></h2></a>
+      <!-- <a href="{{ route('Acara') }}" class="btn btn-icon icon-left btn-primary lihat-lengkap"><p>Lihat Acara</p></a> -->
+  </div>
+  @if ($data->count() == 0)
+  <div class="row d-flex justify-content-center">
+    <div class="col">
+      <div class="alert alert-danger text-center">
+        <div class="alert-title">Belum ada acara/kegiatan.</div>
+      </div>
+    </div>
+  </div>
+  @else
+  @endif
+  <div class="row">
   @foreach($data as $r)
     <div class="col-12 col-md-4 col-lg-4">
       <article class="article article-style-c">
         <div class="article-header">
-          <div class="article-image" data-background="assets/img/news/img13.jpg" style="background-image: url(&quot;assets/img/news/img13.jpg&quot;);">
+          <div class="article-image" data-background="{{$r['foto_kegiatan']}}" style="background-image: url(&quot;assets/img/news/img13.jpg&quot;);">
           </div>
         </div>
         <div class="article-details">
@@ -100,11 +110,12 @@
     </div>
   @endforeach
   </div>  
+</div>
   <hr>
 
 <!-- staff -->  
 <div class="container-fluid">
-  <h2 class="section-title">Staff / Pengurus</h2>
+  <h2 class="section-title">Staff / Pengurus <i class="fas fa-chevron-right"></i></h2>
   
   <div class="row">
     <div class="col-md-3 mb-5">
@@ -159,7 +170,7 @@
         </div>
         <div class="footer-box">
           <h5>Kontak</h5>
-          <p>{{$beranda->kontak}}</p>
+          <p>{{$beranda['kontak']}}</p>
         </div>
       </div>   
     </div>
@@ -171,7 +182,7 @@
         </div>
         <div class="footer-box">
           <h5>Email</h5>
-          <p>{{$beranda->email}}</p>
+          <p>{{$beranda['email']}}</p>
         </div>
       </div>   
     </div>
@@ -183,7 +194,7 @@
           </div>
           <div class="footer-box">
             <h5>Alamat</h5>
-            <p class="m-2">{{$beranda->alamat}}</p>
+            <p class="m-2">{{$beranda['alamat']}}</p>
           </div>
         </div>   
     </div>
