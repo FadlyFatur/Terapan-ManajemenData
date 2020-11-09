@@ -55,12 +55,12 @@ return [
             'visibility' => 'public',
         ],
 
-        'image' => [
-            'driver' => 'local',
-            'root' => storage_path('app/image'),
-            'url' => env('APP_URL').'/image',
-            'visibility' => 'public',
-        ],
+        // 'image' => [
+        //     'driver' => 'local',
+        //     'root' => storage_path('app/image'),
+        //     'url' => env('APP_URL').'/image',
+        //     'visibility' => 'public',
+        // ],
 
         's3' => [
             'driver' => 's3',
@@ -86,7 +86,7 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
-        public_path('image') => storage_path('app/image'),
+        // public_path('image') => storage_path('app/image'),
     ],
 
 ];

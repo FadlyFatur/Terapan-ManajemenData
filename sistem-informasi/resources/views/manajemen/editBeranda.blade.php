@@ -7,7 +7,6 @@
 
 @section('content')
 
-  @
   <!-- edit carousel -->
   <h2 class="section-title">Edit Foto Header/Beranda</h2>
   <div class="container d-flex justify-content-center">
@@ -16,7 +15,7 @@
     <div class="col-md-4 mb-5">
       <img src="https://images.pexels.com/photos/1379655/pexels-photo-1379655.jpeg?cs=srgb&dl=pexels-jonas-von-werne-1379655.jpg&fm=jpg" class="img-edit" alt="" srcset="">
       <div class="footer-edit mt-1">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+      <button type="button" class="btn btn-primary" id="gambar1" data-toggle="modal" data-target="#gambar1">
         Ganti
       </button>
       </div>
@@ -25,7 +24,7 @@
     <div class="col-md-4 mb-5">
       <img src="https://images.pexels.com/photos/2342406/pexels-photo-2342406.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" class="img-edit" alt="" srcset="">
       <div class="footer-edit mt-1">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+      <button type="button" class="btn btn-primary" id="gambar2" data-toggle="modal" data-target="#gambar2">
       Ganti
       </button>
       </div>
@@ -34,11 +33,12 @@
     <div class="col-md-4 mb-5">
       <img src="https://images.pexels.com/photos/2802809/pexels-photo-2802809.jpeg?cs=srgb&dl=pexels-keegan-checks-2802809.jpg&fm=jpg" class="img-edit" alt="" srcset="">
       <div class="footer-edit mt-1">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+      <button type="button" class="btn btn-primary" id="gambar3" data-toggle="modal" data-target="#gambar3">
         Ganti
       </button>
       </div>
     </div>
+
   </div>
   </div>
   <p>*Ukuran Foto min 500x1000 pixel</p>
@@ -107,7 +107,8 @@
 @endsection
   
 @section('modal')
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="" value="" data-backdrop="static" data-keyboard="false" tabindex="-1" 
+aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -116,17 +117,17 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form class="m-2" method="post" action="/file-upload" enctype="multipart/form-data">
+      <form class="m-2" method="post" action="{{route('uploadGambar')}}" enctype="multipart/form-data">
       @csrf
         <div class="modal-body">
           <div class="form-group">
             <label>Unggah File</label>
-            <input type="file" class="form-control">
+            <input type="file" name="gambar" value="" class="form-control input-modal">
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </div>
       </form>
     </div>
@@ -136,5 +137,5 @@
 @endsection
 
 @section('js')
-<script src="{{asset('js/editBeranda.js')}}"></script>
+  <script src="{{asset('js/editBeranda.js')}}"></script>
 @endsection

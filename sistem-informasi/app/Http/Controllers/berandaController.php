@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\beranda;
+// use Illuminate\Support\Facades\Input;
 
 class berandaController extends Controller
 {
@@ -40,8 +41,41 @@ class berandaController extends Controller
         return view('manajemen.editBeranda');
     }
 
-    public function updateGambar()
+    public function storeGambar(Request $request)
     {
-        # code...
+
+
+
+        // if ($request->hasFile('image')){
+        //     if ($request->file('image')->isValid()) {
+        //         $validate = Validator::make($request->all(),[
+        //             'image' => 'required|mimes:jpeg,png|max:5120',
+        //             ]);
+        //             if ($validate->fails()) {
+        //                 return redirect()->back()
+        //                             ->withErrors($validate)
+        //                             ->withInput();
+        //                 }
+        var_dump($request->input('gambar1'));   
+
+    //                 if ($request->input-<)
+    //             //upload file ke local storage
+    //             $nama = $request->input
+    //             $nama = $request->image->getClientOriginalName();
+    //             $url = $request->image->storeAs('/image', $nama);
+
+
+    //             // upload db
+    //             $store = kegiatan::create([
+    //                 'slug' => Str::slug($request->input('judul')),
+    //                 'judul' => $request->input('judul'),
+    //                 'deskripsi' => $request->input('deskripsi'),
+    //                 'foto_kegiatan' => $url ,
+    //                 'status' => 1,
+    //                 ]);
+    //             return \Redirect::back()->with(['sukses' => 'Pesan Berhasil']);
+    //         }
+    //     }
+    //     abort(500, 'Gagal upload!');
     }
 }

@@ -16,6 +16,17 @@
   </div>
 @endif
 
+@if ($message = Session::get('sukses'))
+<div class="alert alert-success alert-dismissible show fade">
+  <div class="alert-body">
+    <button class="close" data-dismiss="alert">
+      <span>×</span>
+    </button>
+    Data Berhasil Disimpan.
+  </div>
+</div>
+@endif
+
 <div class="card acara-size">
   <div class="card-header">
     <h4>Manajemen Acara/Kegiatan</h4>
@@ -92,9 +103,9 @@
           @endif
           <!-- <td></td> -->
           <td>
-              <a href="{{route('showAcara',['slug' => $a->slug])}}" class="btn btn-sm btn-outline-danger fas fa-eye">
-              <a href="#" class="btn btn-sm btn-outline-danger fa fa-edit">
-              <a href="#" class="btn btn-sm btn-outline-danger fa fa-trash">
+              <a href="{{route('showAcara',['slug' => $a->slug])}}" target="_blank" class="btn btn-sm btn-outline-danger fas fa-eye">
+              <a href="" class="btn btn-sm btn-outline-danger fa fa-edit">
+              <a href="{{route('deleteAcara',['id' => $a->id])}}" class="btn btn-sm btn-outline-danger fa fa-trash">
           </td>
         </tr>
       @endforeach

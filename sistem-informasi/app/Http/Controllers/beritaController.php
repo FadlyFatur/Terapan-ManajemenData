@@ -31,36 +31,39 @@ class beritaController extends Controller
         if ($request->hasFile('image')){
 
             if ($request->file('image')->isValid()) {
-
-                $validate = Validator::make($request->all(),[
-                    'judul' => 'string|max:200',
-                    'deskripsi'=> 'string|max:2000',
-                    'image' => 'required|mimes:jpeg,png|max:5120',
-                    ]);
-
-                    if ($validate->fails()) {
-                        return redirect()->back()
-                                    ->withErrors($validate)
-                                    ->withInput();
-                        }
-                //upload file ke local storage
                 
-                $extension = $request->image->extension();
-                $nama = $request->image->getClientOriginalName();
-                $request->image->storeAs('/public', $nama);
-                $url = Storage::url($nama);
+                $validated = $request->validate([
+                    'judul' => 'string|max:200',
+                    'deskripsi'=> 'string|max:3500',
+                    'image' => 'required|mimes:jpeg,png|max:5120',
+                ]);
 
+                // $validate = Validator::make($request->all(),[
+                //     'judul' => 'string|max:200',
+                //     'deskripsi'=> 'string|max:3500',
+                //     'image' => 'required|mimes:jpeg,png|max:5120',
+                //     ]);
 
+                        // if ($validated->fails()) {
+                        //     return redirect()->back()
+                        //                 ->withErrors($validate)
+                        //                 ->withInput();
+                        //     }
+                //upload file ke local storage
+                    $name = $request->image->getClientOriginalName();
+                    $request->image->storeAs('/public', $name);
+                    $url = Storage::url($name);
+                
                 // upload db
                 $store = kegiatan::create([
                     'slug' => Str::slug($request->input('judul')),
                     'judul' => $request->input('judul'),
                     'deskripsi' => $request->input('deskripsi'),
-                    'foto_kegiatan' => $url ,
+                    'foto_kegiatan' => $url,
                     'status' => 1,
                     ]);
-                Session::flash('success','Upload Berhasil!');
-                return \Redirect::back();
+                // Session::flash('success','Upload Berhasil!');
+                return \Redirect::back()->with(['sukses' => 'Pesan Berhasil']);
             }
         }
         abort(500, 'Gagal upload!');
@@ -71,5 +74,14 @@ class beritaController extends Controller
         $data = kegiatan::where('slug', $slug)->firstOrFail();
 
         return view ('berita.berita',compact('data'));
+    }
+
+    public function destroy($id){
+        $data = kegiatan::find($id);
+        $url = $data->foto_kegiatan;
+        Storage::delete($data->foto_kegiatan);
+        // unlink(public_path("'".$url."'"));
+        $data->delete();
+        return \Redirect::back();
     }
 }
