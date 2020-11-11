@@ -32,7 +32,7 @@ Route::post('manajemen/Edit-beranda/UploadGambar', 'berandaController@storeGamba
 Route::get('manajemen/kegiatan', 'beritaController@adminIndex')->name('editAcara');
 Route::get('berita', 'beritaController@Index')->name('Acara');
 Route::get('berita/{slug}', 'beritaController@show')->name('showAcara');
-Route::post('manajemen/kegiatan/submit-kegiatan', 'beritaController@post')->name('postAcara');
+Route::post('manajemen/kegiatan/post-kegiatan', 'beritaController@post')->name('post');
 Route::get('manajemen/kegiatan/{id}', 'beritaController@destroy')->name('deleteAcara');
 
 

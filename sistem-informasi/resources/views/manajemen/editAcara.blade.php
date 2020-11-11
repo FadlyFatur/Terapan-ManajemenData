@@ -38,7 +38,7 @@
     </a>
     
       <div class="collapse p-3" id="collapseExample">
-        <form class="m-2" method="post" action="{{route('postAcara')}}" enctype="multipart/form-data">
+        <form class="m-2" method="post" action="{{route('post')}}" enctype="multipart/form-data">
           @csrf
           <div class="card-body">
             <div class="form-group row mb-4">

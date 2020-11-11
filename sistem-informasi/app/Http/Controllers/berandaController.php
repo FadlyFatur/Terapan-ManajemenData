@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\beranda;
+use Illuminate\Support\Facades\Redirect;
 
 class berandaController extends Controller
 {

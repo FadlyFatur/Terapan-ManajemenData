@@ -7,7 +7,7 @@ use App\acara;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
 
 class beritaController extends Controller
 {   
@@ -21,16 +21,14 @@ class beritaController extends Controller
 
     // menampilkan list berita di halaman admin 
     public function adminIndex(){
-        $data = acara::all();
+        $data = acara::all()->sortByDesc('created_at');
         return view('manajemen.editAcara', compact('data'))->with('no', 1);
     }
 
     public function post(Request $request){
         
         if ($request->hasFile('image')){
-
             if ($request->file('image')->isValid()) {
-                
                 $validated = $request->validate([
                     'judul' => 'string|max:200',
                     'deskripsi'=> 'string|max:3500',
@@ -39,23 +37,21 @@ class beritaController extends Controller
 
                 //upload file ke local storage
                     $name = $request->image->getClientOriginalName();
-                    $request->image->storeAs('/public', $name);
-                    $url = Storage::url($name);
+                    $url = $request->image->storeAs('acara', $name);
                 
                 // upload db
                 $store = acara::create([
                     'slug' => Str::slug($request->input('judul')),
                     'judul' => $request->input('judul'),
                     'deskripsi' => $request->input('deskripsi'),
-                    'foto_kegiatan' => $url,
-                    'status' => 1,
+                    'foto' => $name,
+                    'url' => $url,
+                    'status' => 1
                     ]);
-                // Session::flash('success','Upload Berhasil!');
-                return \Redirect::back()->with(['sukses' => 'Pesan Berhasil']);
+                return Redirect::back()->with(['sukses' => 'Pesan Berhasil']);
             }
         }
         abort(500, 'Gagal upload!');
-        // return view ('manajemen.editAcara');
     }
 
     public function show($slug){
