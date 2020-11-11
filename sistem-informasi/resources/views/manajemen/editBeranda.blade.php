@@ -50,7 +50,7 @@
     <form action="{{ route('updateBeranda') }}" method="POST">
     @csrf
 
-    @if ($data->count() == 0)
+    @if (empty($data))
     <div class="alert alert-danger">Data kosong/tidak ada.</div>
     <div class="card-body">
       <div class="form-group row">

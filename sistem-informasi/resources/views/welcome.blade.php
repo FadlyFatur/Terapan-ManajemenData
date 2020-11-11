@@ -76,10 +76,9 @@
 <!-- news section -->
 <div class="container-fluid">
   <div class="d-flex justify-content-between">
-      <a href="{{ route('Acara') }}"><h2 class="section-title">Acara/Kegiatan Masyarakat <i class="fas fa-chevron-right"></i></h2></a>
-      <!-- <a href="{{ route('Acara') }}" class="btn btn-icon icon-left btn-primary lihat-lengkap"><p>Lihat Acara</p></a> -->
+      <a href=""><h2 class="section-title">Acara/Kegiatan Masyarakat <i class="fas fa-chevron-right"></i></h2></a>
   </div>
-  @if ($data->count() == 0)
+  @if (empty($data))
   <div class="row d-flex justify-content-center">
     <div class="col">
       <div class="alert alert-danger text-center">
@@ -88,17 +87,16 @@
     </div>
   </div>
   @else
-  @endif
   <div class="row">
   @foreach($data as $r)
     <div class="col-12 col-md-4 col-lg-4">
       <article class="article article-style-c">
         <div class="article-header">
-          <div class="article-image" data-background="{{$r['foto_kegiatan']}}" style="background-image: url(&quot;assets/img/news/img13.jpg&quot;);">
+          <div class="article-image" data-background="{{ URL::asset( 'acara/'.$r['foto'] ) }}" style="background-image: url(&quot;assets/img/news/img13.jpg&quot;);">
           </div>
         </div>
         <div class="article-details">
-          <div class="article-category"><a href="#">Acara/Kegiatan</a> <div class="bullet"></div> <a href="#">{{$r['created_at']}}</a></div>
+          <div class="article-category"><a href="#">Acara/Kegiatan</a> <div class="bullet"></div> <a href="#">{{ date('m/d/Y',strtotime($r['created_at'])) }}</a></div>
           <div class="article-title">
             <h5 class="mb-4">{{$r['judul']}}</h5>
           </div>
@@ -111,7 +109,8 @@
   @endforeach
   </div>  
 </div>
-  <hr>
+  @endif
+  <hr>	
 
 <!-- staff -->  
 <div class="container-fluid">

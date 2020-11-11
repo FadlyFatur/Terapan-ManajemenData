@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\kegiatan;
+use App\acara;
 use App\beranda;
 
 class HomeController extends Controller
@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = kegiatan::all()->sortByDesc('created_at')->take(3);
+        $data = acara::all()->sortByDesc('created_at')->take(3);
         $beranda = beranda::all()->first();
         
         return view('welcome',compact('data', 'beranda'));

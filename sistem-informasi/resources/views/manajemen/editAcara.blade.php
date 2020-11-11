@@ -77,60 +77,46 @@
     </div>
 </div>
 
-<div class="card acara-size">
-  <div class="card-header">
-    <h4>Data Acara/Kegiatan</h4>
-  </div>
-  <div class="card-body">
-    <div class="table-responsive">
-      <table class="table table-bordered table-md">
-        <tbody><tr>
-          <th>No</th>
-          <th>Judul</th>
-          <th>Tanggal</th>
-          <th>status</th>
-          <th>Aksi</th>
-        </tr>
-      @foreach($data as $a)
-        <tr>
-          <td>{{$no++}}</td>
-          <td>{{ $a['judul'] }}</td>
-          <td>{{ $a['created_at'] }}</td>
-          @if ($a['status'] != 0)
-          <td><div class="badge badge-success">Aktif</div></td>
-          @else
-          <td><div class="badge badge-success">Non Aktif</div></td>
-          @endif
-          <!-- <td></td> -->
-          <td>
-              <a href="{{route('showAcara',['slug' => $a->slug])}}" target="_blank" class="btn btn-sm btn-outline-danger fas fa-eye">
-              <a href="" class="btn btn-sm btn-outline-danger fa fa-edit">
-              <a href="{{route('deleteAcara',['id' => $a->id])}}" class="btn btn-sm btn-outline-danger fa fa-trash">
-          </td>
-        </tr>
-      @endforeach
-        
-      </tbody></table>
+  <div class="card acara-size">
+    <div class="card-header">
+      <h4>Data Acara/Kegiatan</h4>
     </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Judul</th>
+                <th>Tanggal</th>
+                <th>Publikasi</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+            @foreach($data as $a)
+              <tr>
+                <td>{{$no++}}</td>
+                <td>{{ $a['judul'] }}</td>
+                <td>{{ $a['created_at'] }}</td>
+                @if ($a['status'] != 0)
+                <td><div class="badge badge-success">Aktif</div></td>
+                @else
+                <td><div class="badge badge-success">Non-Aktif</div></td>
+                @endif
+                <!-- <td></td> -->
+                <td>
+                    <a href="{{route('showAcara',['slug' => $a->slug])}}" target="_blank" class="btn btn-sm btn-outline-danger fas fa-eye">
+                    <a href="" class="btn btn-sm btn-outline-danger fa fa-edit">
+                    <a href="{{route('deleteAcara',['id' => $a->id])}}" class="btn btn-sm btn-outline-danger fa fa-trash">
+                </td>
+              </tr>
+            @endforeach
+            </tbody>
+          </table>
+        </div>
+      </div>
   </div>
-  <div class="card-footer text-right">
-    <nav class="d-inline-block">
-      <ul class="pagination mb-0">
-        <li class="page-item disabled">
-          <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
-        </li>
-        <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
-        <li class="page-item">
-          <a class="page-link" href="#">2</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-<div></div></div>
 @endsection
 
 @section('js')

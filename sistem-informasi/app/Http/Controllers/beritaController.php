@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\kegiatan;
+use App\acara;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
@@ -11,19 +11,18 @@ use Illuminate\Support\Facades\Validator;
 
 class beritaController extends Controller
 {   
-
+    // menampilkan berita di halaman berita
     public function Index()
     {
-        $data = kegiatan::all()->sortByDesc('created_at');
-
+        $data = acara::all()->sortByDesc('created_at');
         return view('berita.listBerita',compact('data'));
         
     }
 
+    // menampilkan list berita di halaman admin 
     public function adminIndex(){
-        $data = kegiatan::all();
+        $data = acara::all();
         return view('manajemen.editAcara', compact('data'))->with('no', 1);
-        // return view('manajemen.editAcara', ['acara' => $data])->with('no', 1);
     }
 
     public function post(Request $request){
@@ -38,24 +37,13 @@ class beritaController extends Controller
                     'image' => 'required|mimes:jpeg,png|max:5120',
                 ]);
 
-                // $validate = Validator::make($request->all(),[
-                //     'judul' => 'string|max:200',
-                //     'deskripsi'=> 'string|max:3500',
-                //     'image' => 'required|mimes:jpeg,png|max:5120',
-                //     ]);
-
-                        // if ($validated->fails()) {
-                        //     return redirect()->back()
-                        //                 ->withErrors($validate)
-                        //                 ->withInput();
-                        //     }
                 //upload file ke local storage
                     $name = $request->image->getClientOriginalName();
                     $request->image->storeAs('/public', $name);
                     $url = Storage::url($name);
                 
                 // upload db
-                $store = kegiatan::create([
+                $store = acara::create([
                     'slug' => Str::slug($request->input('judul')),
                     'judul' => $request->input('judul'),
                     'deskripsi' => $request->input('deskripsi'),
@@ -71,17 +59,19 @@ class beritaController extends Controller
     }
 
     public function show($slug){
-        $data = kegiatan::where('slug', $slug)->firstOrFail();
-
+        $data = acara::where('slug', $slug)->firstOrFail();
         return view ('berita.berita',compact('data'));
     }
 
     public function destroy($id){
-        $data = kegiatan::find($id);
-        $url = $data->foto_kegiatan;
-        Storage::delete($data->foto_kegiatan);
-        // unlink(public_path("'".$url."'"));
-        $data->delete();
-        return \Redirect::back();
+        $data = acara::find($id);
+        $filename = $data->url;
+        try {
+            Storage::delete($filename);
+            $data->delete();
+            return Redirect::back()->with('sukses-delete','Data berhasil dihapus!');
+        } catch (\Exception $e) {
+            return Redirect::back()->with('gagal-delete','Data berhasil dihapus!');
+        }
     }
 }
