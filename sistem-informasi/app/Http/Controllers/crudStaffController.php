@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\staff;
+use Illuminate\Support\Facades\Redirect;
 
 class crudStaffController extends Controller
 {
@@ -11,6 +13,9 @@ class crudStaffController extends Controller
         $staff = new staff();
         $staff->nama = $request->nama;
         $staff->no_hp = $request->no_hp;
-        $warga->alamat = $request->alamat;
+        $staff->alamat = $request->alamat;
+        $staff->save();
+
+        return Redirect::back();
     }
 }

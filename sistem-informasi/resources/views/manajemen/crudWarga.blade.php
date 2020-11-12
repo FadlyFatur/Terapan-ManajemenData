@@ -244,8 +244,6 @@
             <label for="exampleFormControlInput7">Kota</label> 
             <input type="kota" name="kota" class="form-control" id="exampleFormControlInput7"  placeholder="kota">
           </div>
-
-
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Simpan</button>

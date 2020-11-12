@@ -27,8 +27,7 @@
             <tr style="color:black; text-align:center; font-size:13px;"> 
               <th>No</th>
               <th>Nama</th>
-              <th>Email</th>
-              <th>No.HP</th>
+              <th>No HP</th>
               <th>Alamat</th>
               <th>Status</th>
               <th>Action</th>
@@ -38,7 +37,6 @@
             <tr style="color:black; text-align:center; font-size:13px;"">
               <td>1</td>
               <td>Agus</td>
-              <td>agus123@gmail.com.com</td>
               <td>0812938231</td>
               <td>Bandung</td>
               <td>
@@ -59,9 +57,9 @@
 @endsection
 
 @section('modal')
-<!-- Modal -->
+<!-- Modal Tambah -->
 <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
@@ -71,55 +69,30 @@
       </div>
       <div class="modal-body">
         
-        <form action="">
-          @csrf
+        <form action="{{route('tambahStaff')}}" method="post">
+        @csrf
             <div class="form-group">
               <label for="exampleFormControlInput2">Nama</label>
-              <input type="name" class="form-control" id="exampleFormControlInput2" placeholder="nama">
+              <input type="nama" name="nama" class="form-control" id="exampleFormControlInput2" placeholder="Nama Lengkap">
             </div>
             <div class="form-group">
               <label for="exampleFormControlInput3">No HP (Format:xxxxxxxxxxx)</label> 
-              <input type="tel" class="form-control" id="exampleFormControlInput3" pattern="^\d{10}$" required placeholder="08138239822">
+              <input type="no_hp" name="no_hp" class="form-control" id="exampleFormControlInput3" placeholder="08138239822">
             </div>
             <div class="form-group">
               <label>Alamat</label>
-              <textarea class="form-control"></textarea>
+              <textarea name="alamat" class="form-control"></textarea>
             </div>
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Status</label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Active</option>
-                <option>Tidak Active</option>
-              </select>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect2">Jabatan</label>
-                <select class="form-control" id="exampleFormControlSelect2">
-                  <option>Ketua RW</option>
-                  <option>Ketua RT</option> 
-                  <option>Staff</option>
-                </select>
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlSelect2">Nama User</label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Agus</option>
-                <option>Agus 2</option> 
-                <option>Agus 3</option>
-              </select>
-            </div>
-        </form>
-
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+        </form>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal Edit-->
 <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -131,7 +104,7 @@
       </div>
       <div class="modal-body">
         
-        <form action="{{route('tambahStaff')}}" method="post">
+        <form action="" method="post">
           @csrf
             <div class="form-group">
               <label for="exampleFormControlInput2">Nama</label>
@@ -152,27 +125,11 @@
                 <option>Tidak Active</option>
               </select>
             </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect2">Jabatan</label>
-                <select class="form-control" id="exampleFormControlSelect2">
-                  <option>Ketua RW</option>
-                  <option>Ketua RT</option> 
-                  <option>Staff</option>
-                </select>
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlSelect2">Nama User</label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Agus</option>
-                <option>Agus 2</option> 
-                <option>Agus 3</option>
-              </select>
-            </div>
         </form>
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
       </div>
     </div>
   </div>
