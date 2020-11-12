@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@Index')->name('beranda');
 
-Route::get('pencarian/warga', function (){
-   return view('pencarian/cariWarga'); 
-})->name('cariWarga');
+Route::get('pencarian/warga', 'wargaController@Index')->name('cariWarga');
 
 Route::get('manajemen/data-warga', function (){
    return view('manajemen/crudWarga'); 
