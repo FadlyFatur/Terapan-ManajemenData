@@ -131,9 +131,8 @@
       </div>
       <div class="modal-body">
         
-        <form action="">
+        <form action="{{route('tambahStaff')}}" method="post">
           @csrf
-      
             <div class="form-group">
               <label for="exampleFormControlInput2">Nama</label>
               <input type="name" class="form-control" id="exampleFormControlInput2" placeholder="nama">
@@ -173,8 +172,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
