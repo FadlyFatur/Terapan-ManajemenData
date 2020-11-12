@@ -71,7 +71,7 @@
       </div>
       <div class="modal-body">
         
-        <form action="">
+        <form action="{{route('tambahWarga')}}" method="post">
         @csrf
         <div class="form-group">
           <label for="exampleFormControlInput2">NIK</label>
@@ -173,14 +173,12 @@
             <label for="exampleFormControlInput8">Updated</label> 
             <input type="date" class="form-control" id="exampleFormControlInput8"  placeholder="tempat_lahir">
           </div>
-
-        </form>
-
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+        <button type="submit" class="btn btn-primary">Simpan</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
@@ -201,7 +199,7 @@
         @csrf
         <div class="form-group">
           <label for="exampleFormControlInput2">NIK</label>
-          <input type="nik" class="form-control" id="exampleFormControlInput2" placeholder="NIK">
+          <input type="nik" name="nik" class="form-control" id="exampleFormControlInput2" placeholder="NIK">
         </div>
 
         <div class="form-group">
@@ -305,7 +303,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary">Simpan</button>
       </div>
     </div>
   </div>

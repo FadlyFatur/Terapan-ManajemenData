@@ -15,11 +15,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@Index')->name('beranda');
 
-Route::get('pencarian/warga', 'wargaController@Index')->name('cariWarga');
+Route::get('pencarian/warga', function (){
+   return view('pencarian/cariWarga'); 
+})->name('cariWarga');
 
+//route crud warga
 Route::get('manajemen/data-warga', function (){
    return view('manajemen/crudWarga'); 
 })->name('crudWarga');
+
+Route::post('manajemen/tambahWarga/Post', 'crudWargaController@tambah')->name('tambahWarga');
+
 
 // route beranda
 Route::get('manajemen/Edit-beranda', 'berandaController@Index')->name('editBeranda');

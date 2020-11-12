@@ -7,5 +7,7 @@ use App\rt;
 
 class warga extends Model
 {
-    // return $this->belongsTo('rt','id');
+    protected $fillable = [
+        'nik', 'nama_lengkap', 'jenis_kelamin', 'tempat_lahir', 'tanggal_lahir', 'alamat','kelurahan','kecamatan','kota',
+      ];
 }
