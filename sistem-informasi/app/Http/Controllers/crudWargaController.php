@@ -19,6 +19,9 @@ class crudWargaController extends Controller
         $warga->kecamatan = $request->kecamatan;
         $warga->kota = $request->kota;
         $warga->status = $request->status;
+        $warga->save();
+
+        return $warga;
 
     }
 }

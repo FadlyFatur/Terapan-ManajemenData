@@ -204,12 +204,12 @@
 
         <div class="form-group">
             <label for="exampleFormControlInput3">Nama</label> 
-            <input type="nama_lengkap" class="form-control" id="exampleFormControlInput3"  placeholder="Nama Lengkap">
+            <input type="nama_lengkap" name="nama" class="form-control" id="exampleFormControlInput3"  placeholder="Nama Lengkap">
         </div>
 
           <div class="form-group">
             <label for="exampleFormControlSelect1">Jenis Kelamin</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select class="form-control" name="jenis_kelamin" id="exampleFormControlSelect1">
               <option>Perempuan</option>
               <option>Laki-laki</option>
             </select>
@@ -217,37 +217,37 @@
 
           <div class="form-group">
             <label for="exampleFormControlInput4">Tempat Lahir</label> 
-            <input type="tempat_lahir" class="form-control" id="exampleFormControlInput4" placeholder="tempat lahir">
+            <input type="tempat_lahir" name="tempat_lahir" class="form-control" id="exampleFormControlInput4" placeholder="tempat lahir">
           </div>
 
           <div class="form-group">
             <label for="exampleFormControlInput5">Tanggal Lahir</label> 
-            <input type="date" class="form-control" id="exampleFormControlInput5"  placeholder="tanggal lahir">
+            <input type="date" class="form-control" name="tanggal_lahir" id="exampleFormControlInput5"  placeholder="tanggal lahir">
           </div>
 
           <div class="form-group">
             <label>Alamat</label>
-            <textarea class="form-control"></textarea>
+            <textarea name="alamat" class="form-control"></textarea>
           </div>
 
           <div class="form-group">
             <label for="exampleFormControlInput6">Kelurahan</label> 
-            <input type="kelurahan" class="form-control" id="exampleFormControlInput6"  placeholder="kelurahan">
+            <input type="kelurahan" name="kelurahan" class="form-control" id="exampleFormControlInput6"  placeholder="kelurahan">
           </div>
 
           <div class="form-group">
             <label for="exampleFormControlInput7">Kecamatan</label> 
-            <input type="kecamatan" class="form-control" id="exampleFormControlInput7"  placeholder="kecamatan">
+            <input type="kecamatan" name="kecamatan" class="form-control" id="exampleFormControlInput7"  placeholder="kecamatan">
           </div>
 
           <div class="form-group">
             <label for="exampleFormControlInput7">Kota</label> 
-            <input type="kota" class="form-control" id="exampleFormControlInput7"  placeholder="kota">
+            <input type="kota" name="kota" class="form-control" id="exampleFormControlInput7"  placeholder="kota">
           </div>
 
           <div class="form-group">
             <label for="exampleFormControlSelect1">Status</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select class="form-control" name="status" id="exampleFormControlSelect1">
               <option>Active</option>
               <option>Tidak Active</option>
             </select>
