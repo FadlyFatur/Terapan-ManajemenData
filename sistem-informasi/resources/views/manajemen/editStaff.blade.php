@@ -110,6 +110,7 @@
 
            <-----Modal Tambah-----> 
           <div class="modal fade" id="modal2" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);">
+<<<<<<< Updated upstream
           <div class="modal-dialog modal-dialog-centered modal-bottom-right modal-notify modal-info" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -117,6 +118,44 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
+=======
+            <div class="modal-dialog modal-dialog-centered modal-bottom-right modal-notify modal-info" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modal2Label" style="color:black;">Tambah Staff</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="Input2">Nama</label>
+                    <input type="name" class="form-control" id="Input2" placeholder="nama">
+                  </div>
+                  <div class="form-group">
+                    <label for="Input1">Email</label>
+                    <input type="email" class="form-control" id="Input1" placeholder="name@example.com">
+                  </div>
+                  <div class="form-group">
+                    <label for="Input3">No HP (Format:xxxxxxxxxxx)</label> 
+                    <input type="tel" class="form-control" id="Input3" pattern="^\d{10}$" required placeholder="08138239822">
+                  </div>
+                  <div class="form-group">
+                    <label for="Select1">Status</label>
+                    <select class="form-control" id="Select1">
+                      <option>Active</option>
+                      <option>Tidak Active</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="Input4">Username</label> 
+                    <input type="username" class="form-control" id="Input4" placeholder="username">
+                  </div>
+                  <div class="form-group">
+                    <label for="Input5">Password</label> 
+                    <input type="password" class="form-control" id="Input5" placeholder="password">
+>>>>>>> Stashed changes
                   </div>
                   <div class="modal-body">
                   <form>
