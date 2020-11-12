@@ -16,7 +16,6 @@ class CreateKerjasTable extends Migration
         Schema::create('kerjas', function (Blueprint $table) {
             $table->id();
             $table->string('kerja');
-            $table->timestamps();
         });
     }
 
