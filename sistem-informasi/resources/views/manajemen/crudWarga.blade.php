@@ -71,7 +71,7 @@
       </div>
       <div class="modal-body">
         
-        <form action="{{route('tambahWarga')}}" method="post">
+        <form action="" method="post">
         @csrf
         <div class="form-group">
           <label for="exampleFormControlInput2">NIK</label>
@@ -185,7 +185,7 @@
 
 <!-- Modal Tambah-->
 <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
@@ -195,23 +195,23 @@
       </div>
       <div class="modal-body">
         
-        <form action="">
+        <form action="{{route('tambahWarga')}}" method="post">
         @csrf
         <div class="form-group">
-          <label for="exampleFormControlInput2">NIK</label>
+          <label for="exampleFormControlInput2">Nomer Induk Kependudukan</label>
           <input type="nik" name="nik" class="form-control" id="exampleFormControlInput2" placeholder="NIK">
         </div>
 
         <div class="form-group">
             <label for="exampleFormControlInput3">Nama</label> 
-            <input type="nama_lengkap" name="nama" class="form-control" id="exampleFormControlInput3"  placeholder="Nama Lengkap">
+            <input type="nama_lengkap" name="nama_lengkap" class="form-control" id="exampleFormControlInput3"  placeholder="Nama Lengkap">
         </div>
 
           <div class="form-group">
             <label for="exampleFormControlSelect1">Jenis Kelamin</label>
             <select class="form-control" name="jenis_kelamin" id="exampleFormControlSelect1">
-              <option>Perempuan</option>
-              <option>Laki-laki</option>
+              <option>P</option>
+              <option>L</option>
             </select>
           </div> 
 
@@ -245,65 +245,11 @@
             <input type="kota" name="kota" class="form-control" id="exampleFormControlInput7"  placeholder="kota">
           </div>
 
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Status</label>
-            <select class="form-control" name="status" id="exampleFormControlSelect1">
-              <option>Active</option>
-              <option>Tidak Active</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-              <label for="exampleFormControlSelect2">RT</label>
-              <select class="form-control" id="exampleFormControlSelect2">
-                <option>1</option>
-                <option>2</option> 
-                <option>3</option>
-              </select>
-          </div>
-
-          <div class="form-group">
-            <label for="exampleFormControlSelect3">Agama</label>
-            <select class="form-control" id="exampleFormControlSelect3">
-              <option>Islam</option>
-              <option>Khatolik</option> 
-              <option>Hindu</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="exampleFormControlSelect4">Pendidikan</label>
-            <select class="form-control" id="exampleFormControlSelect4">
-              <option>SD</option>
-              <option>SMP</option> 
-              <option>SMA</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="exampleFormControlSelect3">Status Perwinan</label>
-            <select class="form-control" id="exampleFormControlSelect3">
-              <option>Menikah</option>
-              <option>Belum Menikah</option> 
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="exampleFormControlInput8">Created</label> 
-            <input type="date" class="form-control" id="exampleFormControlInput8"  placeholder="tempat_lahir">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleFormControlInput8">Updated</label> 
-            <input type="date" class="form-control" id="exampleFormControlInput8"  placeholder="tempat_lahir">
-          </div>
-
-        </form>
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Simpan</button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+        </form>
       </div>
     </div>
   </div>

@@ -17,27 +17,19 @@ class CreateWargasTable extends Migration
             $table->id();
             $table->string('nik',16);
             $table->string('nama_lengkap');
-            $table->boolean('jenis_kelamin');
+            $table->string('jenis_kelamin',1);
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->string('alamat');
             $table->string('kelurahan');
             $table->string('kecamatan');
             $table->string('kota');
-            $table->boolean('status');
-            $table->string('rw');
-            $table->foreignId('rt_id')
-            ->constrained('rts')
-            ->onDelete('cascade')->nullable();
-            $table->foreignId('agama_id')
-            ->constrained('agamas')
-            ->onDelete('cascade')->nullable();
-            $table->foreignId('kerja_id')
-            ->constrained('kerjas')
-            ->onDelete('cascade')->nullable();
-            $table->foreignId('satus_perkawinan_id')
-            ->constrained('kawins')
-            ->onDelete('cascade')->nullable();
+            $table->boolean('status')->default(true);
+            $table->string('rw')->default('02');
+            $table->string('rt',2)->nullable();
+            $table->string('agama_id')->nullable();
+            $table->string('kerja')->nullable();
+            $table->string('perkawinan')->nullable();
             $table->timestamps();
         });
     }
