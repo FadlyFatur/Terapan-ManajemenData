@@ -7,12 +7,17 @@
 
 @section('content')
 @if ($errors->any())
-  <div class="alert alert-danger">
-     <ul>
+  <div class="alert alert-danger alert-dismissible show fade">
+  <div class="alert-body">
+    <button class="close" data-dismiss="alert">
+      <span>×</span>
+    </button>
+    <ul>
         @foreach ($errors->all() as $error)
            <li>{{ $error }}</li>
         @endforeach
      </ul>
+  </div>
   </div>
 @endif
 
@@ -52,7 +57,7 @@
             <div class="form-group row mb-4">
               <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Deskripsi/Berita</label>
               <div class="col-sm-12 col-md-7">
-              <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3" placeholder="Masukan Deskripsi kegiatan atau acara" rows="10" cols="200" style="height: 300px;" required></textarea>
+              <textarea class="form-control" name="deskripsi" id="deskripsi" placeholder="Masukan Deskripsi kegiatan atau acara" style="height: 300px;" required></textarea>
               </div>
             </div>
 
@@ -106,9 +111,9 @@
                 @endif
                 <!-- <td></td> -->
                 <td>
-                    <a href="{{route('showAcara',['slug' => $a->slug])}}" target="_blank" class="btn btn-sm btn-outline-danger fas fa-eye">
-                    <a href="" class="btn btn-sm btn-outline-danger fa fa-edit">
-                    <a href="{{route('deleteAcara',['id' => $a->id])}}" class="btn btn-sm btn-outline-danger fa fa-trash">
+                <a href="{{route('showAcara',['slug' => $a->slug])}}" target="_blank" class="btn btn-sm btn-outline-danger"><i class="fas fa-eye"></i></a>
+                  <button data-toggle="modal" data-target="#edit-{{$a['id']}}" class="btn btn-sm btn-outline-danger"><i class="fa fa-edit"></i></button>
+                  <a href="{{route('deleteAcara',['id' => $a->id])}}" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></a>
                 </td>
               </tr>
             @endforeach
@@ -120,5 +125,8 @@
 @endsection
 
 @section('js')
-  <script src="js/editAcara.js"></script>
+<script src="../ckeditor/ckeditor.js"></script>
+  <script>
+  CKEDITOR.replace('deskripsi');
+  </script>
 @endsection

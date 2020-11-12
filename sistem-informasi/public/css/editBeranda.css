@@ -12,3 +12,13 @@
 p{
   color: black;
 }
+
+.container-fluid a{
+  color: white;
+}
+
+.header-img img{
+  max-width:50%;
+  height:auto;
+  margin-top: 16px;
+}

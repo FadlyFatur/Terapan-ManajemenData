@@ -10,31 +10,31 @@
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-search"></i> <span>Pencarian Data</span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="{{ route('cariWarga') }}">Data Warga</a></li>
+                  <li><a class="nav-link" href="{{ route('cariWarga') }}">Cek Warga</a></li>
                   <li><a class="nav-link" href="{{ route('Acara') }}">Acara/Kegiatan</a></li>
                 </ul>
               </li>
               <hr>
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Manajemen Data</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Pengelolaan Data</span></a>
                 <ul class="dropdown-menu">
-                <li><a class="nav-link" href="{{ route('crudWarga') }}">Tambah/Edit Data Warga</a></li>
-                  <li><a class="nav-link" href="{{ route('staff') }}">Tambah/Edit Data Staff</a></li>
+                <li><a class="nav-link" href="{{ route('crudWarga') }}">Data Warga</a></li>
+                  <li><a class="nav-link" href="{{ route('staff') }}">Data Staff</a></li>
                 </ul>
               </li>
               <hr>
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Manajemen Web</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Pengelolaan Website</span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="{{ route('editBeranda') }}">Data Beranda</a></li>
-                  <li><a class="nav-link" href="{{ route('editAcara') }}">Data Acara/Kegiatan</a></li>
+                  <li><a class="nav-link" href="{{ route('editBeranda') }}">Pengelolaan Beranda</a></li>
+                  <li><a class="nav-link" href="{{ route('editAcara') }}">Pengelolaan Acara</a></li>
                 </ul>
               </li>
               <hr>
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Profil</span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="{{ route('profil') }}">Data Profil</a></li>
+                  <li><a class="nav-link" href="{{ route('profil') }}">Sunting Profil</a></li>
                   <li><a class="nav-link" href="{{ route('reset') }}">Reset Password</a></li>
                 </ul>
               </li>

@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-
+//welcome
 @if (session('status'))
 <div class="card">
     <div class="card-header">{{ __('Dashboard') }}</div>
@@ -76,9 +76,9 @@
 <!-- news section -->
 <div class="container-fluid">
   <div class="d-flex justify-content-between">
-      <a href=""><h2 class="section-title">Acara/Kegiatan Masyarakat <i class="fas fa-chevron-right"></i></h2></a>
+      <a href="{{ route('Acara') }}"><h2 class="section-title">Acara/Kegiatan Masyarakat <i class="fas fa-chevron-right"></i></h2></a>
   </div>
-  @if (empty($data))
+  @if ($data->count() == 0)
   <div class="row d-flex justify-content-center">
     <div class="col">
       <div class="alert alert-danger text-center">
@@ -110,7 +110,7 @@
   </div>  
 </div>
   @endif
-  <hr>	
+  <hr>
 
 <!-- staff -->  
 <div class="container-fluid">

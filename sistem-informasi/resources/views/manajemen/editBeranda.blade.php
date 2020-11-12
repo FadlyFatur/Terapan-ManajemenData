@@ -6,104 +6,79 @@
 @endsection
 
 @section('content')
-
-  <!-- edit carousel -->
-  <h2 class="section-title">Edit Foto Header/Beranda</h2>
-  <div class="container d-flex justify-content-center">
-  <div class="row edit-foto">
-
-    <div class="col-md-4 mb-5">
-      <img src="https://images.pexels.com/photos/1379655/pexels-photo-1379655.jpeg?cs=srgb&dl=pexels-jonas-von-werne-1379655.jpg&fm=jpg" class="img-edit" alt="" srcset="">
-      <div class="footer-edit mt-1">
-      <button type="button" class="btn btn-primary" id="gambar1" data-toggle="modal" data-target="#gambar1">
-        Ganti
-      </button>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-5">
-      <img src="https://images.pexels.com/photos/2342406/pexels-photo-2342406.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" class="img-edit" alt="" srcset="">
-      <div class="footer-edit mt-1">
-      <button type="button" class="btn btn-primary" id="gambar2" data-toggle="modal" data-target="#gambar2">
-      Ganti
-      </button>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-5">
-      <img src="https://images.pexels.com/photos/2802809/pexels-photo-2802809.jpeg?cs=srgb&dl=pexels-keegan-checks-2802809.jpg&fm=jpg" class="img-edit" alt="" srcset="">
-      <div class="footer-edit mt-1">
-      <button type="button" class="btn btn-primary" id="gambar3" data-toggle="modal" data-target="#gambar3">
-        Ganti
-      </button>
-      </div>
-    </div>
-
+<div class="card">
+  <div class="card-header">
+    <h2 class="section-title">Pengelolaan Beranda</h2>
   </div>
-  </div>
-  <p>*Ukuran Foto min 500x1000 pixel</p>
-  <hr>
+  <div class="card-body">
 
-  <!-- edit kontak -->
-  <h2 class="section-title">Edit Informasi Kontak</h2>
-  <div class="card">
-    <form action="{{ route('updateBeranda') }}" method="POST">
-    @csrf
+    <div class="accordion" id="accordionExample">
+      <div class="container-fluid">
+        <div class="" id="headingOne">
+            <a class="btn btn-primary btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <i class="fas fa-plus"></i> Edit Kontak
+            </a>
+        </div>
 
-    @if (empty($data))
-    <div class="alert alert-danger">Data kosong/tidak ada.</div>
-    <div class="card-body">
-      <div class="form-group row">
-        <label for="inputEmail3" class="col-sm-3 col-form-label">Kontak</label>
-        <div class="col-sm-9">
-          <input type="Text" class="form-control" name="kontak" placeholder="Kontak" value="">
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="container mt-5">
+          <form action="{{ route('updateBeranda') }}" method="POST">
+            @csrf
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-3 col-form-label">Kontak</label>
+              <input type="Text" class="form-control" name="kontak" placeholder="Kontak" value="{{$data['kontak']}}">
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-3 col-form-label">Email</label>
+              <input type="Email" class="form-control" name="email"  placeholder="Email" value="{{$data['email']}}">
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-3 col-form-label">Alamat</label>
+              <input type="text" class="form-control" name="alamat" placeholder="Alamat Lengkap" value="{{$data['alamat']}}">
+            </div>
+            <div class="card-footer d-flex justify-content-center">       
+              <button type="submit" class="btn btn-primary mr-1">Submit</button>
+            </div>
+          </form>
+        </div>
         </div>
       </div>
-      <div class="form-group row">
-        <label for="inputPassword3" class="col-sm-3 col-form-label">Email</label>
-        <div class="col-sm-9">
-          <input type="Email" class="form-control" name="email"  placeholder="Email" value="">
+      <hr>
+      <div class="container-fluid">
+        <div class="" id="headingTwo">
+          <a class="btn btn-primary btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <i class="fas fa-plus"></i> Edit Foto Header
+          </a>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div class="container p-2">
+            <div class="header-img text-center">
+              <img src="https://images.pexels.com/photos/1379655/pexels-photo-1379655.jpeg?cs=srgb&dl=pexels-jonas-von-werne-1379655.jpg&fm=jpg" class="img-fluid" alt="" srcset="">
+              <div class="footer-edit mt-2 text-center">
+                <button type="button" class="btn btn-primary" id="gambar1" data-toggle="modal" data-target="#gambar1">
+                  Ganti
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="form-group row">
-        <label for="inputPassword3" class="col-sm-3 col-form-label">Alamat</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" name="alamat" placeholder="Alamat Lengkap" value="">
+      <hr>
+      <div class="container-fluid">
+        <div class="" id="headingThree">
+            <a class="btn btn-primary btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <i class="fas fa-plus"></i> Maintenance/Perawatan
+            </a>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+          <div class="card-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          </div>
         </div>
       </div>
     </div>
-    <div class="card-footer d-flex justify-content-center">       
-      <button type="submit" class="btn btn-primary mr-1">Submit</button>
-    </div>
-    </form>
-    @else 
-    <div class="card-body">
-      <div class="form-group row">
-        <label for="inputEmail3" class="col-sm-3 col-form-label">Kontak</label>
-        <div class="col-sm-9">
-          <input type="Text" class="form-control" name="kontak" placeholder="Kontak" value="{{$data['kontak']}}">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="inputPassword3" class="col-sm-3 col-form-label">Email</label>
-        <div class="col-sm-9">
-          <input type="Email" class="form-control" name="email"  placeholder="Email" value="{{$data['email']}}">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="inputPassword3" class="col-sm-3 col-form-label">Alamat</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" name="alamat" placeholder="Alamat Lengkap" value="{{$data['alamat']}}">
-        </div>
-      </div>
-    </div>
-    <div class="card-footer d-flex justify-content-center">       
-      <button type="submit" class="btn btn-primary mr-1">Submit</button>
-    </div>
-    </form>
-    @endif
   </div>
-  
+</div>  
 @endsection
   
 @section('modal')
