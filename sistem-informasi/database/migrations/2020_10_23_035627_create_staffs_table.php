@@ -18,14 +18,8 @@ class CreateStaffsTable extends Migration
             $table->string('nama');
             $table->string('no_hp');
             $table->string('alamat');
-            $table->string('status');
-            $table->foreignId('jabatan_id')
-            ->constrained('jabatans')
-            ->onDelete('cascade');
+            $table->boolean('status')->default(true);
             $table->timestamps();
-            $table->foreignId('user_id')
-            ->constrained('users')
-            ->onDelete('cascade');
         });
     }
 
