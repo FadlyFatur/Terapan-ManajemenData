@@ -26,7 +26,6 @@ Route::get('manajemen/data-warga', function (){
 
 Route::post('manajemen/tambahWarga/Post', 'crudWargaController@tambah')->name('tambahWarga');
 
-
 // route beranda
 Route::get('manajemen/Edit-beranda', 'berandaController@Index')->name('editBeranda');
 Route::post('manajemen/Edit-beranda/Post', 'berandaController@update')->name('updateBeranda');
@@ -39,11 +38,14 @@ Route::get('berita/{slug}', 'beritaController@show')->name('showAcara');
 Route::post('manajemen/kegiatan/post-kegiatan', 'beritaController@post')->name('post');
 Route::get('manajemen/kegiatan/{id}', 'beritaController@destroy')->name('deleteAcara');
 
-
+//staff
 Route::get('manajemen/staff', function (){
     return view('manajemen/editStaff'); 
 })->name('staff');
 
+Route::post('manajemen/tambahStaff/Post', 'crudWargaController@tambah')->name('tambahStaff');
+
+//editprofil
 Route::get('profil/edit', function (){
     return view('profil/editProfil'); 
 })->name('profil');
