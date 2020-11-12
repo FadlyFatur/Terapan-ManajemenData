@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-//welcome
+<!-- //welcome -->
 @if (session('status'))
 <div class="card">
     <div class="card-header">{{ __('Dashboard') }}</div>
@@ -14,7 +14,6 @@
             <div class="alert alert-success" role="alert">
                 {{ session('status') }}
             </div>
-
         {{ __('Selamat Datang!') }}
     </div>
 </div>

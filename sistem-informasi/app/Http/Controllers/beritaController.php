@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 
 class beritaController extends Controller
 {   
@@ -29,11 +30,17 @@ class beritaController extends Controller
         
         if ($request->hasFile('image')){
             if ($request->file('image')->isValid()) {
-                $validated = $request->validate([
+                $validator = Validator::make($request->all(), [
                     'judul' => 'string|max:200',
-                    'deskripsi'=> 'string|max:3500',
+                    'deskripsi'=> 'string|max:10000',
                     'image' => 'required|mimes:jpeg,png|max:5120',
                 ]);
+        
+                if ($validator->fails()) {
+                    return Redirect::back()
+                                ->withErrors($validator)
+                                ->withInput();
+                }
 
                 //upload file ke local storage
                     $name = $request->image->getClientOriginalName();
