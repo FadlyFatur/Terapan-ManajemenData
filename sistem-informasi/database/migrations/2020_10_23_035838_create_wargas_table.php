@@ -25,14 +25,12 @@ class CreateWargasTable extends Migration
             $table->string('kecamatan');
             $table->string('kota');
             $table->boolean('status');
+            $table->string('rw');
             $table->foreignId('rt_id')
             ->constrained('rts')
             ->onDelete('cascade');
             $table->foreignId('agama_id')
             ->constrained('agamas')
-            ->onDelete('cascade');
-            $table->foreignId('pendidikan_id')
-            ->constrained('pendidikans')
             ->onDelete('cascade');
             $table->foreignId('kerja_id')
             ->constrained('kerjas')

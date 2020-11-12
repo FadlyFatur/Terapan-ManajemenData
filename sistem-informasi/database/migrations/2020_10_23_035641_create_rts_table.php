@@ -16,10 +16,7 @@ class CreateRtsTable extends Migration
         Schema::create('rts', function (Blueprint $table) {
             $table->id();
             $table->string('nama_rt');
-            $table->foreignId('staff_id')
-            ->constrained('staffs')
-            ->onDelete('cascade');
-            $table->timestamps();
+            $table->string('ketua_rt');
         });
     }
 

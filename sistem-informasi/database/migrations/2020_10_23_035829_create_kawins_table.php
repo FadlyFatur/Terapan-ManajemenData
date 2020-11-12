@@ -16,7 +16,6 @@ class CreateKawinsTable extends Migration
         Schema::create('kawins', function (Blueprint $table) {
             $table->id();
             $table->string('status');
-            $table->timestamps();
         });
     }
 
