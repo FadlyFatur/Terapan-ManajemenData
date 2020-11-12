@@ -28,16 +28,16 @@ class CreateWargasTable extends Migration
             $table->string('rw');
             $table->foreignId('rt_id')
             ->constrained('rts')
-            ->onDelete('cascade');
+            ->onDelete('cascade')->nullable();
             $table->foreignId('agama_id')
             ->constrained('agamas')
-            ->onDelete('cascade');
+            ->onDelete('cascade')->nullable();
             $table->foreignId('kerja_id')
             ->constrained('kerjas')
-            ->onDelete('cascade');
+            ->onDelete('cascade')->nullable();
             $table->foreignId('satus_perkawinan_id')
             ->constrained('kawins')
-            ->onDelete('cascade');
+            ->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }

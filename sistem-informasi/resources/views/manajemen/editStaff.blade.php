@@ -119,99 +119,6 @@
   </div>
 </div>
 
-<<<<<<< HEAD
-           <-----Modal Tambah-----> 
-          <div class="modal fade" id="modal2" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);">
-<<<<<<< Updated upstream
-          <div class="modal-dialog modal-dialog-centered modal-bottom-right modal-notify modal-info" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="modal1Label" style="color:black;">Edit Staff</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-=======
-            <div class="modal-dialog modal-dialog-centered modal-bottom-right modal-notify modal-info" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="modal2Label" style="color:black;">Tambah Staff</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                <form>
-                  <div class="form-group">
-                    <label for="Input2">Nama</label>
-                    <input type="name" class="form-control" id="Input2" placeholder="nama">
-                  </div>
-                  <div class="form-group">
-                    <label for="Input1">Email</label>
-                    <input type="email" class="form-control" id="Input1" placeholder="name@example.com">
-                  </div>
-                  <div class="form-group">
-                    <label for="Input3">No HP (Format:xxxxxxxxxxx)</label> 
-                    <input type="tel" class="form-control" id="Input3" pattern="^\d{10}$" required placeholder="08138239822">
-                  </div>
-                  <div class="form-group">
-                    <label for="Select1">Status</label>
-                    <select class="form-control" id="Select1">
-                      <option>Active</option>
-                      <option>Tidak Active</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="Input4">Username</label> 
-                    <input type="username" class="form-control" id="Input4" placeholder="username">
-                  </div>
-                  <div class="form-group">
-                    <label for="Input5">Password</label> 
-                    <input type="password" class="form-control" id="Input5" placeholder="password">
->>>>>>> Stashed changes
-                  </div>
-                  <div class="modal-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="exampleFormControlInput2">Nama</label>
-                      <input type="name" class="form-control" id="exampleFormControlInput2" placeholder="nama">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleFormControlInput3">No HP (Format:xxxxxxxxxxx)</label> 
-                      <input type="tel" class="form-control" id="exampleFormControlInput3" pattern="^\d{10}$" required placeholder="08138239822">
-                    </div>
-                    <div class="form-group">
-                      <label>Alamat</label>
-                      <textarea class="form-control"></textarea>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleFormControlSelect1">Status</label>
-                      <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Active</option>
-                        <option>Tidak Active</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect2">Jabatan</label>
-                        <select class="form-control" id="exampleFormControlSelect2">
-                          <option>Ketua RW</option>
-                          <option>Ketua RT</option> 
-                          <option>Staff</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleFormControlSelect2">Nama User</label>
-                      <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Agus</option>
-                        <option>Agus 2</option> 
-                        <option>Agus 3</option>
-                      </select>
-                    </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">Simpan</button>
-                  </div>
-                </div>
-=======
 <!-- Modal -->
 <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -230,7 +137,6 @@
             <div class="form-group">
               <label for="exampleFormControlInput2">Nama</label>
               <input type="name" class="form-control" id="exampleFormControlInput2" placeholder="nama">
->>>>>>> 55d04623113082efea6a5decf3b2be66c21487d4
             </div>
             <div class="form-group">
               <label for="exampleFormControlInput3">No HP (Format:xxxxxxxxxxx)</label> 
