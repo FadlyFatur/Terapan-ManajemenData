@@ -11,10 +11,8 @@
 
   <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
   <link href="{{asset('fontawesome-free-5.15.1-web\css\all.css')}}" rel="stylesheet">
-  <link href="{{asset('css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet">
+  <!-- <link href="{{asset('css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet"> -->
   
-  
-
   <!-- CSS Libraries -->
 
   <!-- Template CSS -->
@@ -45,7 +43,7 @@
       
       <footer class="main-footer">
         <div class="footer-left">
-          Copyright &copy; 2020  |  Design By Tim Informatika Itenas  |  Template By <a href="https://getstisla.com/getting-started">STISLA</a> 
+          Copyright &copy; 2020  |  Created By Informatika Itenas  |  Template By <a href="https://getstisla.com/getting-started">STISLA</a> 
         </div>
         <div class="footer-right">
           RW 02, Kelurahan Sukapada, Kecamatan Cibeunying Kidul, Kota Bandung.

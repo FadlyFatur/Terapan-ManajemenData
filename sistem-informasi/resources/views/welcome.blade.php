@@ -20,56 +20,14 @@
 @endif
 
 <!-- image slider -->
-<div class="container-fluid">
-
-<div id="carouselExampleIndicators3" class="carousel slide carousel-fade" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators3" data-slide-to="0" class=""></li>
-    <li data-target="#carouselExampleIndicators3" data-slide-to="1" class=""></li>
-    <li data-target="#carouselExampleIndicators3" data-slide-to="2" class="active"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-interval="10000">
-      <img class="d-block w-100" src="https://images.pexels.com/photos/1379655/pexels-photo-1379655.jpeg?cs=srgb&dl=pexels-jonas-von-werne-1379655.jpg&fm=jpg" alt="First slide">
-      <div class="container-fluid caption-bar">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Sistem Manajemen Data Warga - RW 02 </h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="https://images.pexels.com/photos/2342406/pexels-photo-2342406.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Second slide">
-      <div class="container-fluid caption-bar">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Sistem Manajemen Data Warga - RW 02 </h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="https://images.pexels.com/photos/2802809/pexels-photo-2802809.jpeg?cs=srgb&dl=pexels-keegan-checks-2802809.jpg&fm=jpg" alt="Third slide">
-      <div class="container-fluid caption-bar">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Sistem Manajemen Data Warga - RW 02 </h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-      </div>
+<div class="container-fluid jumbo">
+  <div class="jumbotron" style="background-image: url(&quot;img/Register-photo.jpg&quot;) ">
+  <div class="container teks">
+    <!-- <hr class="my-4"> -->
+      <h1 class="display-4  align-text-bottom">Sistem Informasi Warga</h1>
+      <p class="lead align-text-bottom">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators3" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators3" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-  <hr>
 </div>
 
 <!-- news section -->
