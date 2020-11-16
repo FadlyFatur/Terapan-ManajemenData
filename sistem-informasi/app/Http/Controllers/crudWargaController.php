@@ -43,4 +43,25 @@ class crudWargaController extends Controller
         $warga->delete();
         return Redirect::back(); 
     }
+
+    public function update(Request $request, $id)
+    {
+        $warga = Warga::find($id);
+        $warga->nik = $request->nik;
+        $warga->nama_lengkap = $request->nama_lengkap;
+        $warga->jenis_kelamin = $request->jenis_kelamin;
+        $warga->tempat_lahir = $request->tempat_lahir;
+        $warga->tanggal_lahir = $request->tanggal_lahir;
+        $warga->alamat = $request->alamat;
+        $warga->kelurahan = $request->kelurahan;
+        $warga->kecamatan = $request->kecamatan;
+        $warga->kota = $request->kota;
+        $warga->rt = $request->rt;
+        $warga->agama_id = $request->agama;
+        $warga->kerja = $request->kerja;
+        $warga->perkawinan = $request->perkawinan;
+        $warga->update();
+
+        return Redirect::back();
+    }
 }
