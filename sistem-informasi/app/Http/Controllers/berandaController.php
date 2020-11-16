@@ -46,6 +46,30 @@ class berandaController extends Controller
 
     public function storeGambar(Request $request)
     {
+        $data = beranda::first();
+
+        if ($request->hasFile('gambar')) {
+            if ($request->gambar->isValid()) {
+                $validator = Validator::make($request->all(), [
+                    'gambar' => 'required|mimes:jpeg,png|max:5120',
+                ]);
+            
+            if ($validator->fails()) {
+                return Redirect::back()
+                            ->withErrors($validator)
+                            ->withInput();
+            }
+
+            $name = date("Ymd_"). $request->gambar->getClientOriginalName();
+            $url = $request->gambar->storeAs('public', $name);
+            
+            $data->foto = $name;
+            $data->url = $url;
+            $data->update();
+            return Redirect::back()->with(['sukses-update' => 'Data berhasil diupdate!']);
+            }
+        }
+        return Redirect::back()->with(['gagal-update' => 'Data berhasil diupdate!']);
 
     }
 }

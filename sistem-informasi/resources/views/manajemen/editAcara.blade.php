@@ -44,28 +44,6 @@
     </a>
 
     <div class="collapse p-3" id="tambah" data-parent="#myGroup">
-    @if ($message = Session::get('sukses-update'))
-    <div class="alert alert-success alert-dismissible show fade">
-      <div class="alert-body">
-        <button class="close" data-dismiss="alert">
-          <span>×</span>
-        </button>
-        Data Berhasil Disimpan.
-      </div>
-    </div>
-    @endif
-
-    @if ($message = Session::get('Gagal-update'))
-    <div class="alert alert-danger alert-dismissible show fade">
-      <div class="alert-body">
-        <button class="close" data-dismiss="alert">
-          <span>×</span>
-        </button>
-        Data Gagal Disimpan.
-      </div>
-    </div>
-    @endif
-
       <form class="m-2" method="post" action="{{route('post')}}" enctype="multipart/form-data">
         @csrf
         <div class="card-body">
@@ -111,6 +89,29 @@
     <div class="card-header">
       <h4>Data Acara/Kegiatan</h4>
     </div>
+
+    @if ($message = Session::get('sukses-update'))
+    <div class="alert alert-success alert-dismissible show fade">
+      <div class="alert-body">
+        <button class="close" data-dismiss="alert">
+          <span>×</span>
+        </button>
+        Data Berhasil Disimpan.
+      </div>
+    </div>
+    @endif
+
+    @if ($message = Session::get('Gagal-update'))
+    <div class="alert alert-danger alert-dismissible show fade">
+      <div class="alert-body">
+        <button class="close" data-dismiss="alert">
+          <span>×</span>
+        </button>
+        Data Gagal Disimpan.
+      </div>
+    </div>
+    @endif
+
       <div class="card-body">
         <div class="table-responsive">
           <table class="table table-sm">

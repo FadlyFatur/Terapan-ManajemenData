@@ -34,6 +34,28 @@
     </div>
     @endif
 
+    @if ($message = Session::get('sukses-update'))
+    <div class="alert alert-success alert-dismissible show fade">
+      <div class="alert-body">
+        <button class="close" data-dismiss="alert">
+          <span>×</span>
+        </button>
+        Data Berhasil Disimpan.
+      </div>
+    </div>
+    @endif
+
+    @if ($message = Session::get('Gagal-update'))
+    <div class="alert alert-danger alert-dismissible show fade">
+      <div class="alert-body">
+        <button class="close" data-dismiss="alert">
+          <span>×</span>
+        </button>
+        Data Gagal Disimpan.
+      </div>
+    </div>
+    @endif
+
     <div class="accordion" id="accordionExample">
       <div class="container-fluid">
         <div class="" id="headingOne">
@@ -123,14 +145,13 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+          <button type="submit" class="btn btn-primary">Update!</button>
         </div>
       </form>
     </div>
   </div>
 </div>
-
 @endsection
 
 @section('js')

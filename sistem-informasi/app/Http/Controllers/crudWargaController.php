@@ -47,6 +47,13 @@ class crudWargaController extends Controller
     public function update(Request $request, $id)
     {
         $warga = Warga::find($id);
+        // dd($request->all());
+        if ($request->status == "Aktif"){
+            $status = 1;
+        }else{
+            $status = 0;
+        }
+
         $warga->nik = $request->nik;
         $warga->nama_lengkap = $request->nama_lengkap;
         $warga->jenis_kelamin = $request->jenis_kelamin;
@@ -56,10 +63,12 @@ class crudWargaController extends Controller
         $warga->kelurahan = $request->kelurahan;
         $warga->kecamatan = $request->kecamatan;
         $warga->kota = $request->kota;
+        $warga->status = $status;
         $warga->rt = $request->rt;
         $warga->agama_id = $request->agama;
         $warga->kerja = $request->kerja;
-        $warga->perkawinan = $request->perkawinan;
+        $warga->perkawinan = $request->kawin;
+
         $warga->update();
 
         return Redirect::back();
