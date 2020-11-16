@@ -1,7 +1,9 @@
 @extends('layout.main')
 @section('title','Data Warga RW 02')
 @section('halaman','Data Warga RW02')
-
+@section('css')
+<link rel="stylesheet" href="{{ URL::asset('css/crudWarga.css') }}">
+@endsection
 @section('content')
 <div class="container mt-5">
 <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal2"><i class="fa fa-plus"></i> Data Warga</a> 
@@ -36,7 +38,27 @@
               </tr>
             </thead>
             <tbody>
-              <tr style="color:black; text-align:center; font-size:13px;"">
+            @foreach($wargas as $a)
+              <tr>
+                <td>{{$no++}}</td>
+                <td>{{ $a['nik'] }}</td>
+                <td>{{ $a['nama_lengkap'] }}</td>
+                <td>{{ $a['jenis_kelamin'] }}</td>
+                <td>{{ $a['alamat'] }}</td>
+                <td>{{ $a['rt'] }}</td>
+                @if ($a['status'] != 0)
+                <td><div class="badge badge-success">Aktif</div></td>
+                @else
+                <td><div class="badge badge-success">Non-Aktif</div></td>
+                @endif
+                <!-- <td></td> -->
+                <td>
+                <a href="#" type="button" class="btn btn-sm btn-outline-primary fa fa-edit" data-toggle="modal" data-target="#modal1"></a>
+                <a href="{{route('deleteWarga',['id'=>$a->id])}}" class="btn btn-sm btn-outline-danger fa fa-trash">
+                </td>
+              </tr>
+            @endforeach
+              <!-- <tr style="color:black; text-align:center; font-size:13px;"">
                 <td>1</td>
                 <td>12335577</td>
                 <td>Cindy Mawar Kasih</td>
@@ -50,7 +72,7 @@
                   <a href="#" type="button" class="btn btn-sm btn-outline-primary fa fa-edit" data-toggle="modal" data-target="#modal1"></a>
                   <a href="#" class="btn btn-sm btn-outline-danger fa fa-trash">
                 </td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
     </div>
@@ -75,12 +97,12 @@
         @csrf
         <div class="form-group">
           <label for="exampleFormControlInput2">NIK</label>
-          <input type="nik" class="form-control" id="exampleFormControlInput2" placeholder="NIK">
+          <input type="nik" class="form-control" id="exampleFormControlInput2" placeholder="NIK" value="">
         </div>
 
         <div class="form-group">
             <label for="exampleFormControlInput3">Nama</label> 
-            <input type="nama_lengkap" class="form-control" id="exampleFormControlInput3"  placeholder="Nama Lengkap">
+            <input type="nama_lengkap" class="form-control" id="exampleFormControlInput3"  placeholder="Nama Lengkap" value="">
         </div>
 
           <div class="form-group">
@@ -148,11 +170,11 @@
           </div>
 
           <div class="form-group">
-            <label for="exampleFormControlSelect4">Pendidikan</label>
+            <label for="exampleFormControlSelect4">Pekerjaan</label>
             <select class="form-control" id="exampleFormControlSelect4">
-              <option>SD</option>
-              <option>SMP</option> 
-              <option>SMA</option>
+              <option>Pelajar/Mahasiswa</option>
+              <option>Buruh</option> 
+              <option>Belum Bekerja</option>
             </select>
           </div>
 
@@ -164,7 +186,7 @@
             </select>
           </div>
 
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="exampleFormControlInput8">Created</label> 
             <input type="date" class="form-control" id="exampleFormControlInput8"  placeholder="tempat_lahir">
           </div>
@@ -172,7 +194,7 @@
           <div class="form-group">
             <label for="exampleFormControlInput8">Updated</label> 
             <input type="date" class="form-control" id="exampleFormControlInput8"  placeholder="tempat_lahir">
-          </div>
+          </div> -->
       </div>
       <div class="modal-footer">
         <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
@@ -244,6 +266,42 @@
             <label for="exampleFormControlInput7">Kota</label> 
             <input type="kota" name="kota" class="form-control" id="exampleFormControlInput7"  placeholder="kota">
           </div>
+
+          <div class="form-group">
+              <label for="exampleFormControlSelect2">RT</label>
+              <select class="form-control" id="exampleFormControlSelect2" name="rt">
+                <option>1</option>
+                <option>2</option> 
+                <option>3</option>
+              </select>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleFormControlSelect3">Agama</label>
+            <select class="form-control" id="exampleFormControlSelect3" name="agama">
+              <option>Islam</option>
+              <option>Khatolik</option> 
+              <option>Hindu</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleFormControlSelect4">Pekerjaan</label>
+            <select class="form-control" id="exampleFormControlSelect4" name="kerja">
+              <option>Pelajar/Mahasiswa</option>
+              <option>Buruh</option> 
+              <option>Belum Bekerja</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleFormControlSelect3">Status Perwinan</label>
+            <select class="form-control" id="exampleFormControlSelect3" name="perkawinan">
+              <option>Menikah</option>
+              <option>Belum Menikah</option> 
+            </select>
+          </div>
+
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Simpan</button>

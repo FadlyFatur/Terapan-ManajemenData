@@ -20,11 +20,10 @@ Route::get('pencarian/warga', function (){
 })->name('cariWarga');
 
 //route crud warga
-Route::get('manajemen/data-warga', function (){
-   return view('manajemen/crudWarga'); 
-})->name('crudWarga');
+Route::get('manajemen/data-warga', 'crudWargaController@index')->name('crudWarga');
 
 Route::post('manajemen/tambahWarga/Post', 'crudWargaController@tambah')->name('tambahWarga');
+Route::get('manajemen/crudwarga/delete/{id}', 'crudWargaController@delete')->name('deleteWarga');
 
 // route beranda
 Route::get('manajemen/Edit-beranda', 'berandaController@Index')->name('editBeranda');

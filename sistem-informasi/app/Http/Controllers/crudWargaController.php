@@ -20,9 +20,27 @@ class crudWargaController extends Controller
         $warga->kelurahan = $request->kelurahan;
         $warga->kecamatan = $request->kecamatan;
         $warga->kota = $request->kota;
+        $warga->rt = $request->rt;
+        $warga->agama_id = $request->agama;
+        $warga->kerja = $request->kerja;
+        $warga->perkawinan = $request->perkawinan;
         $warga->save();
 
         return Redirect::back();
 
+    }
+
+    public function index()
+    {
+        $wargas = warga::all()->sortByDesc('rt');
+        return view('manajemen.crudWarga',compact('wargas'))->with('no', 1);
+
+    }
+
+    public function delete($id)
+    {
+        $warga = warga::find($id);
+        $warga->delete();
+        return Redirect::back(); 
     }
 }
