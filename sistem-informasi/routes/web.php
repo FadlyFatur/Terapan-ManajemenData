@@ -35,7 +35,8 @@ Route::get('manajemen/kegiatan', 'beritaController@adminIndex')->name('editAcara
 Route::get('berita', 'beritaController@Index')->name('Acara');
 Route::get('berita/{slug}', 'beritaController@show')->name('showAcara');
 Route::post('manajemen/kegiatan/post-kegiatan', 'beritaController@post')->name('post');
-Route::get('manajemen/kegiatan/{id}', 'beritaController@destroy')->name('deleteAcara');
+Route::get('manajemen/kegiatan/delete/{id}', 'beritaController@destroy')->name('deleteAcara');
+Route::post('manajemen/kegiatan/update/{id}', 'beritaController@update')->name('updateAcara');
 
 Route::get('manajemen/staff', function (){
     return view('manajemen/editStaff'); 

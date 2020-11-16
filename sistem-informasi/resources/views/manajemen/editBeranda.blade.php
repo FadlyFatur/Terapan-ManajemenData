@@ -11,6 +11,28 @@
     <h2 class="section-title">Pengelolaan Beranda</h2>
   </div>
   <div class="card-body">
+  
+  @if ($message = Session::get('sukses'))
+    <div class="alert alert-success alert-dismissible show fade">
+      <div class="alert-body">
+        <button class="close" data-dismiss="alert">
+          <span>×</span>
+        </button>
+        Data Berhasil Disimpan.
+      </div>
+    </div>
+    @endif
+
+    @if ($message = Session::get('gagal'))
+    <div class="alert alert-danger alert-dismissible show fade">
+      <div class="alert-body">
+        <button class="close" data-dismiss="alert">
+          <span>×</span>
+        </button>
+        Gagal disimpan.
+      </div>
+    </div>
+    @endif
 
     <div class="accordion" id="accordionExample">
       <div class="container-fluid">

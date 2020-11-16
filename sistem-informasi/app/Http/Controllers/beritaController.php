@@ -77,4 +77,53 @@ class beritaController extends Controller
             return Redirect::back()->with('gagal-delete','Data berhasil dihapus!');
         }
     }
+
+    public function update(Request $request, $id)
+    {
+        $data = acara::find($id);
+        try {
+            if ($request->hasFile('imageUpdate')) {
+                if ($request->imageUpdate->isValid()) {
+                    $validator = Validator::make($request->all(), [
+                        'judul' => 'string|max:200',
+                        'deskripsi'=> 'string|max:10000',
+                        'imageUpdate' => 'required|mimes:jpeg,png|max:5500',
+                    ]);
+                
+                if ($validator->fails()) {
+                    return Redirect::back()
+                                ->withErrors($validator)
+                                ->withInput();
+                }
+
+                Storage::delete($data->url);
+
+                 //upload file ke local storage
+                 $name = date("Ymd_"). $request->imageUpdate->getClientOriginalName();
+                 $url = $request->imageUpdate->storeAs('acara', $name);
+
+                $data->slug = Str::slug($request->judul);
+                $data->judul = $request->judul;
+                $data->deskripsi = $request->deskripsi;
+                $data->foto = $name;
+                $data->url = $url;
+                
+                $data->update();
+                return Redirect::back()->with(['sukses-update' => 'Data berhasil diupdate!']);
+
+                }
+            }
+
+            $slug = Str::slug($request->judul);
+            $data->slug = $slug;
+            $data->judul = $request->judul;
+            $data->deskripsi = $request->deskripsi;
+            
+            $data->update();
+            return Redirect::back()->with('sukses-update','Data berhasil diupdate!');  
+            
+        } catch (\Throwable $th) {
+            return Redirect::back()->with('gagal-update','Data gagal diupdate!');
+        }
+    }
 }
