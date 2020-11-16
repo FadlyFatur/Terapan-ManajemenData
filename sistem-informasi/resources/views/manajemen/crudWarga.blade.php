@@ -58,21 +58,6 @@
                 </td>
               </tr>
             @endforeach
-              <!-- <tr style="color:black; text-align:center; font-size:13px;"">
-                <td>1</td>
-                <td>12335577</td>
-                <td>Cindy Mawar Kasih</td>
-                <td>P</td>
-                <td>Bandung</td>
-                <td>02</td>
-                <td>
-                  <div class="badge badge-pill badge-success">Active</div>
-                </td>
-                <td>
-                  <a href="#" type="button" class="btn btn-sm btn-outline-primary fa fa-edit" data-toggle="modal" data-target="#modal1"></a>
-                  <a href="#" class="btn btn-sm btn-outline-danger fa fa-trash">
-                </td>
-              </tr> -->
             </tbody>
           </table>
     </div>
@@ -207,7 +192,7 @@
 
 <!-- Modal Tambah-->
 <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl" role="document">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
