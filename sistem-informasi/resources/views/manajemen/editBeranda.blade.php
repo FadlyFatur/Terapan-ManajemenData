@@ -34,28 +34,6 @@
     </div>
     @endif
 
-    @if ($message = Session::get('sukses-update'))
-    <div class="alert alert-success alert-dismissible show fade">
-      <div class="alert-body">
-        <button class="close" data-dismiss="alert">
-          <span>×</span>
-        </button>
-        Data Berhasil Disimpan.
-      </div>
-    </div>
-    @endif
-
-    @if ($message = Session::get('Gagal-update'))
-    <div class="alert alert-danger alert-dismissible show fade">
-      <div class="alert-body">
-        <button class="close" data-dismiss="alert">
-          <span>×</span>
-        </button>
-        Data Gagal Disimpan.
-      </div>
-    </div>
-    @endif
-
     <div class="accordion" id="accordionExample">
       <div class="container-fluid">
         <div class="" id="headingOne">
@@ -88,7 +66,7 @@
         </div>
       </div>
       <hr>
-      <div class="container-fluid">
+      <!-- <div class="container-fluid">
         <div class="" id="headingTwo">
           <a class="btn btn-primary btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
             <i class="fas fa-plus"></i> Edit Foto Header
@@ -107,7 +85,7 @@
           </div>
         </div>
       </div>
-      <hr>
+      <hr> -->
       <div class="container-fluid">
         <div class="" id="headingThree">
             <a class="btn btn-primary btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -115,8 +93,19 @@
             </a>
         </div>
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-          <div class="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          <div class="card-body d-flex justify-content-center">
+           
+          <!-- Default switch -->
+          <div class="onoffswitch3">
+              <input type="checkbox" name="onoffswitch3" class="onoffswitch3-checkbox" id="myonoffswitch3" checked="">
+              <label class="onoffswitch3-label" for="myonoffswitch3">
+                  <span class="onoffswitch3-inner">
+                      <span class="onoffswitch3-active"><span class="onoffswitch3-switch">Aktif</span></span>
+                      <span class="onoffswitch3-inactive"><span class="onoffswitch3-switch">Non Aktif</span></span>
+                  </span>
+              </label>
+          </div>
+
           </div>
         </div>
       </div>
