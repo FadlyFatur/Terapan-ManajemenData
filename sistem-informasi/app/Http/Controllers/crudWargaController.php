@@ -77,15 +77,16 @@ class crudWargaController extends Controller
     public function cari(Request $request)
 	{
 		// menangkap data pencarian
-		$cari = $request->cari;
+        //$cari = $request->get('cari');
+        $cari = $request->cari;
  
     		// mengambil data dari table pegawai sesuai pencarian data
-		$warga = DB::table('wargas')
-		->where('nama_lengkap','like',"%".$cari."%")
-		->paginate();
+		$warga = DB::table('wargas')->where('nama_lengkap','like',"%".$cari."%")->paginate(10);
+        //$warga = wargas::where('nama_lengkap','LIKE','%'.$cari.'%')->paginate();
  
     		// mengirim data pegawai ke view index
-		return view('index',['wargas' => $warga]);
+        return view('index',['warga' => $warga]);
+        //return view('index', compact('wargas'));
  
 	}
 }

@@ -12,11 +12,24 @@
         <div class="row"> 
           <div class="card-header">
             <h4>Data Warga RW.02 Pelita</h4>
-              <form class="card-header-form" action="/warga/cari" method="GET" >
+            <div class="col-md-4">
+              
+                <form class="card-header-form" action="manajemen/crudwarga/cari" role="cari" method="GET">
+                <!-- <div class="input-group custom-search-form">
+                    <input type="text" class="form-control" name="cari" placeholder="Cari..">
+                    <span class="input-group-btn">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i> Cari</button>
+                      <span>
+                    <span>
+                <div>
+                </form> -->
+                <!-- </div> -->
+              <!-- <form class="card-header-form" action="/warga/cari" method="GET" > -->
                 <div class="input-group">
-                  <input type="text" name="cari" class="form-control"  placeholder="Cari Pegawai .." value="{{ old('cari') }}">
+                  <input type="text" name="cari" class="form-control"  placeholder="Cari Warga.." value="{{ old('cari') }}">
                   <div class="input-group-btn">
-                    <button value="cari" class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button>
+                    <button value="cari" name="cari" class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button>
                   </div>
                 </div>
               </form>
