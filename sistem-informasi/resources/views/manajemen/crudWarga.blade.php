@@ -12,11 +12,11 @@
         <div class="row"> 
           <div class="card-header">
             <h4>Data Warga RW.02 Pelita</h4>
-              <form class="card-header-form">
+              <form class="card-header-form" action="/warga/cari" method="GET" >
                 <div class="input-group">
-                  <input type="text" name="search" class="form-control" placeholder="Search">
+                  <input type="text" name="cari" class="form-control"  placeholder="Cari Pegawai .." value="{{ old('cari') }}">
                   <div class="input-group-btn">
-                    <button class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button>
+                    <button value="cari" class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button>
                   </div>
                 </div>
               </form>
