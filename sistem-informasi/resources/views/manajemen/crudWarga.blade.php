@@ -1,77 +1,75 @@
 @extends('layout.main')
 @section('title','Data Warga RW 02')
 @section('halaman','Data Warga RW02')
+
 @section('css')
-<link rel="stylesheet" href="{{ URL::asset('css/crudWarga.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('css/crudWarga.css') }}">
 @endsection
+
 @section('content')
-<div class="container mt-5">
-<a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal2"><i class="fa fa-plus"></i> Data Warga</a> 
-  <div class="card">
-			<div class="card-body">
-        <div class="row"> 
-          <div class="card-header">
-            <h4>Data Warga RW.02 Pelita</h4>
-            <div class="col-md-4">
-              
+  <div class="container mt-5">
+  <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal2"><i class="fa fa-plus"></i> Data Warga</a> 
+    <div class="card">
+        <div class="card-body">
+
+          <div class="row">
+            <div class="card-header">
+              <h4>Warga RW.02 Pelita</h4>
+
                 <form class="card-header-form" action="{{ route('cariWarga-edit') }}" role="cari" method="GET">
-                <div class="input-group custom-search-form">
-                    <input type="text" class="form-control" name="cari" placeholder="Cari.." value="{{ old('cari') }}">
-                    <span class="input-group-btn">
-                      <span class="input-group-btn">
-                      <button value="cari" name="cari" class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button>
-                      </span>
-                    </span>
-                </div>
+                  <div class="input-group">
+                    <input type="text" name="cari" class="form-control" placeholder="cari...">
+                    <div class="input-group-btn">
+                      <button class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
                 </form>
             </div>
           </div>
-        </div>
-      
-          <!-- table -->
-          <table class="table table-md table-bordered table-striped table-hover">
-            <thead>
-              <tr style="color:black; text-align:center; font-size:13px;"> 
-                <th>No</th>
-                <th>NIK</th>
-                <th>Nama Lengkap</th>
-                <th>Jenis Kelamin</th>
-                <th>Alamat</th>
-                <th>RT</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-            @foreach($wargas as $a)
-              <tr>
-                <td>{{$no++}}</td>
-                <td>{{ $a['nik'] }}</td>
-                <td>{{ $a['nama_lengkap'] }}</td>
-                <td>{{ $a['jenis_kelamin'] }}</td>
-                <td>{{ $a['alamat'] }}</td>
-                <td>{{ $a['rt'] }}</td>
-                @if ($a['status'] != 0)
-                <td><div class="badge badge-success">Aktif</div></td>
-                @else
-                <td><div class="badge badge-success">Non-Aktif</div></td>
-                @endif
-                <!-- <td></td> -->
-                <td>
-                <a href="#" type="button" class="btn btn-sm btn-outline-primary fa fa-edit" data-toggle="modal" data-target="#edit-{{$a['id']}}"></a>
-                <a href="{{route('deleteWarga',['id'=>$a->id])}}" class="btn btn-sm btn-outline-danger fa fa-trash">
-                </td>
-              </tr>
-            @endforeach
-            </tbody>
-          </table>
+        
+            <!-- table -->
+            <table class="table table-md table-bordered table-striped table-hover">
+              <thead>
+                <tr style="color:black; text-align:center; font-size:13px;"> 
+                  <th>No</th>
+                  <th>NIK</th>
+                  <th>Nama Lengkap</th>
+                  <th>Jenis Kelamin</th>
+                  <th>Alamat</th>
+                  <th>RT</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+              @foreach($wargas as $a)
+                <tr>
+                  <td>{{$no++}}</td>
+                  <td>{{ $a['nik'] }}</td>
+                  <td>{{ $a['nama_lengkap'] }}</td>
+                  <td>{{ $a['jenis_kelamin'] }}</td>
+                  <td>{{ $a['alamat'] }}</td>
+                  <td>{{ $a['rt'] }}</td>
+                  @if ($a['status'] != 0)
+                  <td><div class="badge badge-success">Aktif</div></td>
+                  @else
+                  <td><div class="badge badge-success">Non-Aktif</div></td>
+                  @endif
+                  <td>
+                  <a href="#" type="button" class="btn btn-sm btn-outline-primary fa fa-edit" data-toggle="modal" data-target="#edit-{{$a['id']}}"></a>
+                  <a href="{{route('deleteWarga',['id'=>$a->id])}}" class="btn btn-sm btn-outline-danger fa fa-trash">
+                  </td>
+                </tr>
+              @endforeach
+              </tbody>
+            </table>
+      </div>
     </div>
   </div>
-</div>
 @endsection
 
 @section('modal')
-<!-- Modal Edit-->
+  <!-- Modal Edit-->
   @foreach ($wargas as $a)
     <div class="modal fade" id="edit-{{$a['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -190,7 +188,7 @@
   @endforeach
 
 
-<!-- Modal Tambah-->
+  <!-- Modal Tambah-->
   <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
