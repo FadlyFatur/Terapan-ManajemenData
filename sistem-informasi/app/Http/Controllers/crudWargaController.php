@@ -47,7 +47,7 @@ class crudWargaController extends Controller
     public function update(Request $request, $id)
     {
         $warga = Warga::find($id);
-        // dd($request->all());
+
         if ($request->status == "Aktif"){
             $status = 1;
         }else{
@@ -76,16 +76,18 @@ class crudWargaController extends Controller
 
     public function cari(Request $request)
 	{
-		// menangkap data pencarian
-        //$cari = $request->get('cari');
         $cari = $request->cari;
+        $wargas = Warga::where('nama_lengkap', $cari)->get();
+
+        // Return Redirect::back()->with(compact('wargas'));
+        return view('manajemen.crudWarga',compact('wargas'));
  
-    		// mengambil data dari table pegawai sesuai pencarian data
-		$warga = DB::table('wargas')->where('nama_lengkap','like',"%".$cari."%")->paginate(10);
+    		// mengambil data dari table pegawai     sesuai pencarian data
+		// $warga = DB::table('wargas')->where('nama_lengkap','like',"%".$cari."%")->paginate(10);
         //$warga = wargas::where('nama_lengkap','LIKE','%'.$cari.'%')->paginate();
  
     		// mengirim data pegawai ke view index
-        return view('index',['warga' => $warga]);
+        // return view('index',['warga' => $warga]);
         //return view('index', compact('wargas'));
  
 	}

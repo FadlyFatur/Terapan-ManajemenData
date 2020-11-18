@@ -14,29 +14,21 @@
             <h4>Data Warga RW.02 Pelita</h4>
             <div class="col-md-4">
               
-                <form class="card-header-form" action="manajemen/crudwarga/cari" role="cari" method="GET">
-                <!-- <div class="input-group custom-search-form">
-                    <input type="text" class="form-control" name="cari" placeholder="Cari..">
+                <form class="card-header-form" action="{{ route('cariWarga-edit') }}" role="cari" method="GET">
+                <div class="input-group custom-search-form">
+                    <input type="text" class="form-control" name="cari" placeholder="Cari.." value="{{ old('cari') }}">
                     <span class="input-group-btn">
                       <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i> Cari</button>
-                      <span>
-                    <span>
-                <div>
-                </form> -->
-                <!-- </div> -->
-              <!-- <form class="card-header-form" action="/warga/cari" method="GET" > -->
-                <div class="input-group">
-                  <input type="text" name="cari" class="form-control"  placeholder="Cari Warga.." value="{{ old('cari') }}">
-                  <div class="input-group-btn">
-                    <button value="cari" name="cari" class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button>
-                  </div>
+                      <button value="cari" name="cari" class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button>
+                      </span>
+                    </span>
                 </div>
-              </form>
+                </form>
+            </div>
           </div>
         </div>
       
-          <-----Table---->
+          <!-- table -->
           <table class="table table-md table-bordered table-striped table-hover">
             <thead>
               <tr style="color:black; text-align:center; font-size:13px;"> 
@@ -76,7 +68,7 @@
     </div>
   </div>
 </div>
-`@endsection`
+@endsection
 
 @section('modal')
 <!-- Modal Edit-->
