@@ -13,7 +13,8 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(userTableSeeder::class);
         // factory(App\User::class, 10)->create();
-        factory(App\kegiatan::class, 20)->create();
+        factory(App\acara::class, 50)->create();
+        factory(App\warga::class, 50)->create();
         // factory(App\beranda::class)->create();
     }
 }
