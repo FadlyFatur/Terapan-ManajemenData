@@ -27,6 +27,7 @@ Route::get('manajemen/crudwarga/delete/{id}', 'crudWargaController@delete')->nam
 Route::post('manajemen/crudwarga/update/{id}', 'crudWargaController@update')->name('updateWarga');
 Route::get('manajemen/crudwarga/cari/', 'crudWargaController@cari')->name('cariWarga-edit');
 
+
 // route beranda
 Route::get('manajemen/Edit-beranda', 'berandaController@Index')->name('editBeranda');
 Route::post('manajemen/Edit-beranda/Post', 'berandaController@update')->name('updateBeranda');

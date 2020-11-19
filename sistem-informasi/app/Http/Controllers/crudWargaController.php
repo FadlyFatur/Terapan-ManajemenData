@@ -76,12 +76,64 @@ class crudWargaController extends Controller
 
     public function cari(Request $request)
 	{
-        $cari = $request->cari;
-        $warga = warga::where('nama_lengkap', 'LIKE', "%$cari%")
-                //   ->orWhere('customer.phone', 'LIKE', "%$findcustomer%")
-                  ->get();
+        // $cari = $request->cari;
+        // $warga = warga::where('nama_lengkap', 'LIKE', "%$cari%")
+        //         //   ->orWhere('customer.phone', 'LIKE', "%$findcustomer%")
+        //           ->get();
 
-        return view('manajemen.crudWarga',['wargas' => $warga])->with('no', 1);
+        // return view('manajemen.crudWarga',['wargas' => $warga])->with('no', 1);
+
+        if($request->ajax())
+     {
+      $output = '';
+      $query = $request->get('query');
+      if($query != '')
+      {
+       $wargas = DB::table('wargas')
+         ->where('nik', 'like', '%'.$query.'%')
+         ->orWhere('nama_lengkap', 'like', '%'.$query.'%')
+         ->orWhere('rt', 'like', '%'.$query.'%')
+         ->orderBy('id', 'desc')
+         ->get();
+         
+      }
+      else
+      {
+       $wargas = DB::table('wargas')
+         ->orderBy('id', 'desc')
+         ->get();
+      }
+      $total_row = $wargas->count();
+      if($total_row > 0)
+      {
+       foreach($wargas as $row)
+       {
+        $output .= '
+        <tr>
+         <td>'.$row->nik.'</td>
+         <td>'.$row->nama_lengkap.'</td>
+         <td>'.$row->jenis_kelamin.'</td>
+         <td>'.$row->alamat.'</td>
+         <td>'.$row->rt.'</td>
+        </tr>
+        ';
+       }
+      }
+      else
+      {
+       $output = '
+       <tr>
+        <td align="center" colspan="5">No Data Found</td>
+       </tr>
+       ';
+      }
+    //   $wargas = array(
+    //    'table_data'  => $output,
+    //    'total_data'  => $total_row
+    //   );
+
+      echo json_encode($wargas);
+     }
+    }
       
-	}
 }

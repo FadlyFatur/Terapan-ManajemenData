@@ -18,9 +18,9 @@
 
                 <form class="card-header-form" action="{{ route('cariWarga-edit') }}" role="cari" method="GET">
                   <div class="input-group">
-                    <input type="text" name="cari" class="form-control" placeholder="cari...">
+                    <input type="text" name="cari" id="cari" class="form-control" placeholder="cari...">
                     <div class="input-group-btn">
-                      <button class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button>
+                      <!-- <button class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button> -->
                     </div>
                   </div>
                 </form>
@@ -66,7 +66,33 @@
       </div>
     </div>
   </div>
-@endsection
+            <script>
+          $(document).ready(function(){
+
+          cari();
+
+          function cari(query = '')
+          {
+            $.ajax({
+            url:"{{ route('cariWarga-edit') }}",
+            method:'GET',
+            wargas:{query:query},
+            wargasType:'json',
+            success:function(wargas)
+            {
+              // $('tbody').html(wargas.wargas);
+              // $('#total_records').text(data.total_data);
+            }
+            })
+          }
+
+          $(document).on('keyup', '#search', function(){
+            var query = $(this).val();
+            cari(query);
+          });
+          });
+          </script>
+          @endsection
 
 @section('modal')
   <!-- Modal Edit-->
