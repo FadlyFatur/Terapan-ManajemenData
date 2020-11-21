@@ -10,29 +10,20 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
-
 class beritaController extends Controller
 {   
     // menampilkan berita di halaman berita
     public function Index()
     {
-        $data = acara::where('status', '1')->orderBy('created_at', 'desc')->paginate(30);
+        $data = acara::all()->sortByDesc('created_at');
         return view('berita.listBerita',compact('data'));
         
     }
 
     // menampilkan list berita di halaman admin 
-    public function adminIndex(Request $request){
-        $cari = $request->cari;
-        
-        if($cari){
-            $data = acara::where('judul', 'like', '%'. $request->cari.'%')->paginate(20);
-            $total_data = $data->count();
-        }else{
-            $data = acara::orderBy('created_at', 'desc')->paginate(20);
-            $total_data = $data->count();
-        }
-        return view('manajemen.editAcara', compact('data','total_data'));
+    public function adminIndex(){
+        $data = acara::all()->sortByDesc('created_at');
+        return view('manajemen.editAcara', compact('data'))->with('no', 1);
     }
 
     public function post(Request $request){
@@ -134,21 +125,5 @@ class beritaController extends Controller
         } catch (\Throwable $th) {
             return Redirect::back()->with('gagal-update','Data gagal diupdate!');
         }
-    }
-
-    public function aktif(request $request, $id)
-    {
-        $data = acara::find($id);
-        if($data->status == '0'){
-            $data->status = '1';
-            $data->update();
-            return Redirect::back()->with('sukses-update','Data berhasil diupdate!');  
-        }else{
-            $data->status = '0';
-            $data->update();
-            return Redirect::back()->with('sukses-update','Data berhasil diupdate!');  
-        }
-
-        return Redirect::back()->with('gagal-update','Data gagal diupdate!');
     }
 }
