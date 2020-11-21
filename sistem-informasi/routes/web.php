@@ -15,9 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@Index')->name('beranda');
 
-Route::get('pencarian/warga', function (){
-   return view('pencarian/cariWarga'); 
-})->name('cariWarga');
+Route::get('pencarian/warga', 'wargaController@index')->name('cariWarga');
+Route::get('pencarian/warga/fetch', 'wargaController@fetch');
 
 //route crud warga
 Route::get('manajemen/data-warga', 'crudWargaController@index')->name('crudWarga');
@@ -25,8 +24,6 @@ Route::get('manajemen/data-warga', 'crudWargaController@index')->name('crudWarga
 Route::post('manajemen/tambahWarga/Post', 'crudWargaController@tambah')->name('tambahWarga');
 Route::get('manajemen/crudwarga/delete/{id}', 'crudWargaController@delete')->name('deleteWarga');
 Route::post('manajemen/crudwarga/update/{id}', 'crudWargaController@update')->name('updateWarga');
-Route::get('manajemen/crudwarga/cari/', 'crudWargaController@cari')->name('cariWarga-edit');
-
 
 // route beranda
 Route::get('manajemen/Edit-beranda', 'berandaController@Index')->name('editBeranda');
