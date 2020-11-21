@@ -20,10 +20,10 @@ Route::get('pencarian/warga/fetch', 'wargaController@fetch');
 
 //route crud warga
 Route::get('manajemen/data-warga', 'crudWargaController@index')->name('crudWarga');
-
 Route::post('manajemen/tambahWarga/Post', 'crudWargaController@tambah')->name('tambahWarga');
 Route::get('manajemen/crudwarga/delete/{id}', 'crudWargaController@delete')->name('deleteWarga');
 Route::post('manajemen/crudwarga/update/{id}', 'crudWargaController@update')->name('updateWarga');
+Route::get('manajemen/crudwarga/aktif/{id}', 'crudWargaController@aktif')->name('aktifWarga');
 
 // route beranda
 Route::get('manajemen/Edit-beranda', 'berandaController@Index')->name('editBeranda');
@@ -31,12 +31,13 @@ Route::post('manajemen/Edit-beranda/Post', 'berandaController@update')->name('up
 Route::post('manajemen/Edit-beranda/UploadGambar', 'berandaController@storeGambar')->name('uploadGambar');
 
 //route acara/kegiatan
-Route::get('manajemen/kegiatan', 'beritaController@adminIndex')->name('editAcara');
+Route::get('manajemen/kegiatan/', 'beritaController@adminIndex')->name('editAcara');
 Route::get('berita', 'beritaController@Index')->name('Acara');
 Route::get('berita/{slug}', 'beritaController@show')->name('showAcara');
 Route::post('manajemen/kegiatan/post-kegiatan', 'beritaController@post')->name('post');
 Route::get('manajemen/kegiatan/delete/{id}', 'beritaController@destroy')->name('deleteAcara');
 Route::post('manajemen/kegiatan/update/{id}', 'beritaController@update')->name('updateAcara');
+Route::get('manajemen/kegiatan/aktif/{id}', 'beritaController@aktif')->name('aktifAcara');
 
 Route::get('manajemen/staff', function (){
     return view('manajemen/editStaff'); 

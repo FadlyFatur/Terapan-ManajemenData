@@ -30,11 +30,19 @@ class crudWargaController extends Controller
 
     }
 
-    public function index()
-    {
-        $wargas = warga::all()->sortByDesc('rt');
-        return view('manajemen.crudWarga',compact('wargas'))->with('no', 1);
-
+    public function Index(Request $request){
+        $cari = $request->cari;
+        
+        if($cari){
+            $wargas = warga::where('nama_lengkap', 'like', '%'. $request->cari.'%')
+            ->orWhere('rt', 'like', '%'. $request->cari.'%')
+            ->paginate(50);
+            $total_data = $wargas->count();
+        }else{
+            $wargas = warga::orderBy('rt', 'asc')->paginate(50);
+            $total_data = $wargas->count();
+        }
+        return view('manajemen.crudWarga', compact('wargas','total_data'));
     }
 
     public function delete($id)
@@ -74,66 +82,20 @@ class crudWargaController extends Controller
         return Redirect::back();
     }
 
-    public function cari(Request $request)
-	{
-        // $cari = $request->cari;
-        // $warga = warga::where('nama_lengkap', 'LIKE', "%$cari%")
-        //         //   ->orWhere('customer.phone', 'LIKE', "%$findcustomer%")
-        //           ->get();
+    public function aktif(request $request, $id)
+    {
+        $data = warga::find($id);
+        if($data->status == '0'){
+            $data->status = '1';
+            $data->update();
+            return Redirect::back()->with('sukses-update','Data berhasil diupdate!');  
+        }else{
+            $data->status = '0';
+            $data->update();
+            return Redirect::back()->with('sukses-update','Data berhasil diupdate!');  
+        }
 
-        // return view('manajemen.crudWarga',['wargas' => $warga])->with('no', 1);
-
-        if($request->ajax())
-     {
-      $output = '';
-      $query = $request->get('query');
-      if($query != '')
-      {
-       $wargas = DB::table('wargas')
-         ->where('nik', 'like', '%'.$query.'%')
-         ->orWhere('nama_lengkap', 'like', '%'.$query.'%')
-         ->orWhere('rt', 'like', '%'.$query.'%')
-         ->orderBy('id', 'desc')
-         ->get();
-         
-      }
-      else
-      {
-       $wargas = DB::table('wargas')
-         ->orderBy('id', 'desc')
-         ->get();
-      }
-      $total_row = $wargas->count();
-      if($total_row > 0)
-      {
-       foreach($wargas as $row)
-       {
-        $output .= '
-        <tr>
-         <td>'.$row->nik.'</td>
-         <td>'.$row->nama_lengkap.'</td>
-         <td>'.$row->jenis_kelamin.'</td>
-         <td>'.$row->alamat.'</td>
-         <td>'.$row->rt.'</td>
-        </tr>
-        ';
-       }
-      }
-      else
-      {
-       $output = '
-       <tr>
-        <td align="center" colspan="5">No Data Found</td>
-       </tr>
-       ';
-      }
-    //   $wargas = array(
-    //    'table_data'  => $output,
-    //    'total_data'  => $total_row
-    //   );
-
-      echo json_encode($wargas);
-     }
+        return Redirect::back()->with('gagal-update','Data gagal diupdate!');
     }
       
 }
