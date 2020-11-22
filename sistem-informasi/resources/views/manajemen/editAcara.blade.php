@@ -27,7 +27,7 @@
     <button class="close" data-dismiss="alert">
       <span>×</span>
     </button>
-    Data Berhasil Disimpan.
+    {{ Session::get('sukses') }}
   </div>
 </div>
 @endif
@@ -96,7 +96,7 @@
         <button class="close" data-dismiss="alert">
           <span>×</span>
         </button>
-        Data Berhasil Disimpan.
+        {{ Session::get('sukses-update') }}
       </div>
     </div>
     @endif
@@ -107,17 +107,41 @@
         <button class="close" data-dismiss="alert">
           <span>×</span>
         </button>
-        Data Gagal Disimpan.
+        {{ Session::get('Gagal-update') }}
       </div>
     </div>
     @endif
 
       <div class="card-body">
+
+      <div class="container p-3" style="color:black;">
+              <div class="row justify-content-center">
+                  <div class="col-12 col-md-10 col-lg-8">
+                      <form class="card card-sm" action="{{route('editAcara')}}" method="get">
+                          <div class="card-body row no-gutters align-items-center">
+                              <div class="col-auto">
+                                  <i class="fas fa-search h4 text-body"></i>
+                              </div>
+                              <!--end of col-->
+                              <div class="col">
+                                  <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Cari berdasarkan judul..." name="cari">
+                              </div>
+                              <!--end of col-->
+                              <div class="col-auto">
+                                  <button class="btn btn-lg btn-primary" type="submit">Search</button>
+                              </div>
+                              <!--end of col-->
+                          </div>
+                      </form>
+                  </div>
+                  <!--end of col-->
+              </div>
+
         <div class="table-responsive">
+        <p class="text-center" >Total Data Acara : <span id="total-record">{{$total_data}}</span></p>
           <table class="table table-sm">
             <thead>
               <tr>
-                <th>No</th>
                 <th>Judul</th>
                 <th>Tanggal</th>
                 <th>Publikasi</th>
@@ -127,13 +151,12 @@
             <tbody>
             @foreach($data as $a)
               <tr>
-                <td>{{$no++}}</td>
                 <td>{{ $a['judul'] }}</td>
                 <td>{{ $a['created_at'] }}</td>
                 @if ($a['status'] != 0)
-                <td><a href="#"> <div class="badge badge-success">Aktif</div> </a> </td> 
+                  <td><a href="{{route('aktifAcara',['id' => $a->id])}}"> <div class="badge badge-success">Aktif</div> </a> </td>
                 @else
-                <td><a href="#"> <div class="badge badge-success">Non-Aktif</div> </a> </td> 
+                <td><a href="{{route('aktifAcara',['id' => $a->id])}}"> <div class="badge badge-success">Non-Aktif</div> </a> </td>
                 @endif
                 <!-- <td></td> -->
                 <td>
@@ -147,12 +170,16 @@
           </table>
         </div>
       </div>
+      <div class="d-flex justify-content-center pag">
+        {{ $data->links() }}
+      </div>
   </div>
 @endsection
 
 @section('js')
-<script src="../js/editAcara.js"></script>
-<script src="../ckeditor/ckeditor.js"></script>
+<script src="{{ asset('js/editAcara.js') }}"></script>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+
   <script>
   CKEDITOR.replace('deskripsi');
   CKEDITOR.replace('deskripsi-edit');
@@ -166,7 +193,7 @@
       <div class="modal-dialog modal-lg " role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

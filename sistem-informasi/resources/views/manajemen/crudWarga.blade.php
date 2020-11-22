@@ -16,11 +16,11 @@
             <div class="card-header">
               <h4>Warga RW.02 Pelita</h4>
 
-                <form class="card-header-form" action="{{ route('cariWarga-edit') }}" role="cari" method="GET">
+                <form class="card-header-form" action="{{ route('crudWarga') }}" name="cari" method="GET">
                   <div class="input-group">
                     <input type="text" name="cari" id="cari" class="form-control" placeholder="cari...">
                     <div class="input-group-btn">
-                      <!-- <button class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button> -->
+                    <button class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button>
                     </div>
                   </div>
                 </form>
@@ -31,7 +31,6 @@
             <table class="table table-md table-bordered table-striped table-hover">
               <thead>
                 <tr style="color:black; text-align:center; font-size:13px;"> 
-                  <th>No</th>
                   <th>NIK</th>
                   <th>Nama Lengkap</th>
                   <th>Jenis Kelamin</th>
@@ -44,16 +43,15 @@
               <tbody>
               @foreach($wargas as $a)
                 <tr>
-                  <td>{{$no++}}</td>
                   <td>{{ $a['nik'] }}</td>
                   <td>{{ $a['nama_lengkap'] }}</td>
                   <td>{{ $a['jenis_kelamin'] }}</td>
                   <td>{{ $a['alamat'] }}</td>
                   <td>{{ $a['rt'] }}</td>
                   @if ($a['status'] != 0)
-                  <td><div class="badge badge-success">Aktif</div></td>
+                  <td><a href="{{route('aktifWarga',['id' => $a->id])}}"> <div class="badge badge-success">Aktif</div> </a> </td>
                   @else
-                  <td><div class="badge badge-success">Non-Aktif</div></td>
+                  <td><a href="{{route('aktifWarga',['id' => $a->id])}}"> <div class="badge badge-success">Non-Aktif</div> </a> </td>
                   @endif
                   <td>
                   <a href="#" type="button" class="btn btn-sm btn-outline-primary fa fa-edit" data-toggle="modal" data-target="#edit-{{$a['id']}}"></a>
@@ -65,34 +63,12 @@
             </table>
       </div>
     </div>
+    <div class="d-flex justify-content-center pag">
+        {{ $wargas->links() }}
+      </div>
   </div>
-            <script>
-          $(document).ready(function(){
-
-          cari();
-
-          function cari(query = '')
-          {
-            $.ajax({
-            url:"{{ route('cariWarga-edit') }}",
-            method:'GET',
-            wargas:{query:query},
-            wargasType:'json',
-            success:function(wargas)
-            {
-              // $('tbody').html(wargas.wargas);
-              // $('#total_records').text(data.total_data);
-            }
-            })
-          }
-
-          $(document).on('keyup', '#search', function(){
-            var query = $(this).val();
-            cari(query);
-          });
-          });
-          </script>
-          @endsection
+         
+@endsection
 
 @section('modal')
   <!-- Modal Edit-->
