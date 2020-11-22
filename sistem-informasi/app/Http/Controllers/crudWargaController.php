@@ -26,7 +26,7 @@ class crudWargaController extends Controller
         $warga->perkawinan = $request->perkawinan;
         $warga->save();
 
-        return Redirect::back();
+        return Redirect::back()->with(['sukses' => 'Data berhasil ditambah']);
 
     }
 
@@ -50,7 +50,7 @@ class crudWargaController extends Controller
     {
         $warga = warga::find($id);
         $warga->delete();
-        return Redirect::back(); 
+        return Redirect::back()->with(['sukses' => 'Data berhasil dihapus']);
     }
 
     public function update(Request $request, $id)
@@ -80,7 +80,7 @@ class crudWargaController extends Controller
 
         $warga->update();
 
-        return Redirect::back();
+        return Redirect::back()->with(['sukses' => 'Data berhasil diupdate']);
     }
 
     public function aktif(request $request, $id)

@@ -2,11 +2,33 @@
 @section('title','Data Warga RW 02')
 @section('halaman','Data Warga RW02')
 
+
 @section('css')
   <link rel="stylesheet" href="{{ URL::asset('css/crudWarga.css') }}">
 @endsection
 
 @section('content')
+@if ($message = Session::get('sukses'))
+<div class="alert alert-success alert-dismissible show fade">
+  <div class="alert-body">
+    <button class="close" data-dismiss="alert">
+      <span>x</span>
+    </button>
+    {{ Session::get('sukses') }}
+  </div>
+</div>
+@endif
+
+@if ($message = Session::get('gagal'))
+<div class="alert alert-success alert-dismissible show fade">
+  <div class="alert-body">
+    <button class="close" data-dismiss="alert">
+      <span>x</span>
+    </button>
+    {{ Session::get('gagal') }}
+  </div>
+</div>
+@endif
   <div class="container mt-5">
   <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal2"><i class="fa fa-plus"></i> Data Warga</a> 
     <div class="card">
@@ -207,17 +229,17 @@
           @csrf
           <div class="form-group">
             <label for="exampleFormControlInput2">Nomer Induk Kependudukan</label>
-            <input type="nik" name="nik" class="form-control" id="exampleFormControlInput2" placeholder="NIK">
+            <input type="nik" name="nik" class="form-control" id="exampleFormControlInput2" placeholder="NIK" required>
           </div>
 
           <div class="form-group">
               <label for="exampleFormControlInput3">Nama</label> 
-              <input type="nama_lengkap" name="nama_lengkap" class="form-control" id="exampleFormControlInput3"  placeholder="Nama Lengkap">
+              <input type="nama_lengkap" name="nama_lengkap" class="form-control" id="exampleFormControlInput3"  placeholder="Nama Lengkap" required>
           </div>
 
             <div class="form-group">
               <label for="exampleFormControlSelect1">Jenis Kelamin</label>
-              <select class="form-control" name="jenis_kelamin" id="exampleFormControlSelect1">
+              <select class="form-control" name="jenis_kelamin" id="exampleFormControlSelect1" required>
                 <option>P</option>
                 <option>L</option>
               </select>
@@ -225,37 +247,37 @@
 
             <div class="form-group">
               <label for="exampleFormControlInput4">Tempat Lahir</label> 
-              <input type="tempat_lahir" name="tempat_lahir" class="form-control" id="exampleFormControlInput4" placeholder="tempat lahir">
+              <input type="tempat_lahir" name="tempat_lahir" class="form-control" id="exampleFormControlInput4" placeholder="tempat lahir" required>
             </div>
 
             <div class="form-group">
               <label for="exampleFormControlInput5">Tanggal Lahir</label> 
-              <input type="date" class="form-control" name="tanggal_lahir" id="exampleFormControlInput5"  placeholder="tanggal lahir">
+              <input type="date" class="form-control" name="tanggal_lahir" id="exampleFormControlInput5"  placeholder="tanggal lahir" required>
             </div>
 
             <div class="form-group">
               <label>Alamat</label>
-              <textarea name="alamat" class="form-control"></textarea>
+              <textarea name="alamat" class="form-control" required></textarea>
             </div>
 
             <div class="form-group">
               <label for="exampleFormControlInput6">Kelurahan</label> 
-              <input type="kelurahan" name="kelurahan" class="form-control" id="exampleFormControlInput6"  placeholder="kelurahan">
+              <input type="kelurahan" name="kelurahan" class="form-control" id="exampleFormControlInput6"  placeholder="kelurahan" required>
             </div>
 
             <div class="form-group">
               <label for="exampleFormControlInput7">Kecamatan</label> 
-              <input type="kecamatan" name="kecamatan" class="form-control" id="exampleFormControlInput7"  placeholder="kecamatan">
+              <input type="kecamatan" name="kecamatan" class="form-control" id="exampleFormControlInput7"  placeholder="kecamatan" required>
             </div>
 
             <div class="form-group">
               <label for="exampleFormControlInput7">Kota</label> 
-              <input type="kota" name="kota" class="form-control" id="exampleFormControlInput7"  placeholder="kota">
+              <input type="kota" name="kota" class="form-control" id="exampleFormControlInput7"  placeholder="kota" required>
             </div>
 
             <div class="form-group">
                 <label for="exampleFormControlSelect2">RT</label>
-                <select class="form-control" id="exampleFormControlSelect2" name="rt">
+                <select class="form-control" id="exampleFormControlSelect2" name="rt" required>
                   <option>1</option>
                   <option>2</option> 
                   <option>3</option>
@@ -264,7 +286,7 @@
 
             <div class="form-group">
               <label for="exampleFormControlSelect3">Agama</label>
-              <select class="form-control" id="exampleFormControlSelect3" name="agama">
+              <select class="form-control" id="exampleFormControlSelect3" name="agama" required>
                 <option>Islam</option>
                 <option>Khatolik</option> 
                 <option>Hindu</option>
@@ -273,7 +295,7 @@
 
             <div class="form-group">
               <label for="exampleFormControlSelect4">Pekerjaan</label>
-              <select class="form-control" id="exampleFormControlSelect4" name="kerja">
+              <select class="form-control" id="exampleFormControlSelect4" name="kerja" required> 
                 <option>Pelajar/Mahasiswa</option>
                 <option>Buruh</option> 
                 <option>Belum Bekerja</option>
@@ -282,7 +304,7 @@
 
             <div class="form-group">
               <label for="exampleFormControlSelect3">Status Perwinan</label>
-              <select class="form-control" id="exampleFormControlSelect3" name="perkawinan">
+              <select class="form-control" id="exampleFormControlSelect3" name="perkawinan" required>
                 <option>Menikah</option>
                 <option>Belum Menikah</option> 
               </select>
