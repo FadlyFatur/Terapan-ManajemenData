@@ -86,13 +86,13 @@
 
   <div class="row pb-2">
     @foreach ($staff as $s)
-      <div class="col-md-3 col-sm-6 mb-5">
+      <div class="col-md-3 col-sm-6 p-5">
         <div class="user-item text-center">
           <div class="company-header-avatar" style="background-image: url({{Storage::url($s['url'])}})">
           </div>
           <!-- <img alt="image" src="{{Storage::url($s['url'])}}" class="img-fluid"> -->
           <div class="user-details mt-3">
-            <div class="user-name">{{$s['nama']}}</div>
+            <h5 class="user-name">{{$s['nama']}}</h5>
             <div class="text-job text-muted">{{$s['no_pegawai']}}</div>
           </div>  
         </div>
