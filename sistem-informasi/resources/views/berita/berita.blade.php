@@ -12,7 +12,7 @@
 
 <div class="card">
 <div class="card-img-top box-photo p-2">
-  <img  src="{{ URL::asset( 'acara/'.$data['foto'] ) }}" alt="{{$data['judul']}}" style="background-image: url(&quot;assets/img/news/img17.jpg&quot;);">
+  <img  src="{{ url($data['url']) }}" alt="{{$data['judul']}}" style="background-image: url(&quot;assets/img/news/img17.jpg&quot;);">
 </div>
   <hr>
   <div class="card-header text-secondary">

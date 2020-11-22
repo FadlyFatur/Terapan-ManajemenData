@@ -51,7 +51,6 @@
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Judul Kegiatan</label>
             <div class="col-sm-12 col-md-7">
               <input type="text" name="judul" id="judul" class="form-control" placeholder="Masukan Judul Acara/Kegiatan" autocomplete="off" required>
-              <p></p>
             </div>
           </div>
 
@@ -71,7 +70,7 @@
           </div>
           
           
-          <div class="form-group row mb-4">
+            <div class="form-group row mb-4">
             <div class="mx-auto button-submit">
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
@@ -199,8 +198,9 @@
             </button>
           </div>
           <form class="m-2" method="post" action="{{route('updateAcara',['id' => $a->id])}}" enctype="multipart/form-data">
+          @csrf
             <div class="modal-body">
-              @csrf
+
               <div class="card-body">
                 <div class="form-group row mb-4">
                   <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Judul Kegiatan</label>
@@ -232,9 +232,11 @@
                   </div>
                 </div>
               </div>
+
             </div>
             <div class="modal-footer">
             </div>
+            
           </form> 
         </div>
       </div>

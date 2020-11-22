@@ -18,9 +18,7 @@ class CreateBerandasTable extends Migration
             $table->string('kontak')->nullable();
             $table->string('email')->nullable();
             $table->string('alamat')->nullable();
-            $table->boolean('status');
-            $table->string('foto')->nullable();
-            $table->string('url')->nullable();
+            $table->boolean('status')->default(true);
         });
     }
 

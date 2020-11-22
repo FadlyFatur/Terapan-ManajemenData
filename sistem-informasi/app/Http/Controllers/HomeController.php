@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\acara;
 use App\beranda;
+use App\staff;
 
 class HomeController extends Controller
 {
@@ -27,8 +28,9 @@ class HomeController extends Controller
     {
         $data = acara::all()->sortByDesc('created_at')->take(3);
         $beranda = beranda::all()->first();
+        $staff = staff::all()->sortByDesc('nama')->take(4);
         
-        return view('welcome',compact('data', 'beranda'));
+        return view('welcome',compact('data', 'beranda', 'staff'));
     }
 
 }

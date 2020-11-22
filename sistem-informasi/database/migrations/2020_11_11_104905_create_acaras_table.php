@@ -18,9 +18,9 @@ class CreateAcarasTable extends Migration
             $table->string('slug');
             $table->string('judul',200);
             $table->string('deskripsi',10000);
-            $table->string('foto')->nullable()->change();
+            $table->string('foto')->nullable();
             $table->string('url');
-            $table->boolean('status');
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

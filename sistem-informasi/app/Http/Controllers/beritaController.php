@@ -17,7 +17,6 @@ class beritaController extends Controller
     {
         $data = acara::where('status', '1')->orderBy('created_at', 'desc')->paginate(30);
         return view('berita.listBerita',compact('data'));
-        
     }
 
     // menampilkan list berita di halaman admin 
@@ -53,7 +52,7 @@ class beritaController extends Controller
                 }
 
                 //upload file ke local storage
-                    $name = $request->image->getClientOriginalName();
+                    $name = date("his_").$request->image->getClientOriginalName();
                     $url = $request->image->storeAs('acara', $name);
                 
                 // upload db
@@ -109,7 +108,7 @@ class beritaController extends Controller
                 Storage::delete($data->url);
 
                  //upload file ke local storage
-                 $name = date("Ymd_"). $request->imageUpdate->getClientOriginalName();
+                 $name = date("his_").$request->imageUpdate->getClientOriginalName();
                  $url = $request->imageUpdate->storeAs('acara', $name);
 
                 $data->slug = Str::slug($request->judul);

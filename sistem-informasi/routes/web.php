@@ -31,7 +31,7 @@ Route::post('manajemen/Edit-beranda/Post', 'berandaController@update')->name('up
 Route::post('manajemen/Edit-beranda/UploadGambar', 'berandaController@storeGambar')->name('uploadGambar');
 
 //route acara/kegiatan
-Route::get('manajemen/kegiatan/', 'beritaController@adminIndex')->name('editAcara');
+Route::get('manajemen/kegiatan', 'beritaController@adminIndex')->name('editAcara');
 Route::get('berita', 'beritaController@Index')->name('Acara');
 Route::get('berita/{slug}', 'beritaController@show')->name('showAcara');
 Route::post('manajemen/kegiatan/post-kegiatan', 'beritaController@post')->name('post');
@@ -39,11 +39,14 @@ Route::get('manajemen/kegiatan/delete/{id}', 'beritaController@destroy')->name('
 Route::post('manajemen/kegiatan/update/{id}', 'beritaController@update')->name('updateAcara');
 Route::get('manajemen/kegiatan/aktif/{id}', 'beritaController@aktif')->name('aktifAcara');
 
-Route::get('manajemen/staff', function (){
-    return view('manajemen/editStaff'); 
-})->name('staff');
 
-Route::post('manajemen/tambahStaff/Post', 'crudStaffController@tambah')->name('tambahStaff');
+//route crud staff
+Route::get('staff', 'crudStaffController@index')->name('lihatStaff');
+Route::get('manajemen/staff', 'crudStaffController@adminIndex')->name('staff');
+Route::post('manajemen/staff/tambah', 'crudStaffController@tambah')->name('tambahStaff');
+Route::get('manajemen/staff/delete/{id}', 'crudStaffController@destroy')->name('deleteStaff');
+Route::post('manajemen/staff/update/{id}', 'crudStaffController@update')->name('updateStaff');
+Route::get('manajemen/staff/aktif/{id}', 'crudStaffController@aktif')->name('aktifStaff');
 
 //editprofil
 Route::get('profil/edit', function (){

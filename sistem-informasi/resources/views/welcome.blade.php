@@ -36,34 +36,34 @@
       <a href="{{ route('Acara') }}"><h2 class="section-title">Acara/Kegiatan Masyarakat <i class="fas fa-chevron-right"></i></h2></a>
   </div>
   @if ($data->count() == 0)
-  <div class="row d-flex justify-content-center">
-    <div class="col">
-      <div class="alert alert-danger text-center">
-        <div class="alert-title">Belum ada acara/kegiatan.</div>
+    <div class="row d-flex justify-content-center">
+      <div class="col">
+        <div class="alert alert-danger text-center">
+          <div class="alert-title">Belum ada acara/kegiatan.</div>
+        </div>
       </div>
     </div>
-  </div>
   @else
   <div class="row">
-  @foreach($data as $r)
-    <div class="col-12 col-md-4 col-lg-4">
-      <article class="article article-style-c">
-        <div class="article-header">
-          <div class="article-image" data-background="{{ URL::asset( 'acara/'.$r['foto'] ) }}" style="background-image: url(&quot;assets/img/news/img13.jpg&quot;);">
+    @foreach($data as $r)
+      <div class="col-12 col-md-4 col-lg-4">
+        <article class="article article-style-c">
+          <div class="article-header">
+            <div class="article-image" data-background="{{$r['url']}}" style="background-image: url(&quot;assets/img/news/img13.jpg&quot;);">
+            </div>
           </div>
-        </div>
-        <div class="article-details">
-          <div class="article-category"><a href="#">Acara/Kegiatan</a> <div class="bullet"></div> <a href="#">{{ date('m/d/Y',strtotime($r['created_at'])) }}</a></div>
-          <div class="article-title">
-            <h5 class="mb-4">{{$r['judul']}}</h5>
+          <div class="article-details">
+            <div class="article-category"><a href="#">Acara/Kegiatan</a> <div class="bullet"></div> <a href="#">{{ date('m/d/Y',strtotime($r['created_at'])) }}</a></div>
+            <div class="article-title">
+              <h5 class="mb-4">{{$r['judul']}}</h5>
+            </div>
+            <div class="article-cta">
+              <a href="{{route('showAcara',['slug' => $r->slug])}}">Baca Selengkapnya <i class="fas fa-chevron-right"></i></a>
+            </div>
           </div>
-          <div class="article-cta">
-            <a href="{{route('showAcara',['slug' => $r->slug])}}">Baca Selengkapnya <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </article>
-    </div>
-  @endforeach
+        </article>
+      </div>
+    @endforeach
   </div>  
 </div>
   @endif
@@ -71,47 +71,32 @@
 
 <!-- staff -->  
 <div class="container-fluid">
-  <h2 class="section-title">Staff / Pengurus <i class="fas fa-chevron-right"></i></h2>
-  
-  <div class="row">
-    <div class="col-md-3 mb-5">
-      <div class="user-item">
-        <img alt="image" src="assets/img/avatar/avatar-4.png" class="img-fluid">
-        <div class="user-details">
-          <div class="user-name">Wildan Ahdian</div>
-          <div class="text-job text-muted">Project Manager</div>
-        </div>  
-      </div>
-    </div>
-    <div class="col-md-3 mb-5">
-      <div class="user-item">
-        <img alt="image" src="assets/img/avatar/avatar-4.png" class="img-fluid">
-        <div class="user-details">
-          <div class="user-name">Wildan Ahdian</div>
-          <div class="text-job text-muted">Project Manager</div>
-        </div>  
-      </div>
-    </div>
-    <div class="col-md-3 mb-5">
-      <div class="user-item">
-        <img alt="image" src="assets/img/avatar/avatar-4.png" class="img-fluid">
-        <div class="user-details">
-          <div class="user-name">Wildan Ahdian</div>
-          <div class="text-job text-muted">Project Manager</div>
-        </div>  
-      </div>
-    </div>
-    <div class="col-md-3 mb-5">
-      <div class="user-item">
-        <img alt="image" src="assets/img/avatar/avatar-4.png" class="img-fluid">
-        <div class="user-details">
-          <div class="user-name">Wildan Ahdian</div>
-          <div class="text-job text-muted">Project Manager</div>
-        </div>  
+<div class="d-flex justify-content-between">
+      <a href="{{ route('lihatStaff') }}"><h2 class="section-title">Staf/Pengurus RW <i class="fas fa-chevron-right"></i></h2></a>
+  </div>
+  @if ($data->count() == 0)
+  <div class="row d-flex justify-content-center">
+    <div class="col">
+      <div class="alert alert-danger text-center">
+        <div class="alert-title">Belum ada data staff.</div>
       </div>
     </div>
   </div>
-
+  @else
+  <div class="row">
+  @foreach ($staff as $s)
+    <div class="col-md-3 col-sm-6 mb-5">
+      <div class="user-item">
+        <img alt="image" src="{{$s['url']}}" class="img-fluid">
+        <div class="user-details">
+          <div class="user-name">{{$s['nama']}}</div>
+          <div class="text-job text-muted">{{$s['jabatan']}}</div>
+        </div>  
+      </div>
+    </div>
+  @endforeach
+  </div>
+  @endif
 </div>
 <hr>
 
