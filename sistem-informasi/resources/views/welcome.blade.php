@@ -71,10 +71,10 @@
 
 <!-- staff -->  
 <div class="container-fluid">
-<div class="d-flex justify-content-between">
+  <div class="d-flex justify-content-between">
       <a href="{{ route('lihatStaff') }}"><h2 class="section-title">Staf/Pengurus RW <i class="fas fa-chevron-right"></i></h2></a>
   </div>
-  @if ($data->count() == 0)
+  @if ($staff->count() == 0)
   <div class="row d-flex justify-content-center">
     <div class="col">
       <div class="alert alert-danger text-center">
@@ -83,18 +83,21 @@
     </div>
   </div>
   @else
-  <div class="row">
-  @foreach ($staff as $s)
-    <div class="col-md-3 col-sm-6 mb-5">
-      <div class="user-item">
-        <img alt="image" src="{{$s['url']}}" class="img-fluid">
-        <div class="user-details">
-          <div class="user-name">{{$s['nama']}}</div>
-          <div class="text-job text-muted">{{$s['jabatan']}}</div>
-        </div>  
+
+  <div class="row pb-2">
+    @foreach ($staff as $s)
+      <div class="col-md-3 col-sm-6 mb-5">
+        <div class="user-item text-center">
+          <div class="company-header-avatar" style="background-image: url({{Storage::url($s['url'])}})">
+          </div>
+          <!-- <img alt="image" src="{{Storage::url($s['url'])}}" class="img-fluid"> -->
+          <div class="user-details mt-3">
+            <div class="user-name">{{$s['nama']}}</div>
+            <div class="text-job text-muted">{{$s['no_pegawai']}}</div>
+          </div>  
+        </div>
       </div>
-    </div>
-  @endforeach
+    @endforeach
   </div>
   @endif
 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\staff;
+use App\jabatan;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -32,8 +33,9 @@ class crudStaffController extends Controller
             ->paginate(20);
             $total_data = $data->count();
         }
+        $jabatan = jabatan::all();
         // return $data->nama;
-        return view('manajemen.editStaff',compact('data'));
+        return view('manajemen.editStaff',compact('data','jabatan'));
     }
 
     public function tambah(Request $request)
@@ -41,7 +43,7 @@ class crudStaffController extends Controller
         if ($request->hasFile('image')){
             if ($request->file('image')->isValid()) {
                 $validator = Validator::make($request->all(), [
-                    'image' => 'required|mimes:jpeg,png|max:5120',
+                    'image' => 'required|mimes:jpg,jpeg,png|max:5120',
                 ]);
         
                 if ($validator->fails()) {
@@ -63,9 +65,18 @@ class crudStaffController extends Controller
                     'foto' => $name,
                     'url' => $url
                     ]);
-                return Redirect::back()->with(['sukses' => 'Pesan Berhasil']);
+                return Redirect::back()->with(['sukses' => 'Berhasil menambah data!']);
             }
+        return Redirect::back()->with(['gagal' => 'Berhasil menambah data!']);
         }
+        $data = new staff();
+        $data->nama = $request->input('nama');
+        $data->no_pegawai = $request->input('no');
+        $data->no_hp = $request->input('no_hp');
+        $data->alamat = $request->input('alamat');
+        
+        $data->save();
+        return Redirect::back()->with('sukses','Data berhasil diupdate!');  
     }
 
     public function update(Request $request, $id)
@@ -97,7 +108,7 @@ class crudStaffController extends Controller
                 $data->foto = $name;
                 $data->url = $url;
                 $data->update();
-                return Redirect::back()->with(['sukses-update' => 'Data berhasil diupdate!']);
+                return Redirect::back()->with(['sukses' => 'Data berhasil diupdate!']);
 
                 }
             }
@@ -108,10 +119,10 @@ class crudStaffController extends Controller
             $data->alamat = $request->input('alamat');
             
             $data->update();
-            return Redirect::back()->with('sukses-update','Data berhasil diupdate!');  
+            return Redirect::back()->with('sukses','Data berhasil diupdate!');  
             
         } catch (\Throwable $th) {
-            return Redirect::back()->with('gagal-update','Data gagal diupdate!');
+            return Redirect::back()->with('gagal','Data gagal diupdate!');
         }
     }
 
@@ -121,14 +132,14 @@ class crudStaffController extends Controller
         if($data->status == '0'){
             $data->status = '1';
             $data->update();
-            return Redirect::back()->with('sukses-update','Data berhasil diupdate!');  
+            return Redirect::back()->with('sukses','Data berhasil diupdate!');  
         }else{
             $data->status = '0';
             $data->update();
-            return Redirect::back()->with('sukses-update','Data berhasil diupdate!');  
+            return Redirect::back()->with('sukses','Data berhasil diupdate!');  
         }
 
-        return Redirect::back()->with('gagal-update','Data gagal diupdate!');
+        return Redirect::back()->with('gagal','Data gagal diupdate!');
     }
 
     public function destroy(request $request, $id)
@@ -138,9 +149,9 @@ class crudStaffController extends Controller
         try {
             Storage::delete($filename);
             $data->delete();
-            return Redirect::back()->with('sukses-delete','Data berhasil dihapus!');
+            return Redirect::back()->with('sukses','Data berhasil dihapus!');
         } catch (\Exception $e) {
-            return Redirect::back()->with('gagal-delete','Data berhasil dihapus!');
+            return Redirect::back()->with('gagal','Data berhasil dihapus!');
         }
     }
 

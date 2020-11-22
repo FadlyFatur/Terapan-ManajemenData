@@ -64,7 +64,7 @@ class beritaController extends Controller
                     'url' => $url,
                     'status' => 1
                     ]);
-                return Redirect::back()->with(['sukses' => 'Pesan Berhasil']);
+                return Redirect::back()->with(['sukses' => 'Berhasil menyimpan data']);
             }
         }
         abort(500, 'Gagal upload!');
@@ -81,9 +81,9 @@ class beritaController extends Controller
         try {
             Storage::delete($filename);
             $data->delete();
-            return Redirect::back()->with('sukses-delete','Data berhasil dihapus!');
+            return Redirect::back()->with('sukses','Berhasil menghapus data!');
         } catch (\Exception $e) {
-            return Redirect::back()->with('gagal-delete','Data berhasil dihapus!');
+            return Redirect::back()->with('gagal','Berhasil menghapus data!');
         }
     }
 
@@ -96,7 +96,7 @@ class beritaController extends Controller
                     $validator = Validator::make($request->all(), [
                         'judul' => 'string|max:200',
                         'deskripsi'=> 'string|max:10000',
-                        'imageUpdate' => 'required|mimes:jpeg,png|max:5500',
+                        'imageUpdate' => 'required|mimes:jpg,jpeg,png|max:5500',
                     ]);
                 
                 if ($validator->fails()) {
@@ -118,7 +118,7 @@ class beritaController extends Controller
                 $data->url = $url;
                 
                 $data->update();
-                return Redirect::back()->with(['sukses-update' => 'Data berhasil diupdate!']);
+                return Redirect::back()->with(['sukses' => 'Data berhasil diupdate!']);
 
                 }
             }
@@ -129,10 +129,10 @@ class beritaController extends Controller
             $data->deskripsi = $request->deskripsi;
             
             $data->update();
-            return Redirect::back()->with('sukses-update','Data berhasil diupdate!');  
+            return Redirect::back()->with('sukses','Data berhasil diupdate!');  
             
         } catch (\Throwable $th) {
-            return Redirect::back()->with('gagal-update','Data gagal diupdate!');
+            return Redirect::back()->with('gagal','Data gagal diupdate!');
         }
     }
 
@@ -142,13 +142,13 @@ class beritaController extends Controller
         if($data->status == '0'){
             $data->status = '1';
             $data->update();
-            return Redirect::back()->with('sukses-update','Data berhasil diupdate!');  
+            return Redirect::back()->with('sukses','Data berhasil diupdate!');  
         }else{
             $data->status = '0';
             $data->update();
-            return Redirect::back()->with('sukses-update','Data berhasil diupdate!');  
+            return Redirect::back()->with('sukses','Data berhasil diupdate!');  
         }
 
-        return Redirect::back()->with('gagal-update','Data gagal diupdate!');
+        return Redirect::back()->with('gagal','Data gagal diupdate!');
     }
 }

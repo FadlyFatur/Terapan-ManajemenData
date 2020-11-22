@@ -17,6 +17,20 @@
   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
   @yield('css')
+
+  <style>
+  /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+  </style>
 </head>
 
 <body>
@@ -40,7 +54,7 @@
       
       <footer class="main-footer">
         <div class="footer-left">
-          Copyright &copy; 2020  |  Created By Informatika Itenas  |  Template By <a href="https://getstisla.com/getting-started">STISLA</a> 
+          Copyright &copy; 2020  |  Created By <a href="https://www.itenas.ac.id/">Informatika Itenas</a>   |  Template By <a href="https://getstisla.com/getting-started">STISLA</a> 
         </div>
         <div class="footer-right">
           RW 02, Kelurahan Sukapada, Kecamatan Cibeunying Kidul, Kota Bandung.

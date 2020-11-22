@@ -32,6 +32,17 @@
 </div>
 @endif
 
+@if ($message = Session::get('gagal'))
+<div class="alert alert-danger alert-dismissible show fade">
+  <div class="alert-body">
+    <button class="close" data-dismiss="alert">
+      <span>×</span>
+    </button>
+    {{ Session::get('gagal') }}
+  </div>
+</div>
+@endif
+
 <div class="card acara-size">
   <div class="card-header">
     <h4>Manajemen Acara/Kegiatan</h4>
@@ -89,52 +100,30 @@
       <h4>Data Acara/Kegiatan</h4>
     </div>
 
-    @if ($message = Session::get('sukses-update'))
-    <div class="alert alert-success alert-dismissible show fade">
-      <div class="alert-body">
-        <button class="close" data-dismiss="alert">
-          <span>×</span>
-        </button>
-        {{ Session::get('sukses-update') }}
-      </div>
-    </div>
-    @endif
-
-    @if ($message = Session::get('Gagal-update'))
-    <div class="alert alert-danger alert-dismissible show fade">
-      <div class="alert-body">
-        <button class="close" data-dismiss="alert">
-          <span>×</span>
-        </button>
-        {{ Session::get('Gagal-update') }}
-      </div>
-    </div>
-    @endif
-
-      <div class="card-body">
+    <div class="card-body">
 
       <div class="container p-3" style="color:black;">
-              <div class="row justify-content-center">
-                  <div class="col-12 col-md-10 col-lg-8">
-                      <form class="card card-sm" action="{{route('editAcara')}}" method="get">
-                          <div class="card-body row no-gutters align-items-center">
-                              <div class="col-auto">
-                                  <i class="fas fa-search h4 text-body"></i>
-                              </div>
-                              <!--end of col-->
-                              <div class="col">
-                                  <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Cari berdasarkan judul..." name="cari">
-                              </div>
-                              <!--end of col-->
-                              <div class="col-auto">
-                                  <button class="btn btn-lg btn-primary" type="submit">Search</button>
-                              </div>
-                              <!--end of col-->
-                          </div>
-                      </form>
-                  </div>
-                  <!--end of col-->
-              </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <form class="card card-sm" action="{{route('editAcara')}}" method="get">
+                    <div class="card-body row no-gutters align-items-center">
+                        <div class="col-auto">
+                            <i class="fas fa-search h4 text-body"></i>
+                        </div>
+                        <!--end of col-->
+                        <div class="col">
+                            <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Cari berdasarkan judul..." name="cari">
+                        </div>
+                        <!--end of col-->
+                        <div class="col-auto">
+                            <button class="btn btn-lg btn-primary" type="submit">Search</button>
+                        </div>
+                        <!--end of col-->
+                    </div>
+                </form>
+            </div>
+            <!--end of col-->
+        </div>
 
         <div class="table-responsive">
         <p class="text-center" >Total Data Acara : <span id="total-record">{{$total_data}}</span></p>

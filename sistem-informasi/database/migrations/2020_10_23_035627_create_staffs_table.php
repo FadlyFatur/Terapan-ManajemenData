@@ -21,7 +21,7 @@ class CreateStaffsTable extends Migration
             $table->string('alamat')->nullable();
             $table->boolean('status')->default(true);
             $table->string('foto')->nullable();
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->foreignId('jabatan_id')->nullable()->constrained('jabatans');
             $table->foreignId('user_id')->nullable()->constrained('users');
             $table->timestamps();

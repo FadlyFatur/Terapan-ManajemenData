@@ -11,4 +11,9 @@ class staff extends Model
   protected $fillable = [
       'no_pegawai','nama', 'no_hp', 'alamat', 'foto', 'url'
     ];
+  
+  // public function jabatan()
+  // {
+  //   return $this->hasOne('App\jabatan');
+  // }
 }

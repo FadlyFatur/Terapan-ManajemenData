@@ -1,9 +1,48 @@
 @extends('layout.main')
 @section('title','Sunting Staff')
 @section('halaman','Sunting Staff')
+@section('css')
+  <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/editStaff.css') }}">
+@endsection
 
 @section('content')
 <div class="container-fluid mt-5">
+@if ($errors->any())
+  <div class="alert alert-danger alert-dismissible show fade">
+  <div class="alert-body">
+    <button class="close" data-dismiss="alert">
+      <span>×</span>
+    </button>
+    <ul>
+        @foreach ($errors->all() as $error)
+           <li>{{ $error }}</li>
+        @endforeach
+     </ul>
+  </div>
+  </div>
+@endif
+
+@if ($message = Session::get('sukses'))
+<div class="alert alert-success alert-dismissible show fade">
+  <div class="alert-body">
+    <button class="close" data-dismiss="alert">
+      <span>×</span>
+    </button>
+    {{ Session::get('sukses') }}
+  </div>
+</div>
+@endif
+
+@if ($message = Session::get('gagal'))
+<div class="alert alert-danger alert-dismissible show fade">
+  <div class="alert-body">
+    <button class="close" data-dismiss="alert">
+      <span>×</span>
+    </button>
+    {{ Session::get('gagal') }}
+  </div>
+</div>
+@endif
 
   <div class="card">
     <div class="card-header">
@@ -21,19 +60,19 @@
           <div class="form-group row mb-4">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomer Pegawai</label>
             <div class="col-sm-12 col-md-7">
-              <input type="text" name="no" id="no" class="form-control" placeholder="Masukan Nomer Pegawai" autocomplete="off">
+              <input type="number" name="no" id="no" class="form-control" placeholder="Masukan Nomer Pegawai" autocomplete="off">
             </div>
           </div>
 
           <div class="form-group row mb-4">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama</label>
             <div class="col-sm-12 col-md-7">
-              <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukan Nama Lengkap" autocomplete="off" required>
+              <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukan Nama Lengkap" autocomplete="on" required>
             </div>
           </div>
 
           <div class="form-group row mb-4">
-            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomer Telefon</label>
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomer HP</label>
             <div class="col-sm-12 col-md-7">
               <input type="number" name="no_hp" id="no_hp" class="form-control" placeholder="Masukan Nomor telepon" autocomplete="off">
             </div>
@@ -45,6 +84,22 @@
             <textarea class="form-control" name="alamat" id="alamat" placeholder="Masukan Alamat Lengkap" style="height: 150px;" required></textarea>
             </div>
           </div>
+
+          <div class="form-group row mb-4">
+            <label for="jabatan" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Jabatan</label>
+            <div class="col-sm-12 col-md-7">
+              <select class="form-control" id="jabatan" name="jabatan" required> 
+                <option value="" selected>Pilih...</option>
+                @foreach ($jabatan as $j)
+                <option>{{$j->nama_jabatan}}</option>
+                @endforeach
+              </select>
+            </div>
+          </div>
+
+          
+
+         
 
           <div class="form-group row">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" for="image">Foto pegawai</label>
@@ -147,7 +202,7 @@
             <div class="form-group row mb-4">
               <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomer Pegawai</label>
               <div class="col-sm-12 col-md-7">
-                <input type="text" name="no" id="no" class="form-control" placeholder="Masukan Nomer Pegawai" value="{{ $a['no_pegawai'] }}" autocomplete="off">
+                <input type="number" name="no" id="no" class="form-control" placeholder="Masukan Nomer Pegawai" value="{{ $a['no_pegawai'] }}" autocomplete="off">
               </div>
             </div>
 
@@ -161,7 +216,7 @@
             <div class="form-group row mb-4">
               <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomer Telefon</label>
               <div class="col-sm-12 col-md-7">
-                <input type="text" name="no_hp" id="no_hp" class="form-control" placeholder="Masukan Nomor telepon" value="{{ $a['no_hp'] }}" autocomplete="off">
+                <input type="number" name="no_hp" id="no_hp" class="form-control" placeholder="Masukan Nomor telepon" value="{{ $a['no_hp'] }}" autocomplete="off">
               </div>
             </div>
 
