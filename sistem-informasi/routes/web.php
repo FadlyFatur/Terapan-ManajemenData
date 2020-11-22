@@ -24,6 +24,7 @@ Route::post('manajemen/tambahWarga/Post', 'crudWargaController@tambah')->name('t
 Route::get('manajemen/crudwarga/delete/{id}', 'crudWargaController@delete')->name('deleteWarga');
 Route::post('manajemen/crudwarga/update/{id}', 'crudWargaController@update')->name('updateWarga');
 Route::get('manajemen/crudwarga/aktif/{id}', 'crudWargaController@aktif')->name('aktifWarga');
+Route::get('manajemen/crudwarga/export-warga', 'crudWargaController@export')->name('exportWarga');
 
 // route beranda
 Route::get('manajemen/Edit-beranda', 'berandaController@Index')->name('editBeranda');

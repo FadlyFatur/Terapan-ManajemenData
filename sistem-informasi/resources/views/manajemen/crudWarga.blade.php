@@ -29,7 +29,7 @@
   </div>
 </div>
 @endif
-  <div class="container mt-5">
+  <div class="container-fluid mt-5">
   <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal2"><i class="fa fa-plus"></i> Data Warga</a> 
     <div class="card">
         <div class="card-body">
@@ -52,6 +52,7 @@
         
             <!-- table -->
             <table class="table table-md table-bordered table-striped table-hover">
+            <a href="{{ route('exportWarga') }}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL <i class='far fa-file-excel'></i></a>
               <thead>
                 <tr style="color:black; text-align:center; font-size:13px;"> 
                   <th>NIK</th>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\warga;
 use Illuminate\Support\Facades\Redirect;
+use App\Exports\WargaExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class crudWargaController extends Controller
 {
@@ -95,6 +97,11 @@ class crudWargaController extends Controller
             $data->update();
             return Redirect::back()->with('sukses-update','Data berhasil diupdate!');  
         }
+    }
+
+    public function export()
+    {
+        return Excel::download(new WargaExport, 'Data-warga-RW2.xlsx');
     }
       
 }
