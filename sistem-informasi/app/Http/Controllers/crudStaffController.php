@@ -15,7 +15,7 @@ class crudStaffController extends Controller
 
     public function index()
     {
-        $data = staff::where('status', '1')->orderBy('created_at', 'desc')->paginate(30);
+        $data = staff::where('status', '1')->orderBy('jabatan_id', 'asc')->paginate(30);
         return view('pencarian.staff',compact('data'));
     }
 
@@ -34,12 +34,12 @@ class crudStaffController extends Controller
             $total_data = $data->count();
         }
         $jabatan = jabatan::all();
-        // return $data->nama;
         return view('manajemen.editStaff',compact('data','jabatan'));
     }
 
     public function tambah(Request $request)
     {
+        // return $request->jabatan;
         if ($request->hasFile('image')){
             if ($request->file('image')->isValid()) {
                 $validator = Validator::make($request->all(), [
@@ -62,6 +62,7 @@ class crudStaffController extends Controller
                     'no_pegawai' => $request->input('no'),
                     'no_hp' => $request->input('no_hp'),
                     'alamat' => $request->input('alamat'),
+                    'jabatan_id' => $request->jabatan,
                     'foto' => $name,
                     'url' => $url
                     ]);
@@ -74,6 +75,7 @@ class crudStaffController extends Controller
         $data->no_pegawai = $request->input('no');
         $data->no_hp = $request->input('no_hp');
         $data->alamat = $request->input('alamat');
+        $data->jabatan_id = $request->jabatan;
         
         $data->save();
         return Redirect::back()->with('sukses','Data berhasil diupdate!');  

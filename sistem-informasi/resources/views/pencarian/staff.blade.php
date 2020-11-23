@@ -20,22 +20,21 @@
         
       <div class="row">
         @foreach ($data as $d)
-        <div class="col-md-6 p-5">
+        <div class="col-md-6 p-5 text-dark">
           <div class="author-box-left">
             <div class="avatar-item mr-5">
               <img alt="image" src="{{ Storage::url($d['url']) }}" class="" data-toggle="tooltip" title="" data-original-title="{{$d->nama}}">
-              <div class="avatar-badge" title="" data-toggle="tooltip" data-original-title="Editor">{{$d->jabatan}}</i></div>
             </div>
           </div>
           <div class="author-box-details">
             <div class="author-box-name">
-              <a href="#">{{$d->nama}}</a>
+              <h3 class="text-primary">{{$d->nama}}</h3>
             </div>
-            <div class="author-box-job">No : {{$d->no_pegawai}}</div>
-            <div class="author-box-description" style="color:black">
-              <p>{{$d->alamat}}</p>
-              <span class="badge badge-info">{{$d->no_hp}}</span>
-            </div>
+            <h5 class="text-info">{{$d->jabatan->njabatan}}</h5>
+            <div class="author-box-job">No. Pegawai : {{$d->no_pegawai}}</div>
+            <p style="color:black;">Alamat : {{$d->alamat}}</p>
+            Nomer Hp :
+            <span class="badge badge-info">{{$d->no_hp}}</span>
           </div>
         </div>
         <hr>

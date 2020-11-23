@@ -14,22 +14,22 @@ class jabatanSeeder extends Seeder
     {
         $data = [
             [
-                'nama_jabatan' => 'Kepala Desa'
+                'njabatan' => 'Kepala Desa'
             ],
             [
-                'nama_jabatan' => 'Ketua RW'
+                'njabatan' => 'Ketua RW'
             ],
             [
-                'nama_jabatan' => 'Ketua RT'
+                'njabatan' => 'Ketua RT'
             ],
             [
-                'nama_jabatan' => 'Sekretaris'
+                'njabatan' => 'Sekretaris'
             ],
             [
-                'nama_jabatan' => 'Bendahara'
+                'njabatan' => 'Bendahara'
             ],
             [
-                'nama_jabatan' => 'Staff'
+                'njabatan' => 'Staff'
             ],
         ];
 

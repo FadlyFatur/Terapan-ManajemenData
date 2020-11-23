@@ -25,7 +25,7 @@
   <div class="container teks">
     <!-- <hr class="my-4"> -->
       <h1 class="display-4  align-text-bottom">Sistem Informasi Warga</h1>
-      <p class="lead align-text-bottom">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+      <p class="lead align-text-bottom"></p>
     </div>
   </div>
 </div>
@@ -93,7 +93,7 @@
           <!-- <img alt="image" src="{{Storage::url($s['url'])}}" class="img-fluid"> -->
           <div class="user-details mt-3">
             <h5 class="user-name">{{$s['nama']}}</h5>
-            <div class="text-job text-muted">{{$s['no_pegawai']}}</div>
+            <div class="text-job text-muted">{{ $s->jabatan->njabatan }}</div>
           </div>  
         </div>
       </div>

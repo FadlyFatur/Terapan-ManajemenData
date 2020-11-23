@@ -8,7 +8,7 @@ use App\warga;
 class warga extends Model
 {
     protected $fillable = [
-      'nik', 'nama_lengkap', 'jenis_kelamin', 'tempat_lahir', 'tanggal_lahir', 'alamat','kelurahan','kecamatan','kota','rt',
+      'nik', 'nama_lengkap', 'jenis_kelamin', 'tempat_lahir', 'tanggal_lahir', 'alamat','kelurahan','kecamatan','kota','rw',
       'rt','agama_id','kerja','perkawinan',
     ];
 }

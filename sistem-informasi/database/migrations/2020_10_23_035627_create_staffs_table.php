@@ -22,8 +22,8 @@ class CreateStaffsTable extends Migration
             $table->boolean('status')->default(true);
             $table->string('foto')->nullable();
             $table->string('url')->nullable();
-            $table->foreignId('jabatan_id')->nullable()->constrained('jabatans');
-            $table->foreignId('user_id')->nullable()->constrained('users');
+            $table->unsignedInteger('jabatan_id');
+            $table->unsignedInteger('user_id')->nullable();
             $table->timestamps();
         });
     }

@@ -28,7 +28,7 @@ class HomeController extends Controller
     {
         $data = acara::all()->sortByDesc('created_at')->take(3);
         $beranda = beranda::all()->first();
-        $staff = staff::all()->sortByDesc('nama')->take(4);
+        $staff = staff::all()->sortBy('jabatan_id')->take(4);
         
         return view('welcome',compact('data', 'beranda', 'staff'));
     }

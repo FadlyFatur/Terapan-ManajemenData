@@ -91,15 +91,11 @@
               <select class="form-control" id="jabatan" name="jabatan" required> 
                 <option value="" selected>Pilih...</option>
                 @foreach ($jabatan as $j)
-                <option>{{$j->nama_jabatan}}</option>
+                <option value="{{$j->id}}">{{$j->njabatan}}</option>
                 @endforeach
               </select>
             </div>
           </div>
-
-          
-
-         
 
           <div class="form-group row">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" for="image">Foto pegawai</label>
@@ -146,6 +142,7 @@
           <tr style="color:black; text-align:center; font-size:13px;"> 
             <th>No Pegawai</th>
             <th>Nama</th>
+            <th>Jabatan</th>
             <th>No HP</th>
             <th>Alamat</th>
             <th>Status</th>
@@ -153,11 +150,12 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody class="text-center">
       @foreach($data as $a)
           <tr>
             <td>{{ $a['no_pegawai'] }}</td>
             <td>{{ $a['nama'] }}</td>
+            <td>{{ $a->jabatan->njabatan }}</td>
             <td>{{ $a['no_hp'] }}</td>
             <td>{{ $a['alamat'] }}</td>
             @if ($a['status'] != 0)
@@ -223,7 +221,18 @@
             <div class="form-group row mb-4">
               <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Alamat</label>
               <div class="col-sm-12 col-md-7">
-              <textarea class="form-control" name="alamat" id="alamat" placeholder="Masukan Alamat Lengkap" style="height: 150px;" required>{{ $a['alamat'] }}</textarea>
+              <textarea class="form-control" name="alamat" id="alamat" placeholder="Masukan Alamat Lengkap" style="height: 50px;" required>{{ $a['alamat'] }}</textarea>
+              </div>
+            </div>
+
+            <div class="form-group row mb-4">
+              <label for="jabatan" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Jabatan</label>
+              <div class="col-sm-12 col-md-7">
+                <select class="form-control" id="jabatan" name="jabatan" required> 
+                  @foreach ($jabatan as $j)
+                  <option value="{{$j->id}}" {{$a->jabatan_id == $j->id ? ' selected="selected" ' : '' }}>{{$j->njabatan}}</option>
+                  @endforeach
+                </select>
               </div>
             </div>
 

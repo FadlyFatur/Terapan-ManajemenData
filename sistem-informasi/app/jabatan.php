@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class jabatan extends Model
 {
     protected $fillable = [
-        'nama_jabatan'
+        'njabatan'
     ];
 
-    // public function user()
-    // {
-    //     return $this->belongToMany('App\staff');
-    // }
+    public function user()
+    {
+        return $this->HasMany('App\staff');
+    }
     
 }
