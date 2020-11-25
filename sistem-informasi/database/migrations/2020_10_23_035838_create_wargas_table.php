@@ -25,7 +25,7 @@ class CreateWargasTable extends Migration
             $table->string('kecamatan');
             $table->string('kota');
             $table->boolean('status')->default(true);
-            $table->string('rw')->default('02');
+            $table->string('rw',2)->default('2');
             $table->string('rt',2)->nullable();
             $table->string('agama_id')->nullable();
             $table->string('kerja')->nullable();

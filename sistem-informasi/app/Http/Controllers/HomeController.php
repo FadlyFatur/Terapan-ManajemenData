@@ -16,7 +16,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        // $this->middleware('guest');
+        
     }
 
     /**
@@ -32,5 +33,6 @@ class HomeController extends Controller
         
         return view('welcome',compact('data', 'beranda', 'staff'));
     }
+
 
 }

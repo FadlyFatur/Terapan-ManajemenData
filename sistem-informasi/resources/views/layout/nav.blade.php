@@ -9,8 +9,40 @@
   </form>
 
   <ul class="navbar-nav navbar-right">
-    <a href="{{ route('login') }}" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Login</a>
-    <!-- <a href="{{ route('daftar') }}" class="btn btn-icon icon-left btn-primary mr-3"><i class="far fa-edit"></i> Daftar</a> -->
+     <!-- Authentication Links -->
+     @guest
+        <li class="nav-item">
+            <!-- <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a> -->
+            <a href="{{ route('login') }}" class="btn btn-icon icon-left btn-primary mr-1"><i class="fas fa-sign-in-alt"></i>{{ __('Masuk') }}</a>
+        </li>
+        @if (Route::has('register'))
+            <li class="nav-item">
+                <a href="{{ route('register') }}" class="btn btn-icon icon-left btn-primary ml-1"><i class="fas fa-user-plus"></i>{{ __('Daftar') }}</a>
+                <!-- <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a> -->
+            </li>
+        @endif
+        <!-- jika sudah login  -->
+     @else
+        <li class="nav-item dropdown">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+               Halo, {{ Auth::user()->username }}
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ route('profil') }}">{{ __('Profil') }}</a>
+
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
+        </li>
+    @endguest
   </ul>
         
 </nav>

@@ -30,7 +30,7 @@ class beritaController extends Controller
             $total_data = $data->count();
         }else{
             $data = acara::orderBy('created_at', 'desc')->paginate(20);
-            $total_data = $data->count();
+            $total_data = acara::all()->count();
         }
         return view('manajemen.editAcara', compact('data','total_data'));
     }
@@ -151,4 +151,10 @@ class beritaController extends Controller
 
         return Redirect::back()->with('gagal','Data gagal diupdate!');
     }
+
+    public function galeri()
+    {
+        return view('pencarian.galeri');
+    }
+
 }

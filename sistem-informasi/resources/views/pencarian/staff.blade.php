@@ -23,7 +23,11 @@
         <div class="col-md-6 p-5 text-dark">
           <div class="author-box-left">
             <div class="avatar-item mr-5">
+            @if (isset($d->foto))
               <img alt="image" src="{{ Storage::url($d['url']) }}" class="" data-toggle="tooltip" title="" data-original-title="{{$d->nama}}">
+            @else
+            <img alt="image" src="{{ URL::asset('assets/img/avatar/avatar-1.png') }}" class="" data-toggle="tooltip" title="" data-original-title="{{$d->nama}}">
+            @endif
             </div>
           </div>
           <div class="author-box-details">

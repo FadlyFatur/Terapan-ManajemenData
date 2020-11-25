@@ -7,17 +7,6 @@
 
 @section('content')
 <!-- //welcome -->
-@if (session('status'))
-<div class="card">
-    <div class="card-header">{{ __('Dashboard') }}</div>
-    <div class="card-body">
-            <div class="alert alert-success" role="alert">
-                {{ session('status') }}
-            </div>
-        {{ __('Selamat Datang!') }}
-    </div>
-</div>
-@endif
 
 <!-- image slider -->
 <div class="container-fluid jumbo">
@@ -88,7 +77,11 @@
     @foreach ($staff as $s)
       <div class="col-md-3 col-sm-6 p-5">
         <div class="user-item text-center">
+          @if (isset($s->foto))
           <div class="company-header-avatar" style="background-image: url({{Storage::url($s['url'])}})">
+          @else
+          <div class="company-header-avatar" style="background-image: url(&quot;assets/img/avatar/avatar-5.png&quot;)">
+          @endif
           </div>
           <!-- <img alt="image" src="{{Storage::url($s['url'])}}" class="img-fluid"> -->
           <div class="user-details mt-3">

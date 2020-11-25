@@ -16,7 +16,11 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
+<link rel="stylesheet" href="{{asset('dist/css/chocolat.css')}}" type="text/css" media="screen" >
   @yield('css')
+
+  <script type="text/javascript" src="{{ asset('dist/js/chocolat.js') }}"></script>
+  
 
   <style>
   /* Chrome, Safari, Edge, Opera */
@@ -31,6 +35,7 @@
       -moz-appearance: textfield;
     }
   </style>
+
 </head>
 
 <body>

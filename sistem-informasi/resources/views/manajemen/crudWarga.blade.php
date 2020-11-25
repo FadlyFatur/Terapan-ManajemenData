@@ -173,6 +173,8 @@
                   <option {{$a['rt'] == '1' ? ' selected="selected" ' : '' }}>1</option>
                   <option {{$a['rt'] == '2' ? ' selected="selected" ' : '' }}>2</option> 
                   <option {{$a['rt'] == '3' ? ' selected="selected" ' : '' }}>3</option>
+                  <option {{$a['rt'] == '3' ? ' selected="selected" ' : '' }}>4</option>
+                  <option {{$a['rt'] == '3' ? ' selected="selected" ' : '' }}>5</option>
                 </select>
             </div>
 
@@ -181,7 +183,10 @@
               <select class="form-control" id="exampleFormControlSelect3" name="agama">
                 <option {{$a['agama_id'] == 'Islam' ? ' selected="selected" ' : '' }}>Islam</option>
                 <option {{$a['agama_id'] == 'Khatolik' ? ' selected="selected" ' : '' }}>Khatolik</option> 
-                <option {{$a['agama_id'] == 'Hindu' ? ' selected="selected" ' : '' }}>Hindu</option>
+                <option {{$a['agama_id'] == 'Khatolik' ? ' selected="selected" ' : '' }}>Protestan</option> 
+                <option {{$a['agama_id'] == 'Khatolik' ? ' selected="selected" ' : '' }}>Hindu</option> 
+                <option {{$a['agama_id'] == 'Khatolik' ? ' selected="selected" ' : '' }}>Budhha</option> 
+                <option {{$a['agama_id'] == 'Hindu' ? ' selected="selected" ' : '' }}>Khonghucu</option>
               </select>
             </div>
 
@@ -204,8 +209,7 @@
           
           </div>
         <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-          <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
         </form>
         </div>
@@ -282,6 +286,8 @@
                   <option>1</option>
                   <option>2</option> 
                   <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
                 </select>
             </div>
 
@@ -290,16 +296,21 @@
               <select class="form-control" id="exampleFormControlSelect3" name="agama" required>
                 <option>Islam</option>
                 <option>Khatolik</option> 
+                <option>Protestan</option> 
                 <option>Hindu</option>
+                <option>Buddha</option>
               </select>
             </div>
 
             <div class="form-group">
               <label for="exampleFormControlSelect4">Pekerjaan</label>
               <select class="form-control" id="exampleFormControlSelect4" name="kerja" required> 
+                <option>Belum/Tidak Bekerja</option>
+                <option>Megurus Rumah Tangga</option>
                 <option>Pelajar/Mahasiswa</option>
+                <option>Pensiunan</option>
                 <option>Buruh</option> 
-                <option>Belum Bekerja</option>
+                <option>Pedagangan</option> 
               </select>
             </div>
 

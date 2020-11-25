@@ -131,23 +131,23 @@
             <thead>
               <tr>
                 <th>Judul</th>
-                <th>Tanggal</th>
-                <th>Publikasi</th>
-                <th>Aksi</th>
+                <th class="text-center">Tanggal</th>
+                <th class="text-center">Publikasi</th>
+                <th class="text-center">Aksi</th>
               </tr>
             </thead>
             <tbody>
             @foreach($data as $a)
               <tr>
                 <td>{{ $a['judul'] }}</td>
-                <td>{{ $a['created_at'] }}</td>
+                <td class="text-center">{{ date('m/d/Y',strtotime($a['created_at'])) }}</td>
                 @if ($a['status'] != 0)
-                  <td><a href="{{route('aktifAcara',['id' => $a->id])}}"> <div class="badge badge-success">Aktif</div> </a> </td>
+                <td class="text-center"><a href="{{route('aktifAcara',['id' => $a->id])}}"> <div class="badge badge-success">Aktif</div> </a> </td>
                 @else
-                <td><a href="{{route('aktifAcara',['id' => $a->id])}}"> <div class="badge badge-success">Non-Aktif</div> </a> </td>
+                <td class="text-center"><a href="{{route('aktifAcara',['id' => $a->id])}}"> <div class="badge badge-success">Non-Aktif</div> </a> </td>
                 @endif
                 <!-- <td></td> -->
-                <td>
+                <td class="text-center">
                 <a href="{{route('showAcara',['slug' => $a->slug])}}" target="_blank" class="btn btn-sm btn-outline-danger"><i class="fas fa-eye"></i></a>
                   <button data-toggle="modal" data-target="#edit-{{$a['id']}}" class="btn btn-sm btn-outline-danger"><i class="fa fa-edit"></i></button>
                   <a href="{{route('deleteAcara',['id' => $a->id])}}" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></a>

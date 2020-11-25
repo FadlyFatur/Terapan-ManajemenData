@@ -13,9 +13,11 @@
                   <li><a class="nav-link" href="{{ route('cariWarga') }}">Cek Warga</a></li>
                   <li><a class="nav-link" href="{{ route('Acara') }}">Acara/Kegiatan</a></li>
                   <li><a class="nav-link" href="{{ route('lihatStaff') }}">Staff</a></li>
+                  <li><a class="nav-link" href="{{ route('galeri') }}">Galeri</a></li>
                 </ul>
               </li>
               <hr>
+              @if (Auth::check())
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Pengelolaan Data</span></a>
                 <ul class="dropdown-menu">
@@ -25,6 +27,7 @@
                 </ul>
               </li>
               <hr>
+              @elseif ( Auth::check() && Auth::user()->status == '2')
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Pengelolaan Website</span></a>
                 <ul class="dropdown-menu">
@@ -32,19 +35,25 @@
                 </ul>
               </li>
               <hr>
+              @endif
+              @if (Auth::check())
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Profil</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="{{ route('profil') }}">Sunting Profil</a></li>
-                  <li><a class="nav-link" href="{{ route('reset') }}">Reset Password</a></li>
                 </ul>
               </li>
-              
 
             <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-              <a href="#" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                <i class="fas fa-rocket"></i>Logout/Keluar
+              <a href="{{ route('logout') }}" class="btn btn-primary btn-lg btn-block btn-icon-split"
+              onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+              <i class="fas fa-door-open"></i>Logout/Keluar
               </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             </div>
+            @endif
         </aside>
       </div>
