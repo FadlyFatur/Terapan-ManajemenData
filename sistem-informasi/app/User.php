@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'no_pegawai','username', 'password','status','verified_at'
+        'username', 'password','status','verified_at'
     ];
 
     /**
@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'verified_at' => 'datetime',
     ];
+
+    public function staff()
+    {
+    	return $this->hasOne('App\staff');
+    }
 }

@@ -16,8 +16,7 @@
                   <li><a class="nav-link" href="{{ route('galeri') }}">Galeri</a></li>
                 </ul>
               </li>
-              <hr>
-              @if (Auth::check())
+              <hr>  
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Pengelolaan Data</span></a>
                 <ul class="dropdown-menu">
@@ -27,14 +26,17 @@
                 </ul>
               </li>
               <hr>
-              @elseif ( Auth::check() && Auth::user()->status == '2')
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Pengelolaan Website</span></a>
-                <ul class="dropdown-menu">
+              @if (Auth::check())
+                @if (Auth::user()->status == '2')
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Pengelolaan Website</span></a>
+                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="{{ route('editBeranda') }}">Pengelolaan Beranda</a></li>
+                  <li><a class="nav-link" href="{{ route('user') }}">Pengelolaan User</a></li>
                 </ul>
-              </li>
-              <hr>
+               </li>
+               <hr>
+                @endif
               @endif
               @if (Auth::check())
               <li class="nav-item dropdown">

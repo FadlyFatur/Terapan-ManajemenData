@@ -15,8 +15,8 @@ class DatabaseSeeder extends Seeder
         // factory(App\User::class, 10)->create();
         // factory(App\staff::class, 10)->create();
         // factory(App\acara::class, 25)->create();
-        factory(App\warga::class, 60)->create();
-        // factory(App\beranda::class)->create();
+        factory(App\warga::class, 5)->create();
+        factory(App\beranda::class)->create();
 
         $this->call(jabatanSeeder::class);
     }

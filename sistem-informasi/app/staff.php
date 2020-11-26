@@ -16,4 +16,9 @@ class staff extends Model
   {
     return $this->belongsTo('App\jabatan');
   }
+
+  public function user()
+  {
+    return $this->belongsTo('App\user');
+  }
 }

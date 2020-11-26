@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\acara;
+use Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
@@ -21,18 +22,24 @@ class beritaController extends Controller
 
     // menampilkan list berita di halaman admin 
     public function adminIndex(Request $request){
-        $cari = $request->cari;
+
+        if(!empty(Auth::user()->verified_at)){
+            $cari = $request->cari;
         
-        if($cari){
-            $data = acara::where('judul', 'like', '%'. $request->cari.'%')
-            ->orderBy('created_at', 'desc')
-            ->paginate(50);
-            $total_data = $data->count();
+            if($cari){
+                $data = acara::where('judul', 'like', '%'. $request->cari.'%')
+                ->orderBy('created_at', 'desc')
+                ->paginate(50);
+                $total_data = $data->count();
+            }else{
+                $data = acara::orderBy('created_at', 'desc')->paginate(20);
+                $total_data = acara::all()->count();
+            }
+            return view('manajemen.editAcara', compact('data','total_data'));
         }else{
-            $data = acara::orderBy('created_at', 'desc')->paginate(20);
-            $total_data = acara::all()->count();
+            return redirect('profil')->with(['gagal' => 'Akun belum terverifikasi, Harap hubungi admin untuk verifikasi']);
         }
-        return view('manajemen.editAcara', compact('data','total_data'));
+       
     }
 
     public function post(Request $request){

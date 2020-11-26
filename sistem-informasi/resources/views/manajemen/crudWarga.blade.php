@@ -69,7 +69,7 @@
                 <tr>
                   <td>{{ $a['nik'] }}</td>
                   <td>{{ $a['nama_lengkap'] }}</td>
-                  <td>{{ $a['jenis_kelamin'] }}</td>
+                  <td class="text-center">{{ $a['jenis_kelamin'] }}</td>
                   <td>{{ $a['alamat'] }}</td>
                   <td>{{ $a['rt'] }}</td>
                   @if ($a['status'] != 0)

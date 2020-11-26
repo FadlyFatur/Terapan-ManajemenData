@@ -13,7 +13,7 @@
   <div class="jumbotron" style="background-image: url(&quot;img/Register-photo.jpg&quot;) ">
   <div class="container teks">
     <!-- <hr class="my-4"> -->
-      <h1 class="display-4  align-text-bottom">Sistem Informasi Warga</h1>
+      <h1 class="display-4  align-text-bottom">Sistem Informasi Kependudukan RW 02</h1>
       <p class="lead align-text-bottom"></p>
     </div>
   </div>
@@ -54,8 +54,8 @@
       </div>
     @endforeach
   </div>  
-</div>
   @endif
+</div>
   <hr>
 
 <!-- staff -->  
@@ -97,45 +97,57 @@
 <hr>
 
 <!-- informasi kontak -->
-<h2 class="section-title">Kontak</h2>
-<div class="container-fluid d-flex justify-content-center">
-  <div class="row kontak mt-5">
-    <div class="col-md-4 mb-2">
-      <div class="box mr-5">
-        <div class="body-box">
-          <i class="fas fa-phone"></i>
+<div class="container-fluid">
+  <h2 class="section-title">Kontak</h2>
+  @if ($beranda->count() == 0)
+    <div class="row d-flex justify-content-center">
+      <div class="col">
+        <div class="alert alert-danger text-center">
+          <div class="alert-title">Belum ada data kontak.</div>
         </div>
-        <div class="footer-box">
-          <h5>Kontak</h5>
-          <p>{{$beranda['kontak']}}</p>
-        </div>
-      </div>   
+      </div>
     </div>
-
-    <div class="col-md-4 mb-2">
-      <div class="box mr-5">
-        <div class="body-box">
-          <i class="fas fa-envelope-open-text"></i>
-        </div>
-        <div class="footer-box">
-          <h5>Email</h5>
-          <p>{{$beranda['email']}}</p>
-        </div>
-      </div>   
-    </div>
+    @else
+  <div class="container-fluid d-flex justify-content-center">
+    <div class="row kontak mt-5">
+      <div class="col-md-4 mb-2">
+        <div class="box mr-5">
+          <div class="body-box">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="footer-box">
+            <h5>Kontak</h5>
+            <p>{{$beranda['kontak']}}</p>
+          </div>
+        </div>   
+      </div>
 
       <div class="col-md-4 mb-2">
         <div class="box mr-5">
           <div class="body-box">
-          <a href="https://www.google.com/maps/search/?api=1&query=-6.8997356,107.6452842" target="_blank"><i class="fas fa-map-marker-alt"></i></a>
+            <i class="fas fa-envelope-open-text"></i>
           </div>
           <div class="footer-box">
-            <h5>Alamat</h5>
-            <p class="m-2">{{$beranda['alamat']}}</p>
+            <h5>Email</h5>
+            <p>{{$beranda['email']}}</p>
           </div>
         </div>   
+      </div>
+
+        <div class="col-md-4 mb-2">
+          <div class="box mr-5">
+            <div class="body-box">
+            <a href="https://www.google.com/maps/search/?api=1&query=-6.8997356,107.6452842" target="_blank"><i class="fas fa-map-marker-alt"></i></a>
+            </div>
+            <div class="footer-box">
+              <h5>Alamat</h5>
+              <p class="m-2">{{$beranda['alamat']}}</p>
+            </div>
+          </div>   
+      </div>
     </div>
   </div>
+  @endif
 </div>
   
 @endsection

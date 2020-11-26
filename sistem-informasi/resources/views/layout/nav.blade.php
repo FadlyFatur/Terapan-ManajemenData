@@ -4,7 +4,7 @@
     <ul class="navbar-nav mr-3">
       <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
       <!-- <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li> -->
-      <li><h3>Sistem Informasi RW 02 Kel. Sukapada</h3></li>
+      <li><h3>Sistem Informasi Kependudukan</h3></li>
     </ul>
   </form>
 
@@ -25,17 +25,24 @@
      @else
         <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-               Halo, {{ Auth::user()->username }}
+            <div class="d-sm-none d-lg-inline-block">Halo, {{ Auth::user()->username }}</div>
             </a>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ route('profil') }}">{{ __('Profil') }}</a>
-
-                <a class="dropdown-item" href="{{ route('logout') }}"
+            <a href="{{ route('profil') }}" class="dropdown-item has-icon">
+                <i class="far fa-user"></i> Profile
+              </a>
+            <!-- <a class="dropdown-item" href="{{ route('profil') }}">{{ __('Profil') }}</a> -->
+            <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </a>
+                <!-- <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
-                </a>
+                </a> -->
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf

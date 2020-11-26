@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\staff;
+use Auth;
 use App\jabatan;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -21,20 +22,25 @@ class crudStaffController extends Controller
 
     public function adminIndex(Request $request)
     {
-        $cari = $request->cari;
+        if(!empty(Auth::user()->verified_at)){
+            $cari = $request->cari;
         
-        if($cari){
-            $data = staff::where('nama', 'like', '%'. $request->cari.'%')
-            ->paginate(20);
-            // ->get();
-            $total_data = $data->count();
+            if($cari){
+                $data = staff::where('nama', 'like', '%'. $request->cari.'%')
+                ->paginate(20);
+                // ->get();
+                $total_data = $data->count();
+            }else{
+                $data = staff::orderBy('nama', 'asc')
+                ->paginate(20);
+                $total_data = $data->count();
+            }
+            $jabatan = jabatan::all();
+            return view('manajemen.editStaff',compact('data','jabatan'));
         }else{
-            $data = staff::orderBy('nama', 'asc')
-            ->paginate(20);
-            $total_data = $data->count();
+            return redirect('profil')->with(['gagal' => 'Akun belum terverifikasi, Harap hubungi admin untuk verifikasi']);
         }
-        $jabatan = jabatan::all();
-        return view('manajemen.editStaff',compact('data','jabatan'));
+        
     }
 
     public function tambah(Request $request)
@@ -119,6 +125,7 @@ class crudStaffController extends Controller
             $data->no_pegawai = $request->input('no');
             $data->no_hp = $request->input('no_hp');
             $data->alamat = $request->input('alamat');
+            $data->jabatan_id = $request->jabatan;
             
             $data->update();
             return Redirect::back()->with('sukses','Data berhasil diupdate!');  

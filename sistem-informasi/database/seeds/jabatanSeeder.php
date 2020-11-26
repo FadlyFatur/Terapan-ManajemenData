@@ -53,6 +53,21 @@ class jabatanSeeder extends Seeder
                 'njabatan' => 'Ketua RT 07'
             ],
             [
+                'njabatan' => 'Ketua RT 08'
+            ],
+            [
+                'njabatan' => 'Ketua RT 09'
+            ],
+            [
+                'njabatan' => 'Ketua RT 10'
+            ],
+            [
+                'njabatan' => 'Ketua RT 11'
+            ],
+            [
+                'njabatan' => 'Ketua RT 12'
+            ],
+            [
                 'njabatan' => 'Staff'
             ],
             [
@@ -60,6 +75,9 @@ class jabatanSeeder extends Seeder
             ],
             [
                 'njabatan' => 'Linmas'
+            ],
+            [
+                'njabatan' => 'Keamanan'
             ],
         ];
 

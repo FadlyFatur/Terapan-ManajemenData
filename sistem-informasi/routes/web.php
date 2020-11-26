@@ -40,13 +40,24 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('manajemen/kegiatan/update/{id}', 'beritaController@update')->name('updateAcara');
     Route::get('manajemen/kegiatan/aktif/{id}', 'beritaController@aktif')->name('aktifAcara');
 
-
     //route crud staff
     Route::get('manajemen/staff', 'crudStaffController@adminIndex')->name('staff');
     Route::post('manajemen/staff/tambah', 'crudStaffController@tambah')->name('tambahStaff');
     Route::get('manajemen/staff/delete/{id}', 'crudStaffController@destroy')->name('deleteStaff');
     Route::post('manajemen/staff/update/{id}', 'crudStaffController@update')->name('updateStaff');
     Route::get('manajemen/staff/aktif/{id}', 'crudStaffController@aktif')->name('aktifStaff');
+
+    //route crud user
+    Route::get('manajemen/user', 'userController@Index')->name('user');
+    Route::get('manajemen/user/update-level/{id}', 'userController@level')->name('levelUser');
+    Route::get('manajemen/user/verified/{id}', 'userController@verified')->name('verifiedUser');
+    Route::get('manajemen/user/delete/{id}', 'userController@delete')->name('deleteUser');
+
+    //editprofil
+    Route::get('profil', 'userController@profil')->name('profil');
+    Route::post('profil/update/{id}', 'userController@passUpdate')->name('updatePass');
+    Route::post('profil/taut', 'userController@tautkan')->name('tautkan');
+
  });
 
  Route::get('staff', 'crudStaffController@index')->name('lihatStaff');
@@ -58,10 +69,6 @@ Route::get('pencarian/warga/fetch', 'wargaController@fetch');
 
 Route::get('galeri', 'beritaController@galeri')->name('galeri');
 
-//editprofil
-Route::get('profil/edit', function (){
-    return view('profil/editProfil'); 
-})->name('profil');
  
 
 

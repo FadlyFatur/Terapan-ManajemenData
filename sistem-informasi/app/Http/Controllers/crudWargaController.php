@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\warga;
+use Auth;
 use Illuminate\Support\Facades\Redirect;
 use App\Exports\WargaExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -33,19 +34,24 @@ class crudWargaController extends Controller
     }
 
     public function Index(Request $request){
-        $cari = $request->cari;
+        if(!empty(Auth::user()->verified_at)){
+            $cari = $request->cari;
         
-        if($cari){
-            $wargas = warga::where('nama_lengkap', 'like', '%'. $request->cari.'%')
-            ->orWhere('rt', 'like', '%'. $request->cari.'%')
-            ->paginate(50);
-            $total_data = $wargas->count();
+            if($cari){
+                $wargas = warga::where('nama_lengkap', 'like', '%'. $request->cari.'%')
+                ->orWhere('rt', 'like', '%'. $request->cari.'%')
+                ->paginate(50);
+                $total_data = $wargas->count();
+            }else{
+                $wargas = warga::orderBy('rt', 'asc')
+                ->paginate(50);
+                $total_data = $wargas->count();
+            }
+            return view('manajemen.crudWarga', compact('wargas','total_data'));
         }else{
-            $wargas = warga::orderBy('rt', 'asc')
-            ->paginate(50);
-            $total_data = $wargas->count();
+            return redirect('profil')->with(['gagal' => 'Akun belum terverifikasi, Harap hubungi admin untuk verifikasi']);
         }
-        return view('manajemen.crudWarga', compact('wargas','total_data'));
+       
     }
 
     public function delete($id)

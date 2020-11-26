@@ -14,20 +14,6 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="no_pegawai" class="col-md-4 col-form-label text-md-right">{{ __('Nomer Pegawai') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="no_pegawai" type="text" class="form-control @error('no_pegawai') is-invalid @enderror" name="no_pegawai" value="{{ old('no_pegawai') }}" required autocomplete="no_pegawai" autofocus>
-
-                                @error('no_pegawai')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label for="username" class="col-md-4 col-form-label text-md-right">Username</label>
                             <div class="col-md-6">
                                 <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
