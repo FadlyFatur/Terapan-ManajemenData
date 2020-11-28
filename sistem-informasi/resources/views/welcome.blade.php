@@ -12,12 +12,71 @@
 <div class="container-fluid jumbo">
   <div class="jumbotron" style="background-image: url(&quot;img/Register-photo.jpg&quot;) ">
   <div class="container teks">
-    <!-- <hr class="my-4"> -->
       <h1 class="display-4  align-text-bottom">Sistem Informasi Kependudukan RW 02</h1>
       <p class="lead align-text-bottom"></p>
     </div>
   </div>
 </div>
+<hr>
+
+<!-- counter -->
+<div class="container-fluid">
+  <h2 class="section-title">Data</h2>
+
+  <div class="row d-flex justify-content-center">
+      
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+      <div class="card card-statistic-1">
+        <div class="card-icon bg-primary">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="card-wrap">
+          <div class="card-header">
+            <h4>Total Warga</h4>
+          </div>
+          <div class="card-body">
+            <h2>{{ $jmlwarga }}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+      <div class="card card-statistic-1">
+        <div class="card-icon bg-danger">
+        <i class="fas fa-user-tie"></i>
+        </div>
+        <div class="card-wrap">
+          <div class="card-header">
+            <h4>Total Staff</h4>
+          </div>
+          <div class="card-body">
+            <h2>{{ $jmlstaff }}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+      <div class="card card-statistic-1">
+        <div class="card-icon bg-warning">
+        <i class="far fa-calendar-check"></i>
+        </div>
+        <div class="card-wrap">
+          <div class="card-header">
+            <h4>Total Acara</h4>
+          </div>
+          <div class="card-body">
+            <h2>{{ $jmlacara }}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<hr>  
 
 <!-- news section -->
 <div class="container-fluid">
@@ -56,7 +115,7 @@
   </div>  
   @endif
 </div>
-  <hr>
+<hr>
 
 <!-- staff -->  
 <div class="container-fluid">
@@ -99,7 +158,8 @@
 <!-- informasi kontak -->
 <div class="container-fluid">
   <h2 class="section-title">Kontak</h2>
-  @if ($beranda->count() == 0)
+
+  @if ($jmlberanda == 0)
     <div class="row d-flex justify-content-center">
       <div class="col">
         <div class="alert alert-danger text-center">
@@ -107,45 +167,48 @@
         </div>
       </div>
     </div>
-    @else
-  <div class="container-fluid d-flex justify-content-center">
-    <div class="row kontak mt-5">
-      <div class="col-md-4 mb-2">
-        <div class="box mr-5">
-          <div class="body-box">
-            <i class="fas fa-phone"></i>
-          </div>
-          <div class="footer-box">
-            <h5>Kontak</h5>
-            <p>{{$beranda['kontak']}}</p>
-          </div>
-        </div>   
-      </div>
+  @else
 
-      <div class="col-md-4 mb-2">
-        <div class="box mr-5">
-          <div class="body-box">
-            <i class="fas fa-envelope-open-text"></i>
+  <div class="row d-flex justify-content-center text-center">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+      <div class="col-12">
+        <div class="hero bg-primary text-white">
+          <i class="fas fa-phone-square"></i>
+          <div class="hero-inner">
+          <hr class="hr-4">
+            <h2>Kontak</h2>
+            <p class="lead">{{$beranda['kontak']}}</p>
           </div>
-          <div class="footer-box">
-            <h5>Email</h5>
-            <p>{{$beranda['email']}}</p>
-          </div>
-        </div>   
-      </div>
-
-        <div class="col-md-4 mb-2">
-          <div class="box mr-5">
-            <div class="body-box">
-            <a href="https://www.google.com/maps/search/?api=1&query=-6.8997356,107.6452842" target="_blank"><i class="fas fa-map-marker-alt"></i></a>
-            </div>
-            <div class="footer-box">
-              <h5>Alamat</h5>
-              <p class="m-2">{{$beranda['alamat']}}</p>
-            </div>
-          </div>   
+        </div>
       </div>
     </div>
+
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+      <div class="col-12">
+        <div class="hero bg-primary text-white">
+        <i class="fas fa-at"></i>
+        <div class="hero-inner">
+          <hr class="hr-4">
+            <h2>Email</h2>
+            <p class="lead">{{$beranda['email']}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+      <div class="col-12">
+        <div class="hero bg-primary text-white">
+          <i class="fas fa-map-marked-alt" style="margin-bottom:0px;"></i>
+          <div class="hero-inner">
+          <hr class="hr-4">
+            <h2>Alamat</h2>
+            <p class="lead p-alamat">{{$beranda['alamat']}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
   @endif
 </div>

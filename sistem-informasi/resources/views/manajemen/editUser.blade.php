@@ -36,6 +36,7 @@
         <thead>
           <tr>
             <th class="text-center">Nomer Pegawai</th>
+            <th class="text-center">Nama</th>
             <th class="text-center">Username</th>
             <th class="text-center" data-toggle="tooltip" data-placement="top" title="Mengecek apakah user sudah dihubungkan dengan staff">Ditautkan</th>
             <th class="text-center" data-toggle="tooltip" data-placement="top" title="Anda bisa memverifikasi user yang terdaftar">Verifikasi</th>
@@ -46,7 +47,8 @@
         <tbody>
         @foreach($data as $a)
           <tr class="text-center">
-            <td>{{ $a['no_pegawai'] }}</td>
+            <td>{{ $a->staff['no_pegawai'] }}</td>
+            <td>{{ $a->staff['nama'] }}</td>
             <td>{{ $a['username'] }}</td>
             @if(empty($a->staff['user_id']))
             <td><a><div class="badge badge-light">Belum Ditautkan<i class="fas fa-times"></i></div></a></td>

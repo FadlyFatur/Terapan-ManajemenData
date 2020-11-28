@@ -29,34 +29,24 @@
     font-size: 1rem;
   }
 
-.kontak .box{
-  height: 200px;
-  width: 200px;
-  background-color: #6777ef;
-  border-radius: 3px;
-  box-shadow: 0 2px 6px #acb5f6;
-  color: white;
-}
+  .hero{
+    width:300px;
+    height: 250px;
+  }
 
-.body-box{
-  text-align:center;
-}
+  .hero i{
+    font-size: 50px;
+    margin-bottom: 12px;
+  }
 
-.body-box i{  
-  padding: 25px 0 ;
-  text-align: center;
-  font-size: 64px;
-}
+  /* .hero-inner{
+    width: 200px;
+  } */
 
-.footer-box{
-  color: white;
-  text-align: center;
-}
+  .hr-4{
+    border: 1.5px solid white;
+  }
 
-.body-box i{
-  color: white;
-  text-align: center;
-}
 
 .company-header-avatar{
   width: 200px;

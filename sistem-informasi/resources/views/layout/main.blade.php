@@ -16,12 +16,10 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
-<link rel="stylesheet" href="{{asset('dist/css/chocolat.css')}}" type="text/css" media="screen" >
+  <link rel="stylesheet" href="{{asset('dist/css/chocolat.css')}}" type="text/css" media="screen" >
+  <link rel="stylesheet" href="{{asset('dropzone/min/dropzone.min.css')}}" type="text/css" media="screen" >
   @yield('css')
-
-  <script type="text/javascript" src="{{ asset('dist/js/chocolat.js') }}"></script>
   
-
   <style>
   /* Chrome, Safari, Edge, Opera */
     input::-webkit-outer-spin-button,
@@ -39,12 +37,12 @@
 </head>
 
 <body>
+  @yield('modal')
   <div id="app">
     <div class="main-wrapper">
       <div class="navbar-bg"></div>
       @include('layout.nav')
       @include('layout.sidebar')
-      @yield('modal')
       <!-- Main Content -->
       <div class="main-content">
         <section class="section">
@@ -59,7 +57,7 @@
       
       <footer class="main-footer">
         <div class="footer-left">
-          Copyright &copy; 2020  |  Created By <a href="https://www.itenas.ac.id/">Informatika Itenas</a>   |  Template By <a href="https://getstisla.com/getting-started">STISLA</a> 
+          Copyright &copy; 2020  |  Created By <a target="_blank" href="https://www.itenas.ac.id/">Informatika Itenas</a>   |  Template By <a target="_blank" href="https://getstisla.com/getting-started">STISLA</a> 
         </div>
         <div class="footer-right">
           RW 02, Kelurahan Sukapada, Kecamatan Cibeunying Kidul, Kota Bandung.
@@ -73,14 +71,18 @@
   <script src="{{asset('js/bootstrap.min.js')}}"></script>
   <script src="{{asset('jquery.nicescroll.min.js')}}"></script>
   <script src="{{asset('moment.min.js')}}"></script>
-  <script src="{{asset('bootstrap-datetimepicker.min.js')}}"></script>
+  <!-- <script src="{{asset('bootstrap-datetimepicker.min.js')}}"></script> -->
   
   <!-- JS Libraies -->
   <script src="{{asset('assets/js/stisla.js')}}"></script>
   <!-- Template JS File -->
   <script src="{{asset('assets/js/scripts.js')}}"></script>
   <script src="{{asset('assets/js/custom.js')}}"></script>
+  <script src="{{ asset('dist/js/chocolat.js') }}"></script>
+  <script src="{{ asset('countUp.js') }}"></script>
+  <script src="{{ asset('dropzone/min/dropzone.min.js') }}"></script>
   <!-- Page Specific JS File -->
   @yield('js')
+ 
 </body>
 </html>

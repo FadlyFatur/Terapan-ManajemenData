@@ -23,6 +23,7 @@
                 <li><a class="nav-link" href="{{ route('crudWarga') }}">Data Warga</a></li>
                   <li><a class="nav-link" href="{{ route('staff') }}">Data Staff</a></li>
                   <li><a class="nav-link" href="{{ route('editAcara') }}">Data Acara</a></li>
+                  <li><a class="nav-link" href="{{ route('galeriAdmin') }}">Data Galeri</a></li>
                 </ul>
               </li>
               <hr>

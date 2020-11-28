@@ -164,4 +164,9 @@ class beritaController extends Controller
         return view('pencarian.galeri');
     }
 
+    public function galeriAdmin()
+    {
+        return view('manajemen.crudGaleri');
+    }
+
 }

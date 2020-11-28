@@ -58,16 +58,23 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('profil/update/{id}', 'userController@passUpdate')->name('updatePass');
     Route::post('profil/taut', 'userController@tautkan')->name('tautkan');
 
+    //editGaleri
+    Route::get('manajemen/galeri', 'dropzoneController@index')->name('galeriAdmin');    
+    Route::post('manajemen/galeri/upload', 'dropzoneController@upload')->name('dz.upload');
+    Route::get('manajemen/galeri/fetch', 'DropzoneController@fetch')->name('dropzone.fetch');
+    Route::get('galeri/fetch', 'DropzoneController@fetchGaleri')->name('dz.fetch');
+    Route::get('manajemen/galeri/delete', 'DropzoneController@delete')->name('dropzone.delete');
+
  });
 
- Route::get('staff', 'crudStaffController@index')->name('lihatStaff');
- Route::get('berita', 'beritaController@Index')->name('Acara');
+Route::get('staff', 'crudStaffController@index')->name('lihatStaff');
+Route::get('berita', 'beritaController@Index')->name('Acara');
 
 //pencarian warga
 Route::get('pencarian/warga', 'wargaController@index')->name('cariWarga');
 Route::get('pencarian/warga/fetch', 'wargaController@fetch');
 
-Route::get('galeri', 'beritaController@galeri')->name('galeri');
+Route::get('galeri', 'dropzoneController@galeri')->name('galeri');
 
  
 

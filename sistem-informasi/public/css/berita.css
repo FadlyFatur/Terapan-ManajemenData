@@ -9,7 +9,6 @@
 }
 
 .card-img-top img{  
-
     object-fit: cover;
     height: 100%;  
     min-height: 300px;
