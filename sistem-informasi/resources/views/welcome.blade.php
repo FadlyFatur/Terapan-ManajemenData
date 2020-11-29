@@ -170,7 +170,7 @@
   @else
 
   <div class="row d-flex justify-content-center text-center">
-    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-5">
       <div class="col-12">
         <div class="hero bg-primary text-white">
           <i class="fas fa-phone-square"></i>
@@ -183,7 +183,7 @@
       </div>
     </div>
 
-    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-5">
       <div class="col-12">
         <div class="hero bg-primary text-white">
         <i class="fas fa-at"></i>
@@ -196,7 +196,7 @@
       </div>
     </div>
 
-    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-5">
       <div class="col-12">
         <div class="hero bg-primary text-white">
           <i class="fas fa-map-marked-alt" style="margin-bottom:0px;"></i>

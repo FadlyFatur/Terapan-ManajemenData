@@ -8,7 +8,7 @@
               <li class="active"><a class="nav-link" href="{{ route('beranda') }}"><i class="fas fa-home"></i> <span>Beranda</span></a></li>  
               <hr>
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-search"></i> <span>Pencarian Data</span></a>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-university"></i><span>Menu Utama</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="{{ route('cariWarga') }}">Cek Warga</a></li>
                   <li><a class="nav-link" href="{{ route('Acara') }}">Acara/Kegiatan</a></li>
@@ -18,7 +18,7 @@
               </li>
               <hr>  
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Pengelolaan Data</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-database"></i><span>Pengelolaan Data</span></a>
                 <ul class="dropdown-menu">
                 <li><a class="nav-link" href="{{ route('crudWarga') }}">Data Warga</a></li>
                   <li><a class="nav-link" href="{{ route('staff') }}">Data Staff</a></li>
@@ -41,7 +41,7 @@
               @endif
               @if (Auth::check())
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Profil</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="far fa-address-card"></i> <span>Profil</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="{{ route('profil') }}">Sunting Profil</a></li>
                 </ul>
@@ -51,7 +51,7 @@
               <a href="{{ route('logout') }}" class="btn btn-primary btn-lg btn-block btn-icon-split"
               onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
-              <i class="fas fa-door-open"></i>Logout/Keluar
+              <i class="fas fa-sign-out-alt"></i></i>Logout/Keluar
               </a>
               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf

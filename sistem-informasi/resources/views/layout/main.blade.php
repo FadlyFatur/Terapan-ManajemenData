@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
   <link rel="stylesheet" href="{{asset('dist/css/chocolat.css')}}" type="text/css" media="screen" >
   <link rel="stylesheet" href="{{asset('dropzone/min/dropzone.min.css')}}" type="text/css" media="screen" >
+  <link rel="stylesheet" href="{{asset('jquery.dataTables.min.css')}}" type="text/css" media="screen" >
   @yield('css')
   
   <style>
@@ -71,7 +72,6 @@
   <script src="{{asset('js/bootstrap.min.js')}}"></script>
   <script src="{{asset('jquery.nicescroll.min.js')}}"></script>
   <script src="{{asset('moment.min.js')}}"></script>
-  <!-- <script src="{{asset('bootstrap-datetimepicker.min.js')}}"></script> -->
   
   <!-- JS Libraies -->
   <script src="{{asset('assets/js/stisla.js')}}"></script>
@@ -79,8 +79,8 @@
   <script src="{{asset('assets/js/scripts.js')}}"></script>
   <script src="{{asset('assets/js/custom.js')}}"></script>
   <script src="{{ asset('dist/js/chocolat.js') }}"></script>
-  <script src="{{ asset('countUp.js') }}"></script>
   <script src="{{ asset('dropzone/min/dropzone.min.js') }}"></script>
+  <script src="{{ asset('jquery.dataTables.min.js') }}"></script>
   <!-- Page Specific JS File -->
   @yield('js')
  

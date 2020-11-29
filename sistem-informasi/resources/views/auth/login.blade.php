@@ -7,6 +7,17 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                
+            @if ($message = Session::get('gagal'))
+            <div class="alert alert-danger alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                <span>×</span>
+                </button>
+                {{ Session::get('gagal') }}
+            </div>
+            </div>
+            @endif
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
