@@ -41,7 +41,7 @@ load_images();
   {
     $.ajax({
       tyoe:'get',
-      url:"http://127.0.0.1:8000/manajemen/galeri/fetch",
+      url:"/manajemen/galeri/fetch",
       success:function(data)
       {
         $('#uploaded-image').html(data);
@@ -52,7 +52,7 @@ load_images();
   $(document).on('click', '.remove_image', function(){
     var name = $(this).attr('id');
     $.ajax({
-      url:"http://127.0.0.1:8000/manajemen/galeri/delete",
+      url:"/manajemen/galeri/delete",
       data:{name : name},
       success:function(data){
         load_images();

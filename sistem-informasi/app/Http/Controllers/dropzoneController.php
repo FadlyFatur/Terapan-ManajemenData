@@ -14,7 +14,11 @@ class dropzoneController extends Controller
 
     public function index()
     {
-        return view('manajemen.crudGaleri');
+        if(!empty(Auth::user()->verified_at)){
+            return view('manajemen.crudGaleri');
+        }else{
+            return redirect('profil')->with(['gagal' => 'Akun belum terverifikasi, Harap hubungi admin untuk verifikasi']);
+        }
     }
 
     public function upload(Request $request)

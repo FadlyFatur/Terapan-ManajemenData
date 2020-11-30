@@ -46,7 +46,11 @@
                     </div>
                     <div class="col-sm-6">
                         <p class="m-b-10 f-w-600">Nomer Pegawai</p>
+                        @if(isset(Auth::user()->staff['no_pegawai']))
                         <h6 class="text-muted f-w-400">{{ Auth::user()->staff['no_pegawai'] }}</h6>
+                        @else
+                        <h6 class="text-muted f-w-400">-</h6>
+                        @endif
                     </div>
                 </div>
                 <hr>
@@ -94,7 +98,7 @@
         </div>
     </div>
     <hr>
-    <div class="container">
+    <div class="container" id="profilParent">
         <button class="btn btn-primary" data-toggle="collapse" href="#resetPassword" role="button" aria-expanded="false" aria-controls="collapseExample">
             <i class="fas fa-edit"></i> Reset Password
         </button>
@@ -103,7 +107,7 @@
         </button>
 
 
-        <div class="collapse" id="resetPassword">
+        <div class="collapse" id="resetPassword" data-parent="#profilParent">
             <div class="card card-body">
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
@@ -159,7 +163,7 @@
             </div>
         </div>
 
-        <div class="collapse" id="taut">
+        <div class="collapse" id="taut" data-parent="#profilParent">
             <div class="card card-body">
                 Menautkan Akun web dengan staff
                 <hr>
