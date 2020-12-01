@@ -47,9 +47,7 @@
                     <div class="col-sm-6">
                         <p class="m-b-10 f-w-600">Nomer Pegawai</p>
                         @if(isset(Auth::user()->staff['no_pegawai']))
-                        <h6 class="text-muted f-w-400">{{ Auth::user()->staff['no_pegawai'] }}</h6>
-                        @else
-                        <h6 class="text-muted f-w-400">-</h6>
+                        <h6 class="text-muted f-w-400">{{ isset(Auth::user()->staff["no_pegawai"]) ?? Null }}</h6>
                         @endif
                     </div>
                 </div>
