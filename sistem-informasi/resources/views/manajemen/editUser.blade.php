@@ -47,8 +47,8 @@
         <tbody>
         @foreach($data as $a)
           <tr class="text-center">
-            <td>{{ $a->staff['no_pegawai'] }}</td>
-            <td>{{ $a->staff['nama'] }}</td>
+            <td>{{ isset($a->staff['no_pegawai']) ? $a->staff['no_pegawai'] : Null }}</td>
+            <td>{{ isset($a->staff['nama']) ? $a->staff['nama'] : Null }}</td>
             <td>{{ $a['username'] }}</td>
             @if(empty($a->staff['user_id']))
             <td><a><div class="badge badge-light">Belum Ditautkan<i class="fas fa-times"></i></div></a></td>

@@ -36,7 +36,7 @@
 
     <div class="accordion" id="accordionExample">
       <div class="container-fluid">
-        <div class="" id="headingOne">
+        <div id="headingOne">
             <a class="btn btn-primary btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
               <i class="fas fa-plus"></i> Edit Kontak
             </a>
@@ -48,15 +48,15 @@
             @csrf
             <div class="form-group">
               <label for="inputEmail3" class="col-sm-3 col-form-label">Kontak</label>
-              <input type="Text" class="form-control" name="kontak" placeholder="Kontak" value="{{$data['kontak']}}">
+              <input type="Text" class="form-control" name="kontak" placeholder="Kontak" value="{{isset($data['kontak']) ? $data['kontak'] : Null}}">
             </div>
             <div class="form-group">
               <label for="inputPassword3" class="col-sm-3 col-form-label">Email</label>
-              <input type="Email" class="form-control" name="email"  placeholder="Email" value="{{$data['email']}}">
+              <input type="Email" class="form-control" name="email"  placeholder="Email" value="{{isset($data['email']) ? $data['email'] : Null}}">
             </div>
             <div class="form-group">
               <label for="inputPassword3" class="col-sm-3 col-form-label">Alamat</label>
-              <input type="text" class="form-control" name="alamat" placeholder="Alamat Lengkap" value="{{$data['alamat']}}">
+              <input type="text" class="form-control" name="alamat" placeholder="Alamat Lengkap" value="{{isset($data['alamat']) ? $data['alamat'] : Null}}">
             </div>
             <div class="card-footer d-flex justify-content-center">       
               <button type="submit" class="btn btn-primary mr-1">Submit</button>
@@ -65,84 +65,127 @@
         </div>
         </div>
       </div>
+
       <hr>
-      <!-- <div class="container-fluid">
-        <div class="" id="headingTwo">
-          <a class="btn btn-primary btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            <i class="fas fa-plus"></i> Edit Foto Header
-          </a>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-          <div class="container p-2">
-            <div class="header-img text-center">
-              <img src="https://images.pexels.com/photos/1379655/pexels-photo-1379655.jpeg?cs=srgb&dl=pexels-jonas-von-werne-1379655.jpg&fm=jpg" class="img-fluid" alt="" srcset="">
-              <div class="footer-edit mt-2 text-center">
-                <button type="button" class="btn btn-primary" id="gambar1" data-toggle="modal" data-target="#gambar1">
-                  Ganti
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <hr> -->
+
       <div class="container-fluid">
-        <div class="" id="headingThree">
+        <div id="headingThree">
             <a class="btn btn-primary btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              <i class="fas fa-plus"></i> Maintenance/Perawatan
+              <i class="fas fa-plus"></i> Edit Pilihan Pekerjaan
             </a>
         </div>
+
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-          <div class="card-body d-flex justify-content-center">
-           
-          <!-- Default switch -->
-          <div class="onoffswitch3">
-              <input type="checkbox" name="onoffswitch3" class="onoffswitch3-checkbox" id="myonoffswitch3" checked="">
-              <label class="onoffswitch3-label" for="myonoffswitch3">
-                  <span class="onoffswitch3-inner">
-                      <span class="onoffswitch3-active"><span class="onoffswitch3-switch">Aktif</span></span>
-                      <span class="onoffswitch3-inactive"><span class="onoffswitch3-switch">Non Aktif</span></span>
-                  </span>
-              </label>
-          </div>
+
+          <div class="card-body">
+
+            <div class="row">
+
+              <div class="col">
+                <form action="{{route('addKerja')}}" method="post">
+                @csrf 
+                  <div class="form-row align-items-center">
+                    <div class="col-auto">
+                      <label class="sr-only" for="inlineFormInput">Kerja</label>
+                      <input type="text" name="nama" class="form-control mb-2" id="inlineFormInput" placeholder="Kerja">
+                    </div>
+                    <div class="col-auto">
+                      <button type="submit" class="btn btn-primary mb-2">Tambah</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col">
+                <table class="table text-body">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Nama</th>
+                      <th scope="col">Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  @foreach ($kerjas as $k)
+                    <tr>
+                      <td>{{$k->nama}}</td>
+                      <td> <a href="{{route('deleteKerja',['id' => $k->id])}}" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></a></td>
+                    </tr>
+                  @endforeach
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
 
           </div>
+
         </div>
+
+        
       </div>
+
+      <hr>
+
+      <div class="container-fluid">
+        <div id="headingfour">
+            <a class="btn btn-primary btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+              <i class="fas fa-plus"></i> Edit Visi & Misi
+            </a>
+        </div>
+
+        <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionExample">
+
+          <div class="card-body text-body">
+          <form action="{{route ('updateMs')}}" method="POST">
+          @csrf
+          <div class="row">
+            
+            
+            <div class="col">
+            <h3>Visi</h3>
+              <div class="form-group">
+                <div class="col">
+                <textarea class="form-control" name="visi" id="visi" placeholder="Masukan visi" style="height: 150px;"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <h3>Misi</h3>
+              <div class="form-group">
+                <div class="col">
+                <textarea class="form-control" name="misi" id="misi" placeholder="Masukan misi" style="height: 150px;"></textarea>
+                </div>
+              </div>
+            </div>
+
+          </div>
+              <div class="mx-auto d-flex justify-content-center button-submit">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+          </form>
+          </div>
+
+        </div>
+
+        
+      </div>
+
     </div>
+
+
   </div>
 </div>  
 @endsection
   
 @section('modal')
-<div class="modal fade" id="" value="" data-backdrop="static" data-keyboard="false" tabindex="-1" 
-aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form class="m-2" method="post" action="{{route('uploadGambar')}}" enctype="multipart/form-data">
-      @csrf
-        <div class="modal-body">
-          <div class="form-group">
-            <label>Unggah File</label>
-            <input type="file" name="gambar" value="" class="form-control input-modal">
-          </div>
-        </div>
-        <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-          <button type="submit" class="btn btn-primary">Update!</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
+
 @endsection
 
 @section('js')
   <script src="{{asset('js/editBeranda.js')}}"></script>
+  <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+
+  <script>
+  CKEDITOR.replace('misi');
+  CKEDITOR.replace('visi');
+  </script>
 @endsection

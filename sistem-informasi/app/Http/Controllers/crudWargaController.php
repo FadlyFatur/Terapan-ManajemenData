@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\warga;
+use App\kerjas;
 use Auth;
 use Illuminate\Support\Facades\Redirect;
 use App\Exports\WargaExport;
@@ -34,6 +35,8 @@ class crudWargaController extends Controller
     }
 
     public function Index(Request $request){
+        $kerja = kerjas::all();
+
         if(!empty(Auth::user()->verified_at)){
             $cari = $request->cari;
         
@@ -47,7 +50,7 @@ class crudWargaController extends Controller
                 ->paginate(50);
                 $total_data = $wargas->count();
             }
-            return view('manajemen.crudWarga', compact('wargas','total_data'));
+            return view('manajemen.crudWarga', compact('wargas','total_data','kerja'));
         }else{
             return redirect('profil')->with(['gagal' => 'Akun belum terverifikasi, Harap hubungi admin untuk verifikasi']);
         }

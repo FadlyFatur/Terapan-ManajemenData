@@ -28,13 +28,9 @@
           <tr>
             <th scope="col" class="text-white">Nama Lengkap</th>
             <th scope="col" class="text-white">Jenis Kelamin</th>
-            <th scope="col" class="text-white">TTL</th>
-            <th scope="col" class="text-white">Agama</th>
-            <th scope="col" class="text-white">Alamat</th>
+            <th scope="col" class="text-white">Tempat Tanggal Lahir</th>
             <th scope="col" class="text-white">RT/RW</th>
-            <th scope="col" class="text-white">Kota</th>
-            <th scope="col" class="text-white">Pekerjaan</th>
-            <th scope="col" class="text-white">Status Perkawinan</th>
+            <th scope="col" class="text-white">Alamat</th>
           </tr>
         </thead>
         <tbody class="text-center">

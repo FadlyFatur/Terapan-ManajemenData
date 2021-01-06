@@ -35,10 +35,10 @@
               <h3 class="text-primary">{{$d->nama}}</h3>
             </div>
             <h5 class="text-info">{{$d->jabatan->njabatan}}</h5>
-            <div class="author-box-job">No. Pegawai : {{$d->no_pegawai}}</div>
+            <div class="author-box-job">No. Pegawai : {{isset($d->no_pegawai) ? $d->no_pegawai : Null}}</div>
             <p style="color:black;">Alamat : {{$d->alamat}}</p>
-            Nomer Hp :
-            <span class="badge badge-info">{{$d->no_hp}}</span>
+            <hr>
+            <span class="badge badge-info">Nomer Hp : {{$d->no_hp}}</span>
           </div>
         </div>
         <hr>

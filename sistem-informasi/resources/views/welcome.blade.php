@@ -78,6 +78,37 @@
 </div>
 <hr>  
 
+<!-- visi dan misi  -->
+<div class="container-fluid">
+  <div class="d-flex justify-content-between">
+    <h2 class="section-title">Visi dan Misi</h2>
+  </div>
+  @if(isset($beranda->visi) || isset($beranda->misi))
+  <div class="row text-center">
+    <div class="col p-2" id="visi">
+    <h3>Visi</h3>
+    <p>{!! $beranda->visi !!}</p>
+    </div>
+    <div class="col p-2" id="misi">
+    <h3>Misi</h3>
+    <p>{!! $beranda->misi !!}</p>
+    </div>
+  </div>
+  @else
+  <div class="row text-center">
+    <div class="col p-2" id="visi">
+    <h3>Visi</h3>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima magni a cupiditate modi repudiandae exercitationem odit quos, facilis omnis, quisquam dicta aut? Qui ducimus ut dicta repudiandae, illo minus laudantium?</p>
+    </div>
+    <div class="col p-2" id="misi">
+    <h3>Misi</h3>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui laudantium suscipit magni inventore aliquam molestias, nisi, earum et ea at cupiditate deleniti. Obcaecati, quod! Accusamus vitae eligendi quae minus ab.</p>
+    </div>
+  </div>
+  @endif
+</div>
+<hr>
+
 <!-- news section -->
 <div class="container-fluid">
   <div class="d-flex justify-content-between">
@@ -137,11 +168,11 @@
       <div class="col-md-3 col-sm-6 p-5">
         <div class="user-item text-center">
           @if (isset($s->foto))
-          <div class="company-header-avatar" style="background-image: url({{Storage::url($s['url'])}})">
+          <div class="company-header-avatar" style="background-image: url({{Storage::url($s['url'])}})"></div>
           @else
           <div class="company-header-avatar" style="background-image: url(&quot;assets/img/avatar/avatar-5.png&quot;)">
-          @endif
           </div>
+          @endif
           <!-- <img alt="image" src="{{Storage::url($s['url'])}}" class="img-fluid"> -->
           <div class="user-details mt-3">
             <h5 class="user-name">{{$s['nama']}}</h5>

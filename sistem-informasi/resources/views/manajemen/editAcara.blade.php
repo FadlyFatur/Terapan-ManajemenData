@@ -148,7 +148,7 @@
                   @endif
                   <!-- <td></td> -->
                   <td class="text-center">
-                  <a href="{{route('showAcara',['slug' => $a->slug])}}" target="_blank" class="btn btn-sm btn-outline-danger"><i class="fas fa-eye"></i></a>
+                    <a href="{{route('showAcara',['slug' => $a->slug])}}" target="_blank" class="btn btn-sm btn-outline-danger"><i class="fas fa-eye"></i></a>
                     <button data-toggle="modal" data-target="#edit-{{$a['id']}}" class="btn btn-sm btn-outline-danger" id="tag{{$a['id']}}"><i class="fa fa-edit"></i></button>
                     <a href="{{route('deleteAcara',['id' => $a->id])}}" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></a>
                   </td>
@@ -179,7 +179,7 @@
 @section('modal')
   <!-- Modal -->
   @foreach ($data as $a)
-    <div class="modal fade" id="edit-{{$a['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade text-body" id="edit-{{$a['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg " role="document">
         <div class="modal-content">
           <div class="modal-header">

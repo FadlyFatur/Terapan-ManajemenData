@@ -37,7 +37,7 @@
 
 </head>
 
-<body>
+<body oncopy="return false" oncut="return false" onpaste="return false">
   @yield('modal')
   <div id="app">
     <div class="main-wrapper">

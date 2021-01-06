@@ -66,10 +66,10 @@
               </thead>
               <tbody>
               @foreach($wargas as $a)
-                <tr>
+                <tr class="text-center">
                   <td>{{ $a['nik'] }}</td>
                   <td>{{ $a['nama_lengkap'] }}</td>
-                  <td class="text-center">{{ $a['jenis_kelamin'] }}</td>
+                  <td class=>{{ $a['jenis_kelamin'] }}</td>
                   <td>{{ $a['alamat'] }}</td>
                   <td>{{ $a['rt'] }}</td>
                   @if ($a['status'] != 0)
@@ -173,8 +173,15 @@
                   <option {{$a['rt'] == '1' ? ' selected="selected" ' : '' }}>1</option>
                   <option {{$a['rt'] == '2' ? ' selected="selected" ' : '' }}>2</option> 
                   <option {{$a['rt'] == '3' ? ' selected="selected" ' : '' }}>3</option>
-                  <option {{$a['rt'] == '3' ? ' selected="selected" ' : '' }}>4</option>
-                  <option {{$a['rt'] == '3' ? ' selected="selected" ' : '' }}>5</option>
+                  <option {{$a['rt'] == '4' ? ' selected="selected" ' : '' }}>4</option>
+                  <option {{$a['rt'] == '5' ? ' selected="selected" ' : '' }}>5</option>
+                  <option {{$a['rt'] == '6' ? ' selected="selected" ' : '' }}>6</option>
+                  <option {{$a['rt'] == '7' ? ' selected="selected" ' : '' }}>7</option> 
+                  <option {{$a['rt'] == '8' ? ' selected="selected" ' : '' }}>8</option>
+                  <option {{$a['rt'] == '9' ? ' selected="selected" ' : '' }}>9</option>
+                  <option {{$a['rt'] == '10' ? ' selected="selected" ' : '' }}>10</option>
+                  <option {{$a['rt'] == '11' ? ' selected="selected" ' : '' }}>11</option>
+                  <option {{$a['rt'] == '12' ? ' selected="selected" ' : '' }}>12</option>
                 </select>
             </div>
 
@@ -193,9 +200,9 @@
             <div class="form-group">
               <label for="exampleFormControlSelect4">Pekerjaan</label>
               <select class="form-control" id="exampleFormControlSelect4" name="kerja">
-                <option {{$a['kerja'] == 'Pelajar/Mahasiswa' ? ' selected="selected" ' : '' }}>Pelajar/Mahasiswa</option>
-                <option {{$a['kerja'] == 'Buruh' ? ' selected="selected" ' : '' }}>Buruh</option> 
-                <option {{$a['kerja'] == 'Belum Bekerja' ? ' selected="selected" ' : '' }}>Belum Bekerja</option>
+                @foreach ($kerja as $k)
+                  <option {{$k['nama'] == $a['kerja'] ? ' selected="selected" ' : '' }}>{{$k->nama}}</option>
+                @endforeach
               </select>
             </div>
 
@@ -241,44 +248,57 @@
               <label for="exampleFormControlInput3">Nama</label> 
               <input type="nama_lengkap" name="nama_lengkap" class="form-control" id="exampleFormControlInput3"  placeholder="Nama Lengkap" required>
           </div>
-
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Jenis Kelamin</label>
-              <select class="form-control" name="jenis_kelamin" id="exampleFormControlSelect1" required>
-                <option>P</option>
-                <option>L</option>
-              </select>
-            </div> 
-
-            <div class="form-group">
-              <label for="exampleFormControlInput4">Tempat Lahir</label> 
-              <input type="tempat_lahir" name="tempat_lahir" class="form-control" id="exampleFormControlInput4" placeholder="tempat lahir" required>
+          
+     
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Jenis Kelamin</label>
+                <select class="form-control" name="jenis_kelamin" id="exampleFormControlSelect1" required>
+                  <option>P</option>
+                  <option>L</option>
+                </select>
+              </div> 
             </div>
-
-            <div class="form-group">
-              <label for="exampleFormControlInput5">Tanggal Lahir</label> 
-              <input type="date" class="form-control" name="tanggal_lahir" id="exampleFormControlInput5"  placeholder="tanggal lahir" required>
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlInput4">Tempat Lahir</label> 
+                <input type="tempat_lahir" name="tempat_lahir" class="form-control" id="exampleFormControlInput4" placeholder="tempat lahir" required>
+              </div>
             </div>
-
-            <div class="form-group">
-              <label>Alamat</label>
-              <textarea name="alamat" class="form-control" required></textarea>
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlInput5">Tanggal Lahir</label> 
+                <input type="date" class="form-control" name="tanggal_lahir" id="exampleFormControlInput5"  placeholder="tanggal lahir" required>
+              </div>
             </div>
+          </div>
 
-            <div class="form-group">
-              <label for="exampleFormControlInput6">Kelurahan</label> 
-              <input type="kelurahan" name="kelurahan" class="form-control" id="exampleFormControlInput6"  placeholder="kelurahan" required>
-            </div>
+          <div class="form-group">
+            <label>Alamat</label>
+            <textarea name="alamat" class="form-control" required></textarea>
+          </div>
 
-            <div class="form-group">
-              <label for="exampleFormControlInput7">Kecamatan</label> 
-              <input type="kecamatan" name="kecamatan" class="form-control" id="exampleFormControlInput7"  placeholder="kecamatan" required>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlInput6">Kelurahan</label> 
+                <input type="kelurahan" name="kelurahan" class="form-control" id="exampleFormControlInput6"  placeholder="kelurahan" required>
+              </div>
             </div>
-
-            <div class="form-group">
-              <label for="exampleFormControlInput7">Kota</label> 
-              <input type="kota" name="kota" class="form-control" id="exampleFormControlInput7"  placeholder="kota" required>
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlInput7">Kecamatan</label> 
+                <input type="kecamatan" name="kecamatan" class="form-control" id="exampleFormControlInput7"  placeholder="kecamatan" required>
+              </div>
             </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlInput7">Kota</label> 
+                <input type="kota" name="kota" class="form-control" id="exampleFormControlInput7"  placeholder="kota" required>
+              </div>
+            </div>
+          </div>
 
             <div class="form-group">
                 <label for="exampleFormControlSelect2">RT</label>
@@ -288,39 +308,52 @@
                   <option>3</option>
                   <option>4</option>
                   <option>5</option>
+                  <option>6</option>
+                  <option>7</option> 
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
                 </select>
             </div>
 
-            <div class="form-group">
-              <label for="exampleFormControlSelect3">Agama</label>
-              <select class="form-control" id="exampleFormControlSelect3" name="agama" required>
-                <option>Islam</option>
-                <option>Khatolik</option> 
-                <option>Protestan</option> 
-                <option>Hindu</option>
-                <option>Buddha</option>
-              </select>
+
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="exampleFormControlSelect3">Agama</label>
+                  <select class="form-control" id="exampleFormControlSelect3" name="agama" required>
+                    <option>Islam</option>
+                    <option>Khatolik</option> 
+                    <option>Protestan</option> 
+                    <option>Hindu</option>
+                    <option>Buddha</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="exampleFormControlSelect3">Status Perwinan</label>
+                  <select class="form-control" id="exampleFormControlSelect3" name="perkawinan" required>
+                    <option>Menikah</option>
+                    <option>Belum Menikah</option> 
+                  </select>
+                </div>
+              </div>
             </div>
+            
 
             <div class="form-group">
               <label for="exampleFormControlSelect4">Pekerjaan</label>
               <select class="form-control" id="exampleFormControlSelect4" name="kerja" required> 
-                <option>Belum/Tidak Bekerja</option>
-                <option>Megurus Rumah Tangga</option>
-                <option>Pelajar/Mahasiswa</option>
-                <option>Pensiunan</option>
-                <option>Buruh</option> 
-                <option>Pedagangan</option> 
+                @foreach ($kerja as $k)
+                <option>{{$k->nama}}</option>
+                @endforeach
               </select>
             </div>
 
-            <div class="form-group">
-              <label for="exampleFormControlSelect3">Status Perwinan</label>
-              <select class="form-control" id="exampleFormControlSelect3" name="perkawinan" required>
-                <option>Menikah</option>
-                <option>Belum Menikah</option> 
-              </select>
-            </div>
+            
 
         </div>
         <div class="modal-footer">

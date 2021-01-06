@@ -30,7 +30,9 @@ Route::group(['middleware' => 'auth'], function () {
     // route beranda
     Route::get('manajemen/Edit-beranda', 'berandaController@Index')->name('editBeranda');
     Route::post('manajemen/Edit-beranda/Post', 'berandaController@update')->name('updateBeranda');
-    Route::post('manajemen/Edit-beranda/UploadGambar', 'berandaController@storeGambar')->name('uploadGambar');
+    Route::post('manajemen/Edit-beranda/addKerja', 'berandaController@addKerja')->name('addKerja');
+    Route::get('manajemen/Edit-beranda/deleteKerja/{id}', 'berandaController@deleteKerja')->name('deleteKerja');
+    Route::post('manajemen/Edit-beranda/visi-misi', 'berandaController@updateMs')->name('updateMs');
 
     //route acara/kegiatan
     Route::get('manajemen/kegiatan', 'beritaController@adminIndex')->name('editAcara');

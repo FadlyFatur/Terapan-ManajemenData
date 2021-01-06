@@ -39,14 +39,9 @@
     margin-bottom: 12px;
   }
 
-  /* .hero-inner{
-    width: 200px;
-  } */
-
   .hr-4{
     border: 1.5px solid white;
   }
-
 
 .company-header-avatar{
   width: 200px;
@@ -55,4 +50,16 @@
   background-clip: padding-box;
   background-size: cover;
   background-position: center center;
+}
+
+#visi,#misi{
+  background-color:lightcyan;
+}
+
+.image-staff{
+  object-fit: cover;
+  object-position: 10% 0%;
+  width: 200px;
+  height: 200px;
+  color: white;
 }

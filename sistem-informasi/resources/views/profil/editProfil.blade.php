@@ -47,7 +47,7 @@
                     <div class="col-sm-6">
                         <p class="m-b-10 f-w-600">Nomer Pegawai</p>
                         @if(isset(Auth::user()->staff['no_pegawai']))
-                        <h6 class="text-muted f-w-400">{{ isset(Auth::user()->staff["no_pegawai"]) ?? Null }}</h6>
+                        <h6 class="text-muted f-w-400">{{ isset(Auth::user()->staff["no_pegawai"]) ? Auth::user()->staff["no_pegawai"] : Null }}</h6>
                         @endif
                     </div>
                 </div>
@@ -78,18 +78,18 @@
             <div class="row">
                 <div class="col-sm-6">
                     <p class="m-b-10 f-w-600">Nama</p>
-                    <h6 class="text-muted f-w-400">{{ Auth::user()->staff['nama']}}</h6>
+                    <h6 class="text-muted f-w-400">{{ isset(Auth::user()->staff["no_pegawai"]) ? Auth::user()->staff["nama"]: Null}}</h6>
                 </div>
                 <div class="col-sm-6">
                     <p class="m-b-10 f-w-600">Nomer Hp</p>
-                    <h6 class="text-muted f-w-400">{{ Auth::user()->staff['no_hp'] }}</h6>
+                    <h6 class="text-muted f-w-400">{{ isset(Auth::user()->staff["no_pegawai"]) ? Auth::user()->staff["no_hp"] : Null }}</h6>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-sm-8">
                     <p class="m-b-10 f-w-600">Alamat</p>
-                    <h6 class="text-muted f-w-400">{{ Auth::user()->staff['alamat'] }}</h6>
+                    <h6 class="text-muted f-w-400">{{ isset(Auth::user()->staff["no_pegawai"]) ?Auth::user()->staff["alamat"] : Null}}</h6>
                 </div>
             </div>
             </div>
@@ -100,7 +100,7 @@
         <button class="btn btn-primary" data-toggle="collapse" href="#resetPassword" role="button" aria-expanded="false" aria-controls="collapseExample">
             <i class="fas fa-edit"></i> Reset Password
         </button>
-        <button class="btn btn-primary" data-toggle="collapse" href="#taut" role="button" aria-expanded="false" aria-controls="collapseExample" {{is_null($data['user_id']) ? '' : 'disabled   '}}>
+        <button class="btn btn-primary" data-toggle="collapse" href="#taut" role="button" aria-expanded="false" aria-controls="collapseExample" {{isset($data['user_id']) ? 'disabled' : '' }}>
             <i class="fas fa-user"></i> Tautkan Akun
         </button>
 
