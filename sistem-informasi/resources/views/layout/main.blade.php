@@ -61,7 +61,7 @@
           Copyright &copy; 2020  |  Created By <a target="_blank" href="https://www.itenas.ac.id/">Informatika Itenas</a>   |  Template By <a target="_blank" href="https://getstisla.com/getting-started">STISLA</a> 
         </div>
         <div class="footer-right">
-          RW 02, Kelurahan Sukapada, Kecamatan Cibeunying Kidul, Kota Bandung.
+          
         </div>
       </footer>
     </div>

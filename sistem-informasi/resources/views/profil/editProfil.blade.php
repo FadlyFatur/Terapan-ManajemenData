@@ -8,7 +8,16 @@
 
 @section('content')
 <div class="card user-card-full p-3">
-
+@if ($message = Session::get('sukses'))
+<div class="alert alert-success alert-dismissible show fade">
+  <div class="alert-body">
+    <button class="close" data-dismiss="alert">
+      <span>×</span>
+    </button>
+    {{ Session::get('sukses') }}
+  </div>
+</div>
+@endif
 @if ($errors->any())
   <div class="alert alert-danger alert-dismissible show fade">
   <div class="alert-body">

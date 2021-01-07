@@ -114,4 +114,22 @@ class userController extends Controller
         }
 
     }
+
+    public function reset($id)
+    {
+        if(Auth::id() != $id){
+            try {
+                $defaultPass = '12345';
+                $data = user::find($id);
+                $data->password = Hash::make($defaultPass);
+                $data->update();
+                return Redirect::back()->with('sukses','Berhasil mereset Password!');
+            } catch (\Exception $e) {
+                return Redirect::back()->with('gagal','Gagal mereset Password!');
+            }
+        }else{
+            return Redirect::back()->with('gagal','Tidak bisa mereset data pribadi!');
+        }
+        
+    }
 }

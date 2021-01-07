@@ -38,17 +38,17 @@
             <th class="text-center">Nomer Pegawai</th>
             <th class="text-center">Nama</th>
             <th class="text-center">Username</th>
-            <th class="text-center" data-toggle="tooltip" data-placement="top" title="Mengecek apakah user sudah dihubungkan dengan staff">Ditautkan</th>
+            <th class="text-center" data-toggle="tooltip" data-placement="top" title="Mengecek apakah user sudah dihubungkan dengan staff">Integrasi</th>
             <th class="text-center" data-toggle="tooltip" data-placement="top" title="Anda bisa memverifikasi user yang terdaftar">Verifikasi</th>
-            <th class="text-center" data-toggle="tooltip" data-placement="top" title="Anda bisa mengatur hak akses user yang mendaftar">Level</th>
-            <th class="text-center" data-toggle="tooltip" data-placement="top" title="Anda bisa menghapus data user">Delete</th>
+            <th class="text-center" data-toggle="tooltip" data-placement="top" title="Anda bisa mengatur hak akses user yang mendaftar">Level Hak Akses</th>
+            <th class="text-center" data-toggle="tooltip" data-placement="top" title="Anda bisa menghapus data user">Hapus/Reset</th>
           </tr>
         </thead>
         <tbody>
         @foreach($data as $a)
           <tr class="text-center">
-            <td>{{ isset($a->staff['no_pegawai']) ? $a->staff['no_pegawai'] : Null }}</td>
-            <td>{{ isset($a->staff['nama']) ? $a->staff['nama'] : Null }}</td>
+            <td>{{ isset($a->staff['no_pegawai']) ? $a->staff['no_pegawai'] : '-' }}</td>
+            <td>{{ isset($a->staff['nama']) ? $a->staff['nama'] : '-' }}</td>
             <td>{{ $a['username'] }}</td>
             @if(empty($a->staff['user_id']))
             <td><a><div class="badge badge-light">Belum Ditautkan<i class="fas fa-times"></i></div></a></td>
@@ -68,6 +68,7 @@
             @endif
             <td>
               <a href="{{route('deleteUser',['id' => $a->id])}}" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></a>
+              <a href="" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#reset-{{$a['id']}}"><i class="fas fa-lock-open"></i></a>
             </td>
           </tr>
         @endforeach
@@ -75,4 +76,30 @@
       </table>
     </div>
 </div>
+@endsection
+
+@section('modal')
+@foreach($data as $a)
+  <div class="modal fade text-body" id="reset-{{$a['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Password Reset</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h4>Apakah yakin akan akan mereset Password?</h4>
+          <p>User : {{ $a['username'] }}</p>
+          <p>password akan direset menjadi default yaitu "12345" harap langsung mengganti password setelah direset demi menjaga keamanan website.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <a href="{{route('resetUser',['id' => $a->id])}}" type="button" class="btn btn-primary">Reset</a>
+        </div>
+      </div>
+    </div>
+  </div>
+@endforeach
 @endsection

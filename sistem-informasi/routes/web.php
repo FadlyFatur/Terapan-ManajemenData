@@ -54,6 +54,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('manajemen/user/update-level/{id}', 'userController@level')->name('levelUser');
     Route::get('manajemen/user/verified/{id}', 'userController@verified')->name('verifiedUser');
     Route::get('manajemen/user/delete/{id}', 'userController@delete')->name('deleteUser');
+    Route::get('manajemen/user/reset/{id}', 'userController@reset')->name('resetUser');
 
     //editprofil
     Route::get('profil', 'userController@profil')->name('profil');
